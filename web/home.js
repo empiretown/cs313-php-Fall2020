@@ -12,6 +12,6 @@ function colorChange() {
 	var div_id = "intialdiv";
 	var div = document.getElementById(div_id);
 
-	var color = textbox.value;
+	var color = textbox.value();
 	div.style.backgoundColor = color;
 }
