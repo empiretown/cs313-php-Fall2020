@@ -7,11 +7,11 @@ function myFunction() {
 function colorChange() {
 	// body...
 	var textbox_id = "colorText";
-	var txtbox = document.getElementById(textbox_id);
+	var textbox = document.getElementById(textbox_id);
 
 	var div_id = "intialdiv";
 	var div = document.getElementById(div_id);
 
-	var color = txtbox.value;
+	var color = textbox.value;
 	div.style.backgoundColor = color;
 }
