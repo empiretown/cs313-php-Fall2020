@@ -25,6 +25,7 @@ ul {
 	width: 80%;
 	margin: 0 auto;
 	padding: 0;
+	 float: left;
 }
 
 li {
@@ -32,7 +33,7 @@ li {
 	list-style: none;
 	display: inline-block;
     padding: 20px;
-    float: left;
+
 
 }
 
