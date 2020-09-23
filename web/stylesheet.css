@@ -25,12 +25,12 @@ li, h1 {
 
 	list-style: none;
 	display: inline-block;
-	text-decoration: none;
+
 	padding: 20px;
 
 }
 
 li {
-	display: flex;
-	align-items: flex-end;
+	
+	align-items: left;
 }
