@@ -21,16 +21,12 @@ ul, h1 {
 	padding: 0;
 }
 
-li, h1 {
+li {
 
 	list-style: none;
 	display: inline-block;
-
-	padding: 20px;
+    padding: 20px;
 
 }
 
-li {
-	
-	align-items: left;
-}
+
