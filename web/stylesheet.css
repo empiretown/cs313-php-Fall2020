@@ -24,7 +24,6 @@ ul {
 li {
 
 	list-style: none;
-	display: flex;
-	align-content: first baseline;
+	display: inline-block;
 
 }
