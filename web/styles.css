@@ -16,7 +16,8 @@ h3 {
    text-align: center;
 }
 
-p{
+.aout{
 	display: flex;
-	flex-direction: row-reverse;;
+	justify-content: flex-end;
+	align-items: baseline;
 }
