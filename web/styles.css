@@ -16,3 +16,7 @@ h3 {
    text-align: center;
 }
 
+p{
+	display: flex;
+	flex-direction: row-reverse;;
+}
