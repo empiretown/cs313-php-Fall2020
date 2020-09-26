@@ -70,16 +70,20 @@
   margin: 0;
   font-size: 15px;
 }
+ 
 
 @media (max-width: 991px) {
   .about-avatar {
     margin-top: 30px;
-   display: flex;
-   justify-content: center;
-   align-items: center;
+
   }
 }
 
+.about-avatar {
+	display: flex;
+   justify-content: center;
+   align-items: center;
+}
 .about-section .counter {
   padding: 22px 20px;
   background: #ffffff;
