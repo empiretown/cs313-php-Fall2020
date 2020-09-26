@@ -32,7 +32,10 @@
     margin-top: 30px;
   }
 }
-
+.myself {
+	display: flex;
+	justify-content: center;
+}
 
 img {
     vertical-align: middle;
