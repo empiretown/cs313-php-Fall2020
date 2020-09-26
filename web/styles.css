@@ -1,4 +1,7 @@
-
+* {
+	margin: 0;
+	padding: 0;
+}
 
 .about-text h3 {
   font-size: 45px;
