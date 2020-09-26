@@ -19,6 +19,8 @@ body {
 .topnav a {
 
 	float: right;
+	display: flex;
+	flex-direction: row-reverse;
 	padding-left: 20px;
 	display: block;
 	color: #f2f2f2;
