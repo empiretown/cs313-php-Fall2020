@@ -83,7 +83,8 @@
 	display: flex;
    justify-content: center;
    align-items: center;
-   padding-right: 40px;
+   padding-left: 50px;
+
 }
 .about-section .counter {
   padding: 22px 20px;
