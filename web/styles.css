@@ -6,7 +6,9 @@ body {
 .topnav {
 	overflow: hidden;
 	background-color: #FF8D0A;
-	padding: 10px 10px ;
+	padding-top: 5px !important ;
+	padding-bottom: 5px;
+	min-height: 32px;
 }
 
 .logo{
