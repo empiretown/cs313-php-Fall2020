@@ -8,9 +8,9 @@ body {
 	background-color: #cc6d00;
 }
 
-h1{
-	display: flex;
-	justify-content: flex-end;
+.logo{
+	text-align: center;
+
 }
 .topnav a {
 
