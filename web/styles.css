@@ -3,6 +3,11 @@
 	padding: 0;
 }
 
+.section {
+    padding: 100px 0;
+    position: relative;
+}
+
 .about-text h3 {
   font-size: 45px;
   font-weight: 700;
