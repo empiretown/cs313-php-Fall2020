@@ -79,12 +79,10 @@
   }
 }
 
-.about-avatar {
+.container{
 	display: flex;
-   justify-content: center;
-   align-items: center;
-   padding-left: 120px;
-
+	justify-content: center;
+	align-items: center;
 }
 .about-section .counter {
   padding: 22px 20px;
