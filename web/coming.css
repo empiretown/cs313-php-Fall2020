@@ -3,7 +3,16 @@ body, html {
   margin: 0;
 }
 
-
+ .navbar-brand {
+    position: relative;
+    color: inherit;
+    height: 50px;
+    font-size: 1.125rem;
+    line-height: 30px;
+    padding: .625rem 0;
+    font-weight: 300;
+    -webkit-font-smoothing: antialiased;
+}
 
 .bgimg {
   background-image: url('https://i.postimg.cc/Px9GdcZK/ST-Zoom-Background-Beach02.jpg');
