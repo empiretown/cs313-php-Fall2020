@@ -14,6 +14,34 @@ body, html {
     -webkit-font-smoothing: antialiased;
 }
 
+.navbar {
+    border: 0;
+    border-radius: 3px;
+    padding: .625rem 0;
+    margin-bottom: 20px;
+    color: #555;
+    background-color: #fff!important;
+    box-shadow: 0 4px 18px 0 rgba(0,0,0,.12), 0 7px 10px -5px rgba(0,0,0,.15) !important;
+    z-index: 1000 !important;
+    transition: all 150ms ease 0s;
+    
+}
+
+.navbar.navbar-transparent {
+    z-index: 1030;
+    background-color: transparent!important;
+    box-shadow: none !important;
+    padding-top: 25px;
+    color: #fff;
+}
+
+.fixed-top {
+    position: fixed;
+    z-index: 1030;
+    left: 0;
+    right: 0;
+}
+
 .bgimg {
   background-image: url('https://i.postimg.cc/Px9GdcZK/ST-Zoom-Background-Beach02.jpg');
   height: 100%;
