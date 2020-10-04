@@ -1,3 +1,3 @@
-function add2Cart() {
+function myCart() {
   document.getElementById("add").innerHTML = "Added to the cart";
 }
