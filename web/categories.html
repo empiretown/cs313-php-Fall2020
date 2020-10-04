@@ -9,6 +9,11 @@
   <link rel="manifest" href="site.webmanifest">
   <link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.ico">
   <script type="text/javascript" href="assets/js/shopper.js"></script>
+  <script>
+function () {
+  document.getElementById("demo").innerHTML = "Hello World";
+}
+</script
 
   <!-- CSS here -->
   <link rel="stylesheet" href="assets/css/bootstrap.min.css">
@@ -343,7 +348,7 @@
                 <div class="popular-caption">
                   <h3><a href="#">Hypo Bleach</a></h3>
                   <span>NGN 400</span><br>
-                  <button style="border: none; background-color: #000; padding: 12px; width: 100%;">Add to Cart</button>
+                  <button onclick="add2Cart()" style="border: none; background-color: #000; padding: 12px; width: 100%;">Add to Cart</button>
                   <p id="add"></p>
 
                 </div>
