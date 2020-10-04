@@ -20,15 +20,15 @@
     };
 
     function myCart(name, price, count) {
-      for (var i in cart) {
+      for (var i in myCart) {
         document.getElementById('add').innerHTML = "added to cart";
-        if (cart[i].name == name){
-          cart[i].count++;
+        if (myCart[i].name == name){
+          myCart[i].count++;
           return;
         }
       }
       var item = new Item(name, price, count);
-      cart.push(item);
+      myCart.push(item);
     }
 
 
