@@ -8,6 +8,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="manifest" href="site.webmanifest">
   <link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.ico">
+  <script type="text/javascript" href="assets/js/shopper.js"></script>
 
   <!-- CSS here -->
   <link rel="stylesheet" href="assets/css/bootstrap.min.css">
@@ -342,7 +343,8 @@
                 <div class="popular-caption">
                   <h3><a href="#">Hypo Bleach</a></h3>
                   <span>NGN 400</span><br>
-                  <p><button style="border: none; background-color: #000; padding: 12px; width: 100%;">Add to Cart</button></p>
+                  <button style="border: none; background-color: #000; padding: 12px; width: 100%;">Add to Cart</button>
+                  <p id="add"></p>
 
                 </div>
               </div>
@@ -367,7 +369,7 @@
                 <div class="popular-caption">
                   <h3><a href="#">EvaPeak</a></h3>
                   <span>NGN 180</span><br>
-                  <p><button style="border: none; background-color: #000; padding: 12px; width: 100%;">Add to Cart</button></p>
+                  <p><button onclick="add2cart()" style="border: none; background-color: #000; padding: 12px; width: 100%; ">Add to Cart</button></p>
 
                 </div>
               </div>
