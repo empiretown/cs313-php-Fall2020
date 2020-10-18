@@ -6,11 +6,11 @@ CREATE DATABASE SHEDMARKET;
 CREATE TABLE public.seller
 (
 
-	SellerID int,
-    LastName varchar(255),
-    FirstName varchar(255),
-    Address varchar(255),
-    City varchar(255)
+	id SERIAL PRIMARY KEY NOT NULL,
+    username varchar(80) NOT NULL,
+    FirstName varchar(80) NOT NULL,
+    Address varchar(255) NOT NULL,
+    City varchar(255) NOT NULL
 
 
 );
@@ -21,7 +21,7 @@ VALUES ('');
 CREATE TABLE public.buyer 
 (
 
-	BuyerID int, 
+	BuyerID ,
 
 ) INHERITS (public.seller);
 
