@@ -18,7 +18,7 @@ if($dbHost["REQUEST_METHOD"] == "POST") {
 
           $param_username = trim($_POST["username"]);
 
-          If($stmt->execute()) {}
+
           if($stmt->rowCount() == 1) {
             $username_err = "This username is already taken.";
           } else if{
@@ -30,6 +30,7 @@ if($dbHost["REQUEST_METHOD"] == "POST") {
            unset($stmt);
        }
     }
+
 
 }
 
