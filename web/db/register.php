@@ -8,30 +8,30 @@ $username = $password = $confirm_password = "";
 $username_err = $password_err = $confirm_password_err = "";
 
 if($dbHost["REQUEST_METHOD"] == "POST") {
-    If(empty(trim($_POST["Username"]))) {
+    if(empty(trim($_POST["Username"]))) {
         $username_err = "Please enter a username.";
     } else {
        $pgsql = "SELECT id FROM seller WHERE username = :username";
-
+    }
        if ($stmt = $pdo->prepare($pgsql)) {
           $stmt-> bindParam(":username", $param_username, PDO::PARAM_STR);
 
           $param_username = trim($_POST["username"]);
 
+        
+          if($stmt->execute()){
+            if($stmt->rowCount() == 1){
+                $username_err = "This username is already taken.";
+            } else{
+                $username = trim($_POST["username"]);
+            }
+        } else{
+            echo "Oops! Something went wrong. Please try again later.";
+        }
 
-          if($stmt->rowCount() == 1) {
-            $username_err = "This username is already taken.";
-          } else if{
-            $username = trim($_POST["username"]);
-
-          } else {
-            echo "Oops! Something went wrong. Try again later.";
-          }
-           unset($stmt);
-       }
+        // Close statement
+        unset($stmt);
     }
-
-
 }
 
 ?>
