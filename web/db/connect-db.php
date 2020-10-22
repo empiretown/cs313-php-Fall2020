@@ -1,4 +1,5 @@
-<?php>
+<?php
+
 try {
     $dbURL = getenv('DATABASE_URL');
 
@@ -10,10 +11,14 @@ try {
     $dbPassword = $dbOpts["pass"];
     $dbName = ltrim($dbOpts["path"], '/');
 
-    $db = new PDO("pgsql:host=$dbHost;port=$dbPort;dbname=$dbName", $dbUser, $dbPassword");
+    $db = new PDO("pgsql:host=$dbHost;port=$dbPort;dbname=$dbName", $dbUser, $dbPassword);
     $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-} catch (PDOException $ex) {
+
+} 
+catch (PDOException $ex) {
     echo 'Error!: ' . $ex->getMessage();
     die();
 }
+
+?>
