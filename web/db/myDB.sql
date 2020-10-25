@@ -3,64 +3,60 @@ CREATE DATABASE SHEDMARKET;
 
 
 
-CREATE TABLE public.seller
+CREATE TABLE user1
 (
 
 	id SERIAL PRIMARY KEY NOT NULL,
-    username varchar(80) NOT NULL,
-    FirstName varchar(80) NOT NULL,
+    first_name varchar(20) NOT NULL,
+    last_name varchar(20) NOT NULL,
+    username varchar(5) NOT NULL,
+    password varchar(9) NOT NULL,
     Address varchar(255) NOT NULL,
-    City varchar(255) NOT NULL
-
+    city varchar(255) NOT NULL
 
 );
 
-INSERT INTO public.seller (SellerID, LastName, FirstName, Address, City)
-VALUES ('');
+INSERT INTO user1 (id, username ,first_name, last_name, password , Address, city)
+VALUES ('1234', 'jane', 'Doe', 'janD7', 'Qwerty!96', '#3 Ikot-ekpene rd', 'Aba');
 
 CREATE TABLE public.buyer 
 (
 
-	BuyerID ,
-
-) INHERITS (public.seller);
-
-INSERT INTO public.buyer ()
-VALUES ('');
-
-
-CREATE TABLE verify_seller_information 
-(
-
-  
+	id SERIAL PRIMARY KEY NOT NULL,
+    user_name varchar(20) NOT NULL,
+    first_name varchar(20) NOT NULL,
+    last_name varchar(20) NOT NULL,
+    password varchar(20) NOT NULL,
 
 );
 
+INSERT INTO buyer (id, username ,first_name, last_name, password )
+VALUES ('1234', 'jane', 'Doe', 'janD7', 'Qwerty!96');
 
 
 CREATE TABLE public.categories
 (
 
-	CategoryID int,
-	CategoriesName Varchar(255),
+	category_ID int,
+	categories_Name Varchar(255),
 
 );
 
 INSERT INTO public.categories ()
-VALUES ('');
+VALUES ('A142-0009', 'Electronics');
 
 
 CREATE TABLE public.products
 (
-   ProductID int,
-   ProductName Varchar(255),
-   ProductPrice int,
+   product_ID int NOT NULL,
+   product_Name Varchar(255) NOT NULL,
+   product_Price int NOT NULL,
 
 
 );
 
-INSERT INTO products (product_name, product_price)
-VALUES ('');
+INSERT INTO products (product_ID, product_name, product_price)
+VALUES ('B4530-1102', 'LG LED TV "32 inch" ', '45,000 naira');
 
 CREATE TABLE ADD_Products
 (
@@ -76,7 +72,7 @@ CREATE TABLE Remove_products
 
 CREATE TABLE public.products_orders
 (
-	PersonID int,
+	Person_ID int,
 	OrderDate datetime,
 
 
