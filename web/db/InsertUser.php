@@ -5,6 +5,7 @@ $username = $_POST['username'];
 $password = $_POST['password'];
 $Address =$_POST['addr'];
 $city = $_POST['city'];
+$ids= ['chkUser1'];
 
 require ("connect-db.php");
 $db = get_db;
@@ -30,19 +31,19 @@ try
 	$statement->execute();
 
 	// get the new id
-	$scriptureId = $db->lastInsertId("scripture_id_seq");
+	$id = $db->lastInsertId("user1_id_seq");
 
 	// Now go through each topic id in the list from the user's checkboxes
-	foreach ($topicIds as $topicId)
+	foreach ($ids as $id)
 	{
-		echo "ScriptureId: $scriptureId, topicId: $topicId";
+		echo "id: $id";
 
 		// Again, first prepare the statement
-		$statement = $db->prepare('INSERT INTO scripture_topic(scriptureId, topicId) VALUES(:scriptureId, :topicId)');
+		$statement = $db->prepare('INSERT INTO User1(id) VALUES(:id)');
 
 		// Then, bind the values
-		$statement->bindValue(':scriptureId', $scriptureId);
-		$statement->bindValue(':topicId', $topicId);
+		$statement->bindValue(':id', $id);
+		$statement->bindValue(':id', $id);
 
 		$statement->execute();
 	}
@@ -56,7 +57,7 @@ catch (Exception $ex)
 }
 
 // finally, redirect them to a new page to actually show the topics
-header("Location: showTopics.php");
+header("Location: user.php");
 
 die(); 
 

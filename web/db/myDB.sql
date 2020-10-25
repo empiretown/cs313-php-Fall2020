@@ -16,8 +16,7 @@ CREATE TABLE user1
 
 );
 
-INSERT INTO user1 (id, username ,first_name, last_name, password , Address, city)
-VALUES ('1234', 'jane', 'Doe', 'janD7', 'Qwerty!96', '#3 Ikot-ekpene rd', 'Aba');
+
 
 CREATE TABLE public.buyer 
 (

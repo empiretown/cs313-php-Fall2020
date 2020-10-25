@@ -20,7 +20,7 @@ $db = get_db;
     <div class="wrapper">
         <h2>Sign Up</h2>
         <p>Please fill this form to create an account.</p>
-        <form action="<?php echo htmlspecialchars($dbHost["PHP_SELF"]); ?>" method="post">
+        <form id="mainForm" action="insertUser.php" method="POST">
         <div class="form-group <?php echo (!empty($username_err)) ? 'has-error' : ''; ?>">
                 <label>Firstname</label>
                 <input type="text" name="firstname" class="form-control" value="<?php echo $username; ?>">
@@ -86,12 +86,12 @@ $db = get_db;
                     // The trick here is that we need a unique id for each one. In this case,
                     // we use "chkTopics" followed by the id, so that it becomes something like
                     // "chkTopics1" and "chkTopics2", etc.
-                    echo "<label for='chkUser$id'>$first_name</label><br />";
-                    echo "<label for='chkUser$id'>$last_name</label><br />";
-                    echo "<label for='chkUser$id'>$username</label><br />";
-                    echo "<label for='chkUser$id'>$password</label><br />";
-                    echo "<label for='chkUser$id'>$address</label><br />";
-                    echo "<label for='chkUser$id'>$city</label><br />";
+                    echo "<label for='chkUser1$id'>$first_name</label><br />";
+                    echo "<label for='chkUser1$id'>$last_name</label><br />";
+                    echo "<label for='chkUser1$id'>$username</label><br />";
+                    echo "<label for='chkUser1$id'>$password</label><br />";
+                    echo "<label for='chkUser1$id'>$address</label><br />";
+                    echo "<label for='chkUser1$id'>$city</label><br />";
             
                     // put a newline out there just to make our "view source" experience better
                     echo "\n";
