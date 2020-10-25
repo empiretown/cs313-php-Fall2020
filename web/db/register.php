@@ -52,7 +52,10 @@ $db = get_db;
                 <input type="text" name="city" class="form-control" value="<?php echo $username; ?>">
                 <span class="help-block"><?php echo $username_err; ?></span>
             </div>
-            
+            <div class="form-group">
+                <input type="submit" class="btn btn-primary" value="Submit">
+                <input type="reset" class="btn btn-default" value="Reset">
+            </div>
             <?php
             try
             {
@@ -107,10 +110,7 @@ $db = get_db;
             
                 <br />
             
-                <div class="form-group">
-                <input type="submit" class="btn btn-primary" value="Submit">
-                <input type="reset" class="btn btn-default" value="Reset">
-            </div>
+                
             
             </form>
             
