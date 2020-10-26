@@ -75,15 +75,15 @@ body {
 }
 
 #top-header .large-logo {
-    width: 350px;
-    height: 150px;
+    width: 350vh;
+    height: 150vh;
 }
 
 #top-header img {
-    width: 6vh;
-    height: 5vh;
+    width: 50vh;
+    height: 50vh;
 }
 
 .small-logo {
-    margin: 2vh;
+    margin: 8vh;
 }
