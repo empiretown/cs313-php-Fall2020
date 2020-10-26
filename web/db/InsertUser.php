@@ -1,6 +1,7 @@
 
 
 <?php 
+require ("connect-db.php");
 $error_message = "";$success_message = "";
 
 // Register user
