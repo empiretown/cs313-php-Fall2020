@@ -1,64 +1,55 @@
-<?php
-$first_name = $_POST['firstname'];
-$last_name = $_POST['lastname'];
-$username = $_POST['username'];
-$password = $_POST['password'];
-$Address =$_POST['addr'];
-$city = $_POST['city'];
-$ids= ['chkUser1'];
 
-require ("connect-db.php");
-$db = get_db;
 
-try
-{
-	// Add the Scripture
+<?php 
+$error_message = "";$success_message = "";
 
-	// We do this by preparing the query with placeholder values
-	$query = 'INSERT INTO user1 (first_name, last_name, username, password, Address, city) VALUES(:first_name, :last_name, :username, :password, :Address, :city)';
-	$statement = $db->prepare($query);
+// Register user
+if(isset($_POST['btnsignup'])){
+   $fname = trim($_POST['fname']);
+   $lname = trim($_POST['lname']);
+   $password = trim($_POST['password']);
+   $confirmpassword = trim($_POST['confirmpassword']);
 
-	// Now we bind the values to the placeholders. This does some nice things
-	// including sanitizing the input with regard to sql commands.
-	$statement->bindValue(':first_name', $first_name);
-	$statement->bindValue(':last_name', $last_name);
-	$statement->bindValue(':username', $username);
-    $statement->bindValue(':password', $password);
-    $statement->bindValue(':Address', $Address);
-    $statement->bindValue(':city', $city);
-    
+   $isValid = true;
 
-	$statement->execute();
+   // Check fields are empty or not
+   if($fname == '' || $lname == '' || $email == '' || $password == '' || $confirmpassword == ''){
+     $isValid = false;
+     $error_message = "Please fill all fields.";
+   }
 
-	// get the new id
-	$id = $db->lastInsertId("user1_id_seq");
+   // Check if confirm password matching or not
+   if($isValid && ($password != $confirmpassword) ){
+     $isValid = false;
+     $error_message = "Confirm password not matching";
+   }
 
-	// Now go through each topic id in the list from the user's checkboxes
-	foreach ($ids as $id)
-	{
-		echo "id: $id";
+   // Check if Email-ID is valid or not
+   
+//    if($isValid){
 
-		// Again, first prepare the statement
-		$statement = $db->prepare('INSERT INTO User1(id) VALUES(:id)');
+//      // Check if Email-ID already exists
+//      $stmt = $con->prepare("SELECT * FROM users WHERE email = ?");
+//      $stmt->bind_param("s", $email);
+//      $stmt->execute();
+//      $result = $stmt->get_result();
+//      $stmt->close();
+//      if($result->num_rows > 0){
+//        $isValid = false;
+//        $error_message = "Email-ID is already existed.";
+//      }
 
-		// Then, bind the values
-		$statement->bindValue(':id', $id);
-		$statement->bindValue(':id', $id);
+//    }
 
-		$statement->execute();
-	}
+   // Insert records
+   if($isValid){
+     $insertSQL = "INSERT INTO users(fname,lname,email,password ) values(?,?,?,?)";
+     $stmt = $con->prepare($insertSQL);
+     $stmt->bind_param("ssss",$fname,$lname,$email,$password);
+     $stmt->execute();
+     $stmt->close();
+
+     $success_message = "Account created successfully.";
+   }
 }
-catch (Exception $ex)
-{
-	// Please be aware that you don't want to output the Exception message in
-	// a production environment
-	echo "Error with DB. Details: $ex";
-	die();
-}
-
-// finally, redirect them to a new page to actually show the topics
-header("Location: user.php");
-
-die(); 
-
 ?>
