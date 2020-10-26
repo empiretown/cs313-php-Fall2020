@@ -5,13 +5,13 @@
     <title>Shed Market</title>
     <meta name="viewport" content="width=device-width">
     <link href='https://fonts.googleapis.com/css?family=Roboto:400,700,300' rel='stylesheet' type='text/css'>
-    //<link href="" rel="stylesheet" type="text/css">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" type="text/css">
   </head>
 
   <body>
     <div class="wrapper">
         <div id="top-header">
-            <a href="../../db/view/home.php"><img src="../../db/images/shed.png" alt=""></a>
+            <a class="navbar-brand" href="../../db/view/home.php"><img src="../../db/images/shed.png" alt=""></a>
             <div class=small-logo>
                 <img src="../../db/images/loginlogo.png" alt=""/>
                 <span><a href="?action=login">Login</a></span>
