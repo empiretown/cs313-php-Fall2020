@@ -75,13 +75,13 @@ body {
 }
 
 #top-header .large-logo {
-    width: ;
-    height: 30vh;
+    width: 80vh;
+    height: 80vh;
 }
 
 #top-header img {
-    width: 10vh;
-    height: 10vh;
+    width: 8vh;
+    height: 8vh;
 }
 
 .small-logo {
