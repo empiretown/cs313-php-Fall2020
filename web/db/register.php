@@ -83,6 +83,7 @@ $db = get_db;
 
             <?php
                 $error_message = "";
+                $success_message = "";
 
                 // Register user
                 if(isset($_POST['btnsignup'])){
@@ -91,10 +92,10 @@ $db = get_db;
                    $username = trim($_POST['username']);
                    $password = trim($_POST['password']);
                    $Address= trim($_POST['Address']);
-                   $city = trim($_POST['city'])
+                   $city = trim($_POST['city']);
 
                 
-                   //$isValid = true;
+                   $isValid = true;
                 
                    // Check fields are empty or not
                    if($fname == '' || $lname == '' || $email == '' || $password == '' || $confirmpassword == ''){
