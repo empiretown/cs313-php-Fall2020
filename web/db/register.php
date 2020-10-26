@@ -45,15 +45,15 @@ $db = get_db;
 
         <p>Please fill this form to create an account.</p>
         <form id="mainForm" action="" method="POST">
-        <div class="form-group <?php echo (!empty($username_err)) ? 'has-error' : ''; ?>">
+        <div class="form-group">
                 <label>Firstname</label>
-                <input type="text" name="firstname" class="form-control" value="<?php echo $username; ?>">
-                <span class="help-block"><?php echo $username_err; ?></span>
+                <input type="text" name="firstname" class="form-control" >
+                
             </div>
-        <div class="form-group <?php echo (!empty($username_err)) ? 'has-error' : ''; ?>">
+        <div class="form-group">
                 <label>Lastname</label>
-                <input type="text" name="lastname" class="form-control" value="<?php echo $username; ?>">
-                <span class="help-block"><?php echo $username_err; ?></span>
+                <input type="text" name="lastname" class="form-control" >
+               
             </div>
             
             <div class="form-group <?php echo (!empty($username_err)) ? 'has-error' : ''; ?>">
@@ -98,7 +98,7 @@ $db = get_db;
                    $isValid = true;
                 
                    // Check fields are empty or not
-                   if($first_name == '' || $last_name == '' || $username == '' || $password == '' || $Address == '' || $city == ''){
+                   if($firstname == '' || $lastname == '' || $username == '' || $password == '' || $Address == '' || $city == ''){
                      $isValid = false;
                      $error_message = "Please fill all fields.";
                    }
