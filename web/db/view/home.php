@@ -11,7 +11,7 @@
   <body>
     <div class="wrapper">
         <div id="top-header">
-            <a class="logo" href="../../db/view/home.php"><img  src="../../db/images/shed.png" alt=""></a>
+            <a class="logo" href="../../db/view/home.php"><img  class="large-logo" src="../../db/images/shed.png" alt=""></a>
             <div class="small-logo">
                 <span><a href="?action=login">Login</a></span>
                 <img src="../../db/images/cart.png" alt=""><span>Cart</span>
