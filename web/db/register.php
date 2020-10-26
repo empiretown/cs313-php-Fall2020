@@ -19,6 +19,30 @@ $db = get_db;
 <body>
     <div class="wrapper">
         <h2>Sign Up</h2>
+        <?php 
+            // Display Error message
+            if(!empty($error_message)){
+            ?>
+            <div class="alert alert-danger">
+              <strong>Error!</strong> <?= $error_message ?>
+            </div>
+
+            <?php
+            }
+            ?>
+
+            <?php 
+            // Display Success message
+            if(!empty($success_message)){
+            ?>
+            <div class="alert alert-success">
+              <strong>Success!</strong> <?= $success_message ?>
+            </div>
+
+            <?php
+            }
+            ?>
+
         <p>Please fill this form to create an account.</p>
         <form id="mainForm" action="" method="POST">
         <div class="form-group <?php echo (!empty($username_err)) ? 'has-error' : ''; ?>">
@@ -58,16 +82,19 @@ $db = get_db;
             </div>
 
             <?php
-            
+                $error_message = "";
 
                 // Register user
                 if(isset($_POST['btnsignup'])){
-                   $fname = trim($_POST['fname']);
-                   $lname = trim($_POST['lname']);
+                   $first_name = trim($_POST['first_name']);
+                   $last_name = trim($_POST['last_name']);
+                   $username = trim($_POST['username']);
                    $password = trim($_POST['password']);
-                   $confirmpassword = trim($_POST['confirmpassword']);
+                   $Address= trim($_POST['Address']);
+                   $city = trim($_POST['city'])
+
                 
-                   $isValid = true;
+                   //$isValid = true;
                 
                    // Check fields are empty or not
                    if($fname == '' || $lname == '' || $email == '' || $password == '' || $confirmpassword == ''){
@@ -75,11 +102,11 @@ $db = get_db;
                      $error_message = "Please fill all fields.";
                    }
                 
-                   // Check if confirm password matching or not
-                   if($isValid && ($password != $confirmpassword) ){
-                     $isValid = false;
-                     $error_message = "Confirm password not matching";
-                   }
+                //    // Check if confirm password matching or not
+                //    if($isValid && ($password != $confirmpassword) ){
+                //      $isValid = false;
+                //      $error_message = "Confirm password not matching";
+                //    }
                 
                    // Check if Email-ID is valid or not
                    
@@ -100,9 +127,9 @@ $db = get_db;
                 
                    // Insert records
                    if($isValid){
-                     $insertSQL = "INSERT INTO users(fname,lname,email,password ) values(?,?,?,?)";
-                     $stmt = $con->prepare($insertSQL);
-                     $stmt->bind_param("ssss",$fname,$lname,$email,$password);
+                     $stmt = "INSERT INTO users(first_name,last_name,username,password,Address, city) values(?,?,?,?)";
+                     $stmt = $db->prepare($stmt);
+                     $stmt->bind_param("ssss",$first_name,$last_name,$username,$password, $Address, $city);
                      $stmt->execute();
                      $stmt->close();
                 
