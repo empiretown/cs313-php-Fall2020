@@ -128,9 +128,14 @@ $db = get_db;
                 
                    // Insert records
                    if($isValid){
-                     $stmt = "INSERT INTO users(first_name,last_name,username,password,Address, city) values(?,?,?,?)";
-                     $stmt = $db->prepare($stmt);
-                     $stmt->bind_param("ssss",$first_name,$last_name,$username,$password, $Address, $city);
+                     $query= "INSERT INTO users(first_name,last_name,username,password,Address, city) values(:firstname,:lastname,:username,:password,:Address,:city)";
+                     $stmt = $db->prepare($query);
+                     $stmt->bind_value(':first_name', $first_name); 
+                     $stmt->bind_value(':last_name', $last_name);
+                     $stmt->bind_value(':username', $username); 
+                     $stmt->bind_value(':password', $password); 
+                     $stmt->bind_value(':Address', $Address); 
+                     $stmt->bind_value(':city',$city);
                      $stmt->execute();
                      $stmt->close();
                 
