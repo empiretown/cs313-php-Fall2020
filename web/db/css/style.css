@@ -8,14 +8,15 @@ body {
     background-color: #eeeeee;
     font-family: "Oxygen", sans-serif;
     letter-spacing: 0.0625em;
+    max-width: 960px;
+}
 }
 
 
 .wrapper{
-    margin: auto ;
+    
     padding-left: 10px;
     padding-right: 10px;
 
-    max-width: 500px;
-}
+    
 
