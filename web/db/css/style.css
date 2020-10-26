@@ -75,8 +75,8 @@ body {
 }
 
 #top-header .large-logo {
-    width: 45vh;
-    height: 30vh;
+    width: 40vh;
+    height: 20vh;
 }
 
 #top-header img {
@@ -229,3 +229,4 @@ hr {
     #cars-section p {
         font-size: 3vh;
     }
+}
