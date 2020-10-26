@@ -29,6 +29,11 @@
         </nav>
     </header>
 
+    <section>
+        <img src="../../db/images/shops.jpg" alt="shed in the streets in nigeria">
+    </section>
+    <br>
+
 
     <footer>
         <hr>
