@@ -10,6 +10,7 @@ body {
     letter-spacing: 0.0625em;
 }
 
+
 .avatar {
     height: 30vh;
     width: 30vh;
@@ -84,7 +85,7 @@ body {
     height: 100vh;
 }
 
-#top-header img {
+#top-header{
     width: 20vh;
     height: 20vh;
 }

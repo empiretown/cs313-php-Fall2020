@@ -11,9 +11,9 @@
   <body>
     <div class="wrapper">
         <div id="top-header">
-            <a href="../../db/view/home.php"><img src="../../db/images/shed.png" alt=""></a>
+            <a href="../../db/view/home.php"><img style="height: 50px; width:100px' src="../../db/images/shed.png" alt=""></a>
             <div class="small-logo">
-                <img src="../../db/images/loginlogo.png" alt=""/>
+                <img class="avatar" src="../../db/images/loginlogo.png" alt=""/>
                 <span><a href="?action=login">Login</a></span>
                 <img src="../../db/images/cart.png" alt=""><span>Cart</span>
             </div>
