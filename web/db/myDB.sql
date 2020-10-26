@@ -1,83 +1,61 @@
 #first create the TABLE
 CREATE DATABASE SHEDMARKET;
 
+CREATE TABLE seller
+(
+    id SERIAL PRIMARY KEY,
+    companyName Varchar(20) NOT NULL,
+    companyLogo Varchar(20) NOT NULL
 
+);
 
-CREATE TABLE user1
+CREATE TYPE rlevel AS ENUM ('1', '2', '3');
+CREATE TABLE customer 
+(
+    id SERIAL PRIMARY KEY,
+    customer_name Varchar(40) NOT NULL,
+    email Varchar(50) NOT NULL,
+    username Varchar(50),
+    password Varchar(255) NOT NULL,
+    phoneNumber INT,
+    roleLevel rlevel DEFAULT '1'
+);
+
+CREATE TABLE product_item
 (
 
 	id SERIAL PRIMARY KEY NOT NULL,
-    first_name varchar(20) NOT NULL,
-    last_name varchar(20) NOT NULL,
-    username varchar(5) NOT NULL,
-    password varchar(9) NOT NULL,
-    Address varchar(255) NOT NULL,
-    city varchar(255) NOT NULL
+    product_item_name varchar(20) NOT NULL,
+    product_item_price varchar(20) NOT NULL,
+    product_image varchar(50) NOT NULL,
+    seller_id INT NOT NULL REFERENCES seller(id)
 
 );
 
 
-
-CREATE TABLE public.buyer 
+CREATE TABLE product_orders
 (
-
-	id SERIAL PRIMARY KEY NOT NULL,
-    user_name varchar(20) NOT NULL,
-    first_name varchar(20) NOT NULL,
-    last_name varchar(20) NOT NULL,
-    password varchar(20) NOT NULL,
-
+    id SERIAL PRIMARY KEY,
+    orderNumber Varchar(10) NOT NULL,
+    OrderDate DATE,
+    totalAmnt INT NOT NULL,
+    customer_id INT NOT NULL REFERENCES customer(id);
 );
 
-INSERT INTO buyer (id, username ,first_name, last_name, password )
-VALUES ('1234', 'jane', 'Doe', 'janD7', 'Qwerty!96');
+INSERT INTO seller (companyName, companyLogo) VALUES
+('Grains', ../images/rice beans market.jpg),
+('Home product', ../images/bleach.jpg),
+('Friuts', ../images/cashew.jpg),
+('Frozen foods', ../images/titus.jpg);
 
-
-CREATE TABLE public.categories
-(
-
-	category_ID int,
-	categories_Name Varchar(255),
-
-);
-
-INSERT INTO public.categories ()
-VALUES ('A142-0009', 'Electronics');
-
-
-CREATE TABLE public.products
-(
-   product_ID int NOT NULL,
-   product_Name Varchar(255) NOT NULL,
-   product_Price int NOT NULL,
-
-
-);
-
-INSERT INTO products (product_ID, product_name, product_price)
-VALUES ('B4530-1102', 'LG LED TV "32 inch" ', '45,000 naira');
-
-CREATE TABLE ADD_Products
-(
-
-
-);
-
-CREATE TABLE Remove_products 
-(
-
-
-);
-
-CREATE TABLE public.products_orders
-(
-	Person_ID int,
-	OrderDate datetime,
-
-
-)INHERITS (public.products);
-
-
-
-
+INSERT INTO product_item( product_item_name, product_item_price, product_image, seller_id) VALUES
+('PGrains1' ../images/parboiledrice.jpg, 'Parboiled Rice', 15000.00, 1),
+('PGrains2', ../images/beans.jpg, 'Beans', 600.00, 1),
+('PGrains3', ../images/millet.jpeg, 'Millet', 1000.00, 2),
+('PHome product1'../images/bleach2.jpg, 'Jik', '1500.00', 3),
+('PHome product2', ../images/dettol.jpg, 'Dettol', 800.00, 2),
+('PHome product', ../images/dettolsoap.jpg, 'Dettol Soap', 500.00, 3),
+('PFriuts1', ../images/avocado.jpg, 'Avocado', 50.00, 4),
+('PFriuts2', ../images/cucumber.jpg, 'Cucumber', 50.00, 4),
+('PFrozen foods', ../images/titus.jpg,'Titus', 450.00, 5);
 

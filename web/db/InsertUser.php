@@ -44,7 +44,7 @@ if(isset($_POST['btnsignup'])){
 
    // Insert records
    if($isValid){
-     $insertSQL = "INSERT INTO users(fname,lname,email,password ) values(?,?,?,?)";
+     $insertSQL = "INSERT INTO user1(first_name,last_name,user,password ) values(?,?,?,?)";
      $stmt = $con->prepare($insertSQL);
      $stmt->bind_param("ssss",$fname,$lname,$email,$password);
      $stmt->execute();
