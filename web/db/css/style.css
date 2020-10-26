@@ -167,9 +167,9 @@ hr {
         font-size: 1.7vh;
     }
 
-    .large-logo {
+    #top-header .large-logo {
         width: 40vh;
-        height 20vh;
+        height: 20vh;
     }
 
     .header-nav {
