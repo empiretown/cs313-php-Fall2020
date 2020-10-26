@@ -84,13 +84,10 @@ body {
     height: 100vh;
 }
 
-#top-header img {
-    width: 20vh;
-    height: 20vh;
-}
+
 
 .small-logo {
 
     margin: 8vh;
-    max-width: 5vh;
+
 }
