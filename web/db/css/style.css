@@ -18,7 +18,7 @@ body {
 .wrapper {
     
     margin: 0 auto;
-    padding: 0px;
+    padding: 30px;
 }
 
 .header-nav {
@@ -80,11 +80,14 @@ body {
 }
 
 #top-header .large-logo {
-    width: 50vh;
-    height: 50vh;
+    width: 100vh;
+    height: 100vh;
 }
 
-
+#top-header img {
+    width: 20vh;
+    height: 20vh;
+}
 
 .small-logo {
 
