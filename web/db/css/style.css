@@ -92,5 +92,5 @@ body {
 .small-logo {
 
     margin: 8vh;
-    
+    max-width: 5vh;
 }
