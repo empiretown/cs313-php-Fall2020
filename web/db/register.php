@@ -20,7 +20,7 @@ $db = get_db;
     <div class="wrapper">
         <h2>Sign Up</h2>
         <p>Please fill this form to create an account.</p>
-        <form id="mainForm" action="insertUser.php" method="POST">
+        <form id="mainForm" action="" method="POST">
         <div class="form-group <?php echo (!empty($username_err)) ? 'has-error' : ''; ?>">
                 <label>Firstname</label>
                 <input type="text" name="firstname" class="form-control" value="<?php echo $username; ?>">
@@ -56,69 +56,60 @@ $db = get_db;
                 <input type="submit" name="btnsignup" class="btn btn-primary" value="Submit">
                 <input type="reset" class="btn btn-default" value="Reset">
             </div>
-            <?php
-            try
-            {
-                // Notice that we do not use "SELECT *" here. It is best practice
-                // to only bring back the fields that you need.
-            
-                // prepare the statement
-                $statement = $db->prepare('SELECT id, first_name, last_name,username, password, address, city FROM user1');
-                $statement->execute();
-            
-                // Go through each result
-                while ($row = $statement->fetch(PDO::FETCH_ASSOC))
-                {
-                    $id = $row['id'];
-                    $first_name = $row['first_name'];
-                    $last_name = $row['last_name'];
-                    $username = $row['last_name'];
-                    $password = $row['password'];
-                    $address = $row['address'];
-                    $city = $row['city'];
 
+            <?php
             
-                    // Notice that we want the value of the checkbox to be the id of the label
-                    echo "<input type='text' name='chkUser[]' id='chkUser$id' value='$id'>";
-            
-                    // Also, so they can click on the label, and have it select the checkbox,
-                    // we need to use a label tag, and have it point to the id of the input element.
-                    // The trick here is that we need a unique id for each one. In this case,
-                    // we use "chkTopics" followed by the id, so that it becomes something like
-                    // "chkTopics1" and "chkTopics2", etc.
-                    echo "<label for='chkUser1$id'>$first_name</label><br />";
-                    echo "<label for='chkUser1$id'>$last_name</label><br />";
-                    echo "<label for='chkUser1$id'>$username</label><br />";
-                    echo "<label for='chkUser1$id'>$password</label><br />";
-                    echo "<label for='chkUser1$id'>$address</label><br />";
-                    echo "<label for='chkUser1$id'>$city</label><br />";
-            
-                    // put a newline out there just to make our "view source" experience better
-                    echo "\n";
-                }
-            
-            }
-            catch (PDOException $ex)
-            {
-                // Please be aware that you don't want to output the Exception message in
-                // a production environment
-                echo "Error connecting to DB. Details: $ex";
-                die();
-            }
-            
-            ?>
-            
-                <br />
-            
+
+                // Register user
+                if(isset($_POST['btnsignup'])){
+                   $fname = trim($_POST['fname']);
+                   $lname = trim($_POST['lname']);
+                   $password = trim($_POST['password']);
+                   $confirmpassword = trim($_POST['confirmpassword']);
                 
-            
-            </form>
-            
-            
-            </div>
-            
-            </body>
-            </html>
+                   $isValid = true;
+                
+                   // Check fields are empty or not
+                   if($fname == '' || $lname == '' || $email == '' || $password == '' || $confirmpassword == ''){
+                     $isValid = false;
+                     $error_message = "Please fill all fields.";
+                   }
+                
+                   // Check if confirm password matching or not
+                   if($isValid && ($password != $confirmpassword) ){
+                     $isValid = false;
+                     $error_message = "Confirm password not matching";
+                   }
+                
+                   // Check if Email-ID is valid or not
+                   
+                //    if($isValid){
+                
+                //      // Check if Email-ID already exists
+                //      $stmt = $con->prepare("SELECT * FROM users WHERE email = ?");
+                //      $stmt->bind_param("s", $email);
+                //      $stmt->execute();
+                //      $result = $stmt->get_result();
+                //      $stmt->close();
+                //      if($result->num_rows > 0){
+                //        $isValid = false;
+                //        $error_message = "Email-ID is already existed.";
+                //      }
+                
+                //    }
+                
+                   // Insert records
+                   if($isValid){
+                     $insertSQL = "INSERT INTO users(fname,lname,email,password ) values(?,?,?,?)";
+                     $stmt = $con->prepare($insertSQL);
+                     $stmt->bind_param("ssss",$fname,$lname,$email,$password);
+                     $stmt->execute();
+                     $stmt->close();
+                
+                     $success_message = "Account created successfully.";
+                   }
+                }
+            ?>
             
             <p>Already have an account? <a href="login.php">Login here</a>.</p>
         </form>
