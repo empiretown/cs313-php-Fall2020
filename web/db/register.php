@@ -68,7 +68,7 @@ $db = get_db;
             </div>
             <div class="form-group <?php echo (!empty($confirm_password_err)) ? 'has-error' : ''; ?>">
                 <label>Address</label>
-                <input type="password" name="addr" class="form-control" value="<?php echo $confirm_password; ?>">
+                <input type="text" name="addr" class="form-control" value="<?php echo $confirm_password; ?>">
                 <span class="help-block"><?php echo $confirm_password_err; ?></span>
             </div>
             <div class="form-group <?php echo (!empty($username_err)) ? 'has-error' : ''; ?>">
