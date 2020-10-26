@@ -98,7 +98,7 @@ $db = get_db;
                    $isValid = true;
                 
                    // Check fields are empty or not
-                   if($fname == '' || $lname == '' || $email == '' || $password == '' || $confirmpassword == ''){
+                   if($first_name == '' || $last_name == '' || $username == '' || $password == '' || $Address == '' || $city == ''){
                      $isValid = false;
                      $error_message = "Please fill all fields.";
                    }
