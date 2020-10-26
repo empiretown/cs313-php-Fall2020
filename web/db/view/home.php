@@ -30,7 +30,7 @@
     </header>
 
     <section>
-        <img src="../../db/images/shops.jpg" alt="shed in the streets in nigeria">
+        <img src="../../db/images/shop2.jpg" alt="shed in the streets in nigeria">
     </section>
     <br>
 
