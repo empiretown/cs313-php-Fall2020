@@ -13,7 +13,9 @@ body {
 
 .wrapper{
     margin: auto ;
-    padding: auto;
-    max-width: 400px;
+    padding-left: 10px;
+    padding-right: 10px;
+
+    max-width: 500px;
 }
 
