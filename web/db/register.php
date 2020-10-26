@@ -53,7 +53,7 @@ $db = get_db;
                 <span class="help-block"><?php echo $username_err; ?></span>
             </div>
             <div class="form-group">
-                <input type="submit" class="btn btn-primary" value="Submit">
+                <input type="submit" name="btnsignup" class="btn btn-primary" value="Submit">
                 <input type="reset" class="btn btn-default" value="Reset">
             </div>
             <?php
