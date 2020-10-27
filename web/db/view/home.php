@@ -34,14 +34,25 @@
     </section>
     <br>
 
-    <section class="cars-section">
-        <h1> 30% Discount Product </h1>
-        <div class="goods">
-            <img src="../../db/images/goldenmorn.jpg" alt="cereal">
-        </div>
-        <div class="goods">
-            <img src="../../db/images/dettolsoap.jpg" alt="cereal">
-        </div>
+    <section>
+    <div class="coupon">
+  <div class="container">
+    <h3>Company Logo</h3>
+  </div>
+  <img src="../../db/images/grocery.png" alt="Avatar" style="width:100%;">
+  <div class="container" style="background-color:white">
+    <h2><b>20% OFF YOUR PURCHASE</b></h2> 
+    <p>Shop with us and get a discounts on all your purchases</p>
+  </div>
+  <div class="container">
+    <p>Use Promo Code: <span class="promo">BOH232</span></p>
+    <p class="expire">Expires: Jan 03, 2021</p>
+  </div>
+</div>
+
+</body>
+</html> 
+
 
 
 
