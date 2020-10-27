@@ -37,9 +37,9 @@
     <section>
     <div class="coupon">
   <div class="container">
-    <h3>Company Logo</h3>
+    <h3><img class="logo" src="../../db/images/shed.png" alt=""></h3>
   </div>
-  <img src="../../db/images/grocery.png" alt="Avatar" style="width:100%;">
+  <img src="../../db/images/grocery2.jpg" alt="Avatar" style="width:100%;">
   <div class="container" style="background-color:white">
     <h2><b>20% OFF YOUR PURCHASE</b></h2> 
     <p>Shop with us and get a discounts on all your purchases</p>

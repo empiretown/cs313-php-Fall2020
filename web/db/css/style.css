@@ -16,8 +16,11 @@ body {
     padding: 0px;
 }
 
+.logo{
+   width: 100%; 
+}
 .coupon {
-    border: 5px dotted #bbb;
+    border: 5px solid #bbb;
     width: 80%;
     border-radius: 15px;
     margin: 0 auto;
