@@ -16,7 +16,13 @@ body {
     padding: 0px;
 }
 
+section > div {
+    display: flex;
+}
 
+section > div .container{
+    margin-left: auto;
+}
 .coupon {
     
     width: 40%;
