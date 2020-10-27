@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="UTF-8">
-    <title>Shed Market</title>
+    <title>Shed Market | Login</title>
     <meta name="viewport" content="width=device-width">
     <link href='https://fonts.googleapis.com/css?family=Roboto:400,700,300' rel='stylesheet' type='text/css'>
     <link href="../../db/css/style.css" rel="stylesheet" type="text/css">
@@ -29,27 +29,31 @@
         </nav>
     </header>
 
-    <section>
-        <img src="../../db/images/shop3.png" alt="shed in the streets in nigeria">
-    </section>
-    <br>
+    <main>
+        <?php
+            if(isset($message)) {
+                echo $message;
+            }
+        ?>
 
-    <section>
+        <form action="/db/account/index.php?action=login" method="post">
+            Email <br>
+            <input type="email" name="email" value="" required><br> 
+            Password <br>
+            <input type="password" name="password"><br>
 
-    <div class="coupon">
-  <div class="container">
-  </div>
-  <img src="../../db/images/grocery2.jpg" alt="Avatar" style="width:100%;">
-  <div class="container" style="background-color:white">
-    <h2><b>20% OFF YOUR PURCHASE</b></h2> 
-    <p>Shop with us and get a discounts on all your purchases</p>
-  </div>
-  <div class="container">
-    <p>Use Promo Code: <span class="promo">BOH232</span></p>
-    <p class="expire">Expires: Jan 03, 2021</p>
-  </div>
-</div>
+        <input type="button" type="submit" value="Login">
+        <input type="hidden" name="action" value="login">
+        <br>
+        <br>
+        <p class="negrita">Not a member?</p>
+        </form>
 
+        <form action="">
+            <input type="submit" class="button" value="Register">
+            <input type="hidden" name="action" value="registration">
+        </form>
+    </main>
 </body>
 </html> 
     </section>
