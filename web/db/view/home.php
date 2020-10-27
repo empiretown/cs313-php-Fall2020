@@ -37,7 +37,7 @@
     <section>
     <div class="coupon">
   <div class="container">
-    <h3><img class="logo" src="../../db/images/shed2.png" alt=""></h3>
+    <h3>ON US</h3>
   </div>
   <img src="../../db/images/grocery2.jpg" alt="Avatar" style="width:100%;">
   <div class="container" style="background-color:white">
