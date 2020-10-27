@@ -19,10 +19,10 @@ body {
 
 .coupon {
     border: 5px solid #bbb;
-    width: 80%;
+    width: 40%;
     border-radius: 15px;
     margin: 0 auto;
-    max-width: 600px;
+    max-width: 400px;
   }
   
   .container {
