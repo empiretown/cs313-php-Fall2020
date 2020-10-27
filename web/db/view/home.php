@@ -34,6 +34,10 @@
     </section>
     <br>
 
+    <section class="cars-section">
+        <h1> 30% Discount Product </h1>
+        
+    </section>
 
     <footer>
         <hr>
