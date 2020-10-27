@@ -36,9 +36,13 @@
 
     <section class="cars-section">
         <h1> 30% Discount Product </h1>
-        <div>
+        <div class="goods">
             <img src="../../db/images/goldenmorn.jpg" alt="cereal">
         </div>
+        <div class="goods">
+            <img src="../../db/images/dettolsoap.jpg" alt="cereal">
+        </div>
+
 
 
     </section>
