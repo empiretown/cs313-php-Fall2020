@@ -13,7 +13,7 @@ CREATE TYPE rlevel AS ENUM ('1', '2', '3');
 CREATE TABLE customer 
 (
     id SERIAL PRIMARY KEY,
-    customer_name Varchar(40) NOT NULL,
+    customerName Varchar(40) NOT NULL,
     email Varchar(50) NOT NULL,
     username Varchar(50),
     password Varchar(255) NOT NULL,

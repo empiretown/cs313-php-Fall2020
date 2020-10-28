@@ -1,15 +1,17 @@
 <!DOCTYPE html>
 <html>
-  <head>
+
+<head>
+    <title>SpeedX Buy Cars - Login</title>
     <meta charset="UTF-8">
-    <title>Shed Market</title>
     <meta name="viewport" content="width=device-width">
     <link href='https://fonts.googleapis.com/css?family=Roboto:400,700,300' rel='stylesheet' type='text/css'>
-    <link href="../../db/css/style.css" rel="stylesheet" type="text/css">
-  </head>
+    <link href="../../PROYECT/css/style.css" rel="stylesheet" type="text/css">
 
-  <body>
-    <div class="wrapper">
+</head>
+
+<body>
+<div class="wrapper">
         <div id="top-header">
             <a class="logo" href="../../db/view/home.php"><img  class="large-logo" src="../../db/images/shed.png" alt=""></a>
             <div class="small-logo">
@@ -28,37 +30,29 @@
 
         </nav>
     </header>
-
-    <section>
-        <img src="../../db/images/shop3.png" alt="shed in the streets in nigeria">
-    </section>
-    <br>
-
-    <section>
-
-    <div class="coupon">
-  <div class="container">
-  </div>
-  <img src="../../db/images/grocery2.jpg" alt="Avatar" style="width:100%;">
-  <div class="container" style="background-color:white">
-    <h2><b>20% OFF YOUR PURCHASE</b></h2> 
-    <p>Shop with us and get a discounts on all your purchases</p>
-  </div>
-  <div class="container">
-    <p>Use Promo Code: <span class="promo">BOH232</span></p>
-    <p class="expire">Expires: Jan 03, 2021</p>
-  </div>
-</div>
-
-</body>
-</html> 
-    </section>
-
+        <main>
+      <?php if (isset($prodDisplay)) { echo $prodDisplay; } ?>
+            
+            <!--                <h1>Add Product</h1>-->
+            
+            <?php
+            if (isset($message)) {
+                echo $message;
+            }
+            ?>
+            
+            <?php if (isset($prodInformation)) { echo $prodInformation; } ?>
+            <?php if (isset($subprodDisplay)) { echo $subprodDisplay; } ?>
+        </main>
+    </div>
     <footer>
         <hr>
-        <br>
-        <p>&copy; 2020 SHED MARKET</p>
+        <br />
+        <p>&copy; 2018 speedxcars.com<p>
+        <br />
     </footer>
+    <script src="../js/car.js">
+    </script>
+</body>
 
-  </body>
 </html>
