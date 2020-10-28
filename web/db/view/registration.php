@@ -2,7 +2,7 @@
 <html>
 
 <head>
-    <title>SpeedX Buy Cars - Registration</title>
+    <title>SHED MARKET | Registration</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width">
     <link href='https://fonts.googleapis.com/css?family=Roboto:400,700,300' rel='stylesheet' type='text/css'>
@@ -37,7 +37,7 @@
                 echo $message;
             }
             ?>
-            <form method="post" action="/PROYECT/accounts/index.php">
+            <form method="post" action="/db/accounts/index.php">
                 <h1>Acme Registration</h1>
                 <p>All fields are requiered.<p>
                         Full Name<br>
