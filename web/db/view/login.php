@@ -43,15 +43,15 @@
             <input type="password" name="password"><br>
 
         <input type="button" type="submit" value="Login">
-        <input type="hidden" name="../../db/view/login.php" value="login">
+        <input type="hidden" name="action" value="login">
         <br>
         <br>
         <p class="negrita">Not a member?</p>
         </form>
 
-        <form action="">
+        <form action ="../../db/view/registration.php">
             <input type="submit" class="button" value="Register">
-            <input type="hidden" action ="../../db/view/registration.php" value="registration">
+            <input type="hidden" name="" value="registration">
         </form>
     </main>
 </body>
