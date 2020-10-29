@@ -2,11 +2,11 @@
 session_start();
 
 require_once '../connect-db.php';
-require_once '../functions.php';
+// require_once '../functions.php';
 
-require_once '../model/product-model.php';
-require_once '../model/account.php';
-require_once '../model/product.php';
+// require_once '../model/product-model.php';
+// require_once '../model/account.php';
+// require_once '../model/product.php';
 
 $action = filter_input(INPUT_POST, 'action');
 if ($action == NULL) {
