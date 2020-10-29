@@ -3,7 +3,7 @@ function get_db(){
     $db = NULL;
 try
 {
-  $dbUrl = getenv('DATABASE_URL');
+  $dbUrl = new PDO(getenv('DATABASE_URL'));
   $dbOpts = parse_url($dbUrl);
   $dbHost = $dbOpts["host"];
   $dbPort = $dbOpts["port"];
