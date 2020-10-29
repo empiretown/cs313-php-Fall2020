@@ -63,7 +63,7 @@
     <footer>
         <hr>
         <br />
-        <p>&copy; 2018 speedxcars.com<p>
+        <p>2020<p>
                 <br />
     </footer>
     <script src="../js/car.js">
