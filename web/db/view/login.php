@@ -51,7 +51,7 @@
 
         <form action="">
             <input type="submit" class="button" value="Register">
-            <input type="hidden" name="../../db/view/registration.php" value="registration">
+            <input type="hidden" action ="../../db/view/registration.php" value="registration">
         </form>
     </main>
 </body>
