@@ -1,7 +1,7 @@
 <?php
 
 //include connect-db.php
-require ("connect-db.php");
+require ('../db/connect-db.php');
 require_once 'model/product-model.php';
 
 $sellers = getSellers();

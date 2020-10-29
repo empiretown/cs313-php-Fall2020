@@ -2,7 +2,7 @@
 
 session_start();
 
-require ("connect-db.php");
+require ('../db/connect-db.php');
 require_once '../model/product-model.php';
 
 require_once '../model/account.php';
