@@ -20,4 +20,5 @@ catch (PDOException $ex)
 }
 return $db;
 }
+$link =get_db();
 ?>
