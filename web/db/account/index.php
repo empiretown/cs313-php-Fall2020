@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-//require_once '../connect-db.php';
+require_once '../connect-db.php';
  require_once '../functions.php';
 
  require_once '../model/product-model.php';
@@ -36,9 +36,7 @@ session_start();
          if ($updateResult === 1) {
              $clientData = getClientInfo($clientId);
              $_SESSION['loggedin'] = TRUE;
- // Remove the password from the array
- // the array_pop function removes the last
- // element from an array
+ 
              array_pop($clientData);
  // Store the array into the session
              $_SESSION['clientData'] = $clientData;
