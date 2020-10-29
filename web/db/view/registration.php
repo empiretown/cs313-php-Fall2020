@@ -37,7 +37,7 @@
                 echo $message;
             }
             ?>
-            <form method="post" action="/db/account/index.php">
+            <form method="post" action="../account/index.php">
                 <h1>Acme Registration</h1>
                 <p>All fields are requiered.<p>
                         Full Name<br>
