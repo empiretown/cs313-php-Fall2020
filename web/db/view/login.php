@@ -14,7 +14,7 @@
             <a class="logo" href="../../db/view/home.php"><img  class="large-logo" src="../../db/images/shed.png" alt=""></a>
             <div class="small-logo">
                     <img src="../../db/images/loginlogo.png" alt="" />
-                <span><a href="?action=login">Login</a></span>
+                <span><a href="../../db/view/login.php">Login</a></span>
                 <img src="../../db/images/cart.png" alt=""><span>Cart</span>
             </div>
         </div>
@@ -43,7 +43,7 @@
             <input type="password" name="password"><br>
 
         <input type="button" type="submit" value="Login">
-        <input type="hidden" name="action" value="login">
+        <input type="hidden" name="../../db/view/login.php" value="login">
         <br>
         <br>
         <p class="negrita">Not a member?</p>
@@ -51,7 +51,7 @@
 
         <form action="">
             <input type="submit" class="button" value="Register">
-            <input type="hidden" name="action" value="registration">
+            <input type="hidden" name="../../db/view/registration.php" value="registration">
         </form>
     </main>
 </body>
