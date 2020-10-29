@@ -229,7 +229,7 @@ function buildNav() {
     $suppliers = getSuppliers();
     $navlist = "<li><a href='.' title='View the Car Homepage'>Home</a></li>";
     foreach ($suppliers as $supplier) {
-        $navlist .= '<li><a href="/db/product/index.php?action=category&type= ' . $supplier["companyname"] . ' " title=View our ' . $supplier["companyname"] . 'product line>' .$supplier["companyname"] . '</a></li>';
+        $navlist .= '<li><a href="../product/index.php?action=category&type= ' . $supplier["companyname"] . ' " title=View our ' . $supplier["companyname"] . 'product line>' .$supplier["companyname"] . '</a></li>';
     }
     return $navlist;
 }
