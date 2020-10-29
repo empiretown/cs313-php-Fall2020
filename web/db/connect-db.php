@@ -1,6 +1,6 @@
 <?php
 function get_db(){
-   
+    $db = NULL;
 try
 {
   $dbUrl = new PDO(getenv('DATABASE_URL'));
