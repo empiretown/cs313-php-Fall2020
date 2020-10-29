@@ -6,7 +6,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width">
     <link href='https://fonts.googleapis.com/css?family=Roboto:400,700,300' rel='stylesheet' type='text/css'>
-    <link href="../../PROYECT/css/style.css" rel="stylesheet" type="text/css">
+    <link href="../../db/css/style.css" rel="stylesheet" type="text/css">
 
 </head>
 
@@ -49,11 +49,11 @@ div class="wrapper">
                     <li>User Lever: //<?php // echo $_SESSION['clientData']['clientLevel'];  ?></li>-->
             </ul>
 
-            <a href='/PROYECT/accounts/index.php?action=mod&email title="Click to modify the Client Information"'>Click to modify your Information</a>
+            <a href='/db/account/index.php?action=mod&email title="Click to modify the Client Information"'>Click to modify your Information</a>
 
             <?php
             if ($_SESSION['clientData']['clientLevel'] > 2) {
-                echo "<p> <a href='/PROYECT/products/'>Products</a></p>";
+                echo "<p> <a href='/db/product/'>Products</a></p>";
             }
             ?>
             

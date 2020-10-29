@@ -5,7 +5,7 @@ require ("connect-db.php");
 require ("functions.php");
 
 require_once '../model/product-model.php';
-require_once '../model/accounts.php';
+require_once '../model/account.php';
 require_once '../model/product.php';
 
 $action = filter_input(INPUT_POST, 'action');
