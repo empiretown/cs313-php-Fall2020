@@ -49,7 +49,7 @@
         <p class="negrita">Not a member?</p>
         </form>
 
-        <form action ="../../db/view/registration.php">
+        <form action ="../view/registration.php">
             <input type="submit" class="button" value="Register">
             <input type="hidden" name="" value="registration">
         </form>
