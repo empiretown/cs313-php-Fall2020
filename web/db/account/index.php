@@ -7,7 +7,7 @@ require_once '../functions.php';
  
  require_once '../model/account.php';
 
-echo ("I am registered");
+//echo ("I am registered");
  $action = filter_input(INPUT_POST, 'action');
  if ($action == NULL) {
      $action = filter_input(INPUT_GET, 'action');
@@ -80,6 +80,8 @@ echo ("I am registered");
          $checkEmail = checkEmail($email);
          $password = filter_input(INPUT_POST, 'password', FILTER_SANITIZE_STRING);
          $checkPassword = checkPassword($password);
+
+
  
         //  $existingEmail = checkExistingEmail($email);
  
@@ -97,8 +99,8 @@ echo ("I am registered");
         //      exit;
         //  }
  
-        //  // Hash the checked password
-        //  $password = password_hash($password, PASSWORD_DEFAULT);
+         // Hash the checked password
+         $password = password_hash($password, PASSWORD_DEFAULT);
  
         //  // Send the data to the model
         //  $regOutcome = regVisitor($fullname, $email, $username, $password, $phonenumber);
