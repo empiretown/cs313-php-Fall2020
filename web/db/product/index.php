@@ -7,7 +7,7 @@ require_once '../model/product-model.php';
 
 require_once '../model/account.php';
 require_once '../model/product-model.php';
-require_once '../library/functions.php';
+require_once '../functions.php';
 
 $sellers = getSellers();
 

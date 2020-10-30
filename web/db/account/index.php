@@ -12,7 +12,7 @@ require_once '../connect-db.php';
  if ($action == NULL) {
      $action = filter_input(INPUT_GET, 'action');
      if ($action == NULL) {
-         $action = 'resgitration';
+         $action = 'registration';
          header('location: ../index.php?action=registration');
          exit;
      }

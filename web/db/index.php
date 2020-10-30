@@ -1,6 +1,5 @@
 <?php
 
-//include connect-db.php
 require_once ('../connect-db.php');
 require_once '../model/product-model.php';
 
