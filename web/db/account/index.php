@@ -83,7 +83,7 @@ require_once '../functions.php';
 
 
  
-         $existingEmail = checkExistingEmail($email);
+         $checkExistingEmail = checkExistingEmail($email);
  
          // Check for existing email address in the table
          if ($existingEmail) {
