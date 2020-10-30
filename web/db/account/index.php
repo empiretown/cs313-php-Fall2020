@@ -167,7 +167,7 @@ session_start();
              include '../view/login.php';
              exit;
          }
- A valid user exists, log them in
+ //A valid user exists, log them in
          $_SESSION['loggedin'] = TRUE;
  // Remove the password from the array
  // the array_pop function removes the last
