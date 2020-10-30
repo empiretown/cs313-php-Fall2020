@@ -135,7 +135,7 @@ require_once '../functions.php';
          if ($regOutcome === 1) {
              setcookie('firstname', $firstname, strtotime('+1 year'), '/');
              $message = "<p>Thanks for registering $firstname. Please use your email and password to login.</p>";
-             include '../view/login.php';
+             include 'view/login.php';
              exit;
          }
          break;
