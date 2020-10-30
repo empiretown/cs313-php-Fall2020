@@ -42,7 +42,7 @@
             }
             ?>
 ​
-            <form action="../account/index.php" method="post">
+            <form action="account/index.php" method="post">
                     <label for="username">User Name: </label><input type="text" name="clientUsername" id="uname" required <?php if(isset($clientUsername)){echo "value='$clientUsername'";}  ?>><br>
                     <span>Passwords must be at least 8 characters and contain at least 1 number, 1 capital letter and 1 special character</span> 
                     <label for="password">Password: </label>
