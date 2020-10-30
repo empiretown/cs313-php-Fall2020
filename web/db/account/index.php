@@ -86,7 +86,7 @@ require_once '../functions.php';
          $checkExistingEmail = checkEmail($email);
  
          // Check for existing email address in the table
-         if ($existingEmail) {
+         if ($checkExistingEmail) {
              $message = '<p class="notice">That email address already exists. Do you want to login instead?</p>';
              include '../view/login.php';
              exit;
