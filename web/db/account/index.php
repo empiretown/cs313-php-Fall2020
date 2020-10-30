@@ -81,14 +81,14 @@ require_once '../functions.php';
          $password = filter_input(INPUT_POST, 'password', FILTER_SANITIZE_STRING);
          $checkPassword = checkPassword($password);
  
-        //  $existingEmail = checkExistingEmail($email);
+         $existingEmail = checkExistingEmail($email);
  
-        //  // Check for existing email address in the table
-        //  if ($existingEmail) {
-        //      $message = '<p class="notice">That email address already exists. Do you want to login instead?</p>';
-        //      include '../view/login.php';
-        //      exit;
-        //  }
+         // Check for existing email address in the table
+         if ($existingEmail) {
+             $message = '<p class="notice">That email address already exists. Do you want to login instead?</p>';
+             include '../view/login.php';
+             exit;
+         }
  
          // Check for missing data
          if (empty($fullname) || empty($username) || empty($checkEmail) || empty($checkPassword)) {
@@ -100,15 +100,15 @@ require_once '../functions.php';
          // Hash the checked password
          $password = password_hash($password, PASSWORD_DEFAULT);
  
-        //  // Send the data to the model
-        //  $regOutcome = regVisitor($fullname, $email, $username, $password, $phonenumber);
-        //  // Check and report the result --- COOKIES ----
-        //  if ($regOutcome === 1) {
-        //      setcookie('firstname', $firstname, strtotime('+1 year'), '/');
-        //      $message = "<p>Thanks for registering $firstname. Please use your email and password to login.</p>";
-        //      include 'view/login.php';
-        //      exit;
-        //  }
+         // Send the data to the model
+         $regOutcome = regVisitor($fullname, $email, $username, $password, $phonenumber);
+         // Check and report the result --- COOKIES ----
+         if ($regOutcome === 1) {
+             setcookie('firstname', $firstname, strtotime('+1 year'), '/');
+             $message = "<p>Thanks for registering $firstname. Please use your email and password to login.</p>";
+             include 'view/login.php';
+             exit;
+         }
          break;
  
      case 'login':
