@@ -110,14 +110,14 @@ session_start();
          $password = filter_input(INPUT_POST, 'password', FILTER_SANITIZE_STRING);
          $checkPassword = checkPassword($password);
  
-         $existingEmail = checkExistingEmail($email);
+        //  $existingEmail = checkExistingEmail($email);
  
-         // Check for existing email address in the table
-         if ($existingEmail) {
-             $message = '<p class="notice">That email address already exists. Do you want to login instead?</p>';
-             include '../view/login.php';
-             exit;
-         }
+        //  // Check for existing email address in the table
+        //  if ($existingEmail) {
+        //      $message = '<p class="notice">That email address already exists. Do you want to login instead?</p>';
+        //      include '../view/login.php';
+        //      exit;
+        //  }
  
          // Check for missing data
          if (empty($fullname) || empty($username) || empty($checkEmail) || empty($checkPassword)) {
