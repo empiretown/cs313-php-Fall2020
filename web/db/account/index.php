@@ -18,40 +18,40 @@ session_start();
      }
  }
  
-//  switch ($action) {
-//      case 'updatePassword';
-//          $clientId = filter_input(INPUT_POST, 'clientId', FILTER_SANITIZE_NUMBER_INT);
-//          $clientPassword = filter_input(INPUT_POST, 'clientPassword', FILTER_SANITIZE_STRING);
-//          $checkPassword = checkPassword($clientPassword);
-//  // Hash the checked password
-//          $clientPassword = password_hash($clientPassword, PASSWORD_DEFAULT);
+ switch ($action) {
+     case 'updatePassword';
+         $clientId = filter_input(INPUT_POST, 'clientId', FILTER_SANITIZE_NUMBER_INT);
+         $clientPassword = filter_input(INPUT_POST, 'clientPassword', FILTER_SANITIZE_STRING);
+         $checkPassword = checkPassword($clientPassword);
+ // Hash the checked password
+         $clientPassword = password_hash($clientPassword, PASSWORD_DEFAULT);
  
-//          if (empty($clientPassword)) {
-//              $message = '<p>Please write a new password.</p>';
-//              include '../view/client-update.php';
-//              exit;
-//          }
-//          $updateResult = updatePassword($clientPassword, $clientId);
+         if (empty($clientPassword)) {
+             $message = '<p>Please write a new password.</p>';
+             include '../view/client-update.php';
+             exit;
+         }
+         $updateResult = updatePassword($clientPassword, $clientId);
  
-        //  if ($updateResult === 1) {
-        //     //  $clientData = getClientInfo($clientId);
-        //      $_SESSION['loggedin'] = TRUE;
+         if ($updateResult === 1) {
+            //  $clientData = getClientInfo($clientId);
+             $_SESSION['loggedin'] = TRUE;
  
-//              array_pop($clientData);
-//  // Store the array into the session
-//              $_SESSION['clientData'] = $clientData;
-//              $message = "<p>Congratulations, password was successfully updated.</p>";
-//              $_SESSION['message'] = $message;
-//  // Send them to the admin view
-//              include '../view/admin.php';
-//              exit;
-//          } else {
-//              $message = "<p>Error. The client's password was not modify.</p>";
-//              include '../view/client-update.php';
-//              exit;
-//          }
+             array_pop($clientData);
+ // Store the array into the session
+             $_SESSION['clientData'] = $clientData;
+             $message = "<p>Congratulations, password was successfully updated.</p>";
+             $_SESSION['message'] = $message;
+ // Send them to the admin view
+             include '../view/admin.php';
+             exit;
+         } else {
+             $message = "<p>Error. The client's password was not modify.</p>";
+             include '../view/client-update.php';
+             exit;
+         }
  
-        //  break;
+         break;
  
 //      case 'updateClient':
 //          $clientFullname = filter_input(INPUT_POST, 'clientFullname', FILTER_SANITIZE_STRING);
@@ -185,5 +185,5 @@ session_start();
 //          session_destroy();
 //          header('Location: ../index.php');
 //          exit;
-//  }
+}
 ?>
