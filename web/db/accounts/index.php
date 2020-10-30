@@ -258,5 +258,17 @@ require_once '../functions.php';
 //          session_destroy();
 //          header('Location: ../index.php');
 //          exit;
+case 'logout':
+    session_destroy();
+    setcookie('username', "", time() -3600, '/');
+    header("Location: /view/category.php");
+    break;
+
+  default:
+
+    header("Location: /view/category.php");
+    break;
+
+
 }
 ?>
