@@ -53,7 +53,7 @@ div class="wrapper">
 
             <?php
             if ($_SESSION['clientData']['clientLevel'] > 2) {
-                echo "<p> <a href='/db/product/'>Products</a></p>";
+                echo "<p> <a href='../../product/'>Products</a></p>";
             }
             ?>
             
