@@ -36,7 +36,7 @@
             }
         ?>
 
-        <form action="../account/index.php" method="post">
+        <form action="../account/index.php?action=login" method="post">
             Email <br>
             <input type="email" name="email" value="" required><br> 
             Password <br>
