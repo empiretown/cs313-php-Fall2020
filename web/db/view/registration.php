@@ -16,7 +16,7 @@
             <a class="logo" href="../../db/view/home.php"><img  class="large-logo" src="../../db/images/shed.png" alt=""></a>
             <div class="small-logo">
                     <img src="../../db/images/loginlogo.png" alt="" />
-                <span><a href="?action=login.php">Login</a></span>
+                <span><a href="../../view/login.php">Login</a></span>
                 <img src="../../db/images/cart.png" alt=""><span>Cart</span>
             </div>
         </div>
