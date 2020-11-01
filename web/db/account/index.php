@@ -122,7 +122,7 @@ require_once '../functions.php';
  // Run basic checks, return if errors
          if (empty($email) || empty($passwordCheck)) {
              $message = '<p class="notice">Please provide a valid email address and password.</p>';
-             include '/db/view/login.php';
+             include '../db/view/login.php';
              exit;
          }
  
