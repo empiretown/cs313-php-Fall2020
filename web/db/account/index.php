@@ -115,25 +115,30 @@ require_once '../functions.php';
  
          case 'logging':
 
-            $email = filter_input(INPUT_POST,'email', FILTER_SANITIZE_EMAIL);
-            $email = checkEmail($email);
-            $clientPassword = filter_input(INPUT_POST, 'clientPassword', FILTER_SANITIZE_STRING);
-            $passwordCheck = checkPassword($clientPassword);
-            if(empty($_POST['email']) || empty($_POST['passwordCheck'])) {
-                include '../view/home.php';
+            $loginEmail = filter_input(INPUT_POST,'clientEmail', FILTER_SANITIZE_EMAIL);
+            
+            $loginPassword = filter_input(INPUT_POST, 'clientPassword', FILTER_SANITIZE_STRING);
+
+            $passwordCheck = checkPassword($loginPassword);
+
+            if(empty($_POST['loginEmail']) || empty($_POST['passwordCheck'])) {
+                include '../view/registration.php';
                 exit;
             }
 
 
-            $clientData = getClient($email);
+            $clientData = getClient($loginEmail);
 
-            $hashCheck = password_verify($password, $clientData['password']);
+            //$hashCheck = password_verify($password, $clientData['password']);
 
-            if (!$hashCheck) {
-                     $message = '<p class="notice">Please check your password and try again.</p>';
-                    include '../view/login.php';
-                    exit;
+            if ($passwordCheck) {
+                    $hashCheck = password_verify($loginPassword, $clientData['password']);
             
+            }
+
+            if(!$hashCheck){
+                $message = '<p>Incorrect password.</p>';
+                include '../view/login.php';
             }
 
             if (isset($_COOKIE['email'])) {
@@ -142,11 +147,11 @@ require_once '../functions.php';
 
             setcookie('email', $clientData['email'], strtotime('+1 year'), '/');
 
-            if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
-                echo "Welcome to the member's area, " . $_SESSION['email'] . "!";
-            } else {
-                echo "Please log in first to see this page.";
-            }
+            $_SESSION['loggedin'] == true;
+            
+
+            array_pop($clientData);
+            
             
 
 
