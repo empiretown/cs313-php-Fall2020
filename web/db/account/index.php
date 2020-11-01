@@ -137,7 +137,7 @@ require_once '../functions.php';
                 setcookie('email', "", time() -3600, '/');
             }
 
-            setcookie('email', $clientData['email'], strtotime('+1 year'), '/')
+            setcookie('email', $clientData['email'], strtotime('+1 year'), '/');
 
 
 
