@@ -50,7 +50,7 @@ if (isset($_SESSION['message'])) {
                 <input class="buttons" type="submit" value="New Product">
                 <input type="hidden" name="action" value="newProductForm"><br>
             </form>    
-            <form method="post" action="/acme/product/index.php">                
+            <form method="post" action="../product/index.php">                
                 <input class="buttons" type="submit" value="New Category">
                 <input type="hidden" name="action" value="newCategoryForm"><br>
             </form>
