@@ -9,7 +9,7 @@ require_once '../functions.php';
 
 
  
-//echo ("I am registered");
+echo ("I am registered");
  $action = filter_input(INPUT_POST, 'action');
  if ($action == NULL) {
      $action = filter_input(INPUT_GET, 'action');
@@ -109,10 +109,10 @@ require_once '../functions.php';
          break;
  
     case 'login':
-            //header("Location: ../view/login.php");
+            
     
          $email = filter_input(INPUT_POST, 'email');
-         $email = checkEmail($email);
+         $email = checkEEmail($email);
          $password = filter_input(INPUT_POST, 'password', FILTER_SANITIZE_STRING);
          $passwordCheck = checkPassword($password);
  
