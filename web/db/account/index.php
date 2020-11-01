@@ -123,6 +123,11 @@ require_once '../functions.php';
                 include '../view/login.php';
                 exit;
             }
+
+
+            $clientData = getClient($email);
+
+            $hashCheck = password_verify($password, $clientData['password']);
 //          $email = filter_input(INPUT_POST, 'email');
 //          $email = checkEmail($email);
 //          $password = filter_input(INPUT_POST, 'password', FILTER_SANITIZE_STRING);
