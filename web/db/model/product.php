@@ -26,8 +26,8 @@ function getProductsById($prodId) {
 
 function getProductByCategory($type) {
     $db = get_db();
-    $query = 'SELECT * FROM product WHERE seller_id IN (SELECT id FROM seller WHERE companyNAME = :catType)';
-    $stmt = $db->prepare($query);
+    $sql = 'SELECT * FROM product WHERE seller_id IN (SELECT id FROM seller WHERE companyNAME = :catType)';
+    $stmt = $db->prepare($sql);
     $stmt->bindValue(':catType', $type, PDO::PARAM_STR);
     $stmt->execute();
     $products = $stmt->fetchAll(PDO::PARAM_ASSOC);
