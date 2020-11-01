@@ -116,7 +116,11 @@ require_once '../functions.php';
             $clientEmail = checkEmail($clientEmail);
             $clientPassword = filter_input(INPUT_POST, 'password');
             $passwordCheck = checkPassword($clientPassword);
-            
+            if(empty($_POST['clientEmai']) || empty($_POST['passwordCheck'])) {
+                $_SESSION['message'] = '<p>Please provide the valid information</p>';
+                include '../view/category.php';
+                exit;
+            }
 
 
             $clientData = getClient($clientEmail);
@@ -129,9 +133,6 @@ require_once '../functions.php';
                     exit;
             
                 }
-
-
-                
 //          $email = filter_input(INPUT_POST, 'email');
 //          $email = checkEmail($email);
 //          $password = filter_input(INPUT_POST, 'password', FILTER_SANITIZE_STRING);
