@@ -14,13 +14,13 @@ require_once '../functions.php';
  }
  
  switch ($action) {
-     case 'login':
-        header("location: /db/view/login.php");
-     break;
+    //  case 'login':
+    //     header("location: /db/view/login.php");
+    //  break;
 
-     case 'register':
-        header("location: /view/registration.php");
-     break;
+    //  case 'register':
+    //     header("location: /view/registration.php");
+    //  break;
 
      
  
