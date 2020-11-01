@@ -112,7 +112,7 @@ require_once '../functions.php';
             //header("Location: ../view/login.php");
     
          $email = filter_input(INPUT_POST, 'email', FILTER_SANITIZE_EMAIL);
-         $email = checkEEmail($email);
+         $email = checkEmail($email);
          $password = filter_input(INPUT_POST, 'password', FILTER_SANITIZE_STRING);
          $passwordCheck = checkPassword($password);
  
