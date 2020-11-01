@@ -16,10 +16,10 @@ require_once '../functions.php';
  }
  
  switch ($action) {
-     case 'login':
+    //  case 'login':
 
-      include '../view/products.php';
-  break;
+    //     include '../view/login.php';
+    //  break;
 
     //case 'register':
     //     h/eader("location: ../view/registration.php");
@@ -121,7 +121,7 @@ require_once '../functions.php';
             $checkPassword = checkPassword($password);
     
     // Run basic checks, return if errors
-            if (empty($email) || empty($checkPassword)) {
+            if (empty($email) || empty($passwordCheck)) {
                 $_SESSION['message'] = '<p class="notice">Please provide a valid email address and password.</p>';
                 include '../view/login.php';
                 exit;
