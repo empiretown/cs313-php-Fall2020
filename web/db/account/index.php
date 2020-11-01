@@ -1,6 +1,10 @@
 <?php
-session_start();
+if (session_status() == PHP_SESSION_NONE) {
+    session_start();
+}
+?>
 
+<?php
 require ('../connect-db.php');
 require_once '../functions.php';
 
@@ -121,7 +125,8 @@ require_once '../functions.php';
 
             $passwordCheck = checkPassword($loginPassword);
 
-            if(empty($_POST['loginEmail']) || empty($_POST['passwordCheck'])) {
+            if(empty($loginEmail)|| empty($passwordCheck)) {
+                
                 include '../view/registration.php';
                 exit;
             }
