@@ -15,11 +15,11 @@ require_once '../functions.php';
  
  switch ($action) {
      case 'login':
-        header("Location: ../view/login.php");
+        header("location: ../view/login.php");
      break;
 
      case 'register':
-        header("Location: ../view/registration.php");
+        header("location: ../view/registration.php");
      break;
 
      
@@ -145,9 +145,9 @@ require_once '../functions.php';
  // Remove the password from the array
  // the array_pop function removes the last
  // element from an array
-         array_pop($clientData);
- // Store the array into the session
-         $_SESSION['clientData'] = $clientData;
+//          array_pop($clientData);
+//  // Store the array into the session
+//          $_SESSION['clientData'] = $clientData;
          
  // Send them to the admin view
          include '../view/admin.php';
@@ -156,7 +156,7 @@ require_once '../functions.php';
  
      case 'logout':
          session_destroy();
-         header("Location: ../index.php");
+         header('Location: ../index.php');
          exit;
 }
 ?>
