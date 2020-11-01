@@ -118,6 +118,7 @@ require_once '../functions.php';
             $passwordCheck = checkPassword($clientPassword);
             if(empty($_POST['email']) || empty($_POST['passwordCheck'])) {
                 echo ("Welcome");
+                include '../view/category.php';
                 die;
             }
 
