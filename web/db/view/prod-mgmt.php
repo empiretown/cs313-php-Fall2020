@@ -48,11 +48,11 @@ if (isset($_SESSION['message'])) {
                 ?>                   
                 <br>
                 <input class="buttons" type="submit" value="New Product">
-                <input type="hidden" name="action" value="newProductForm"><br>
+                <input type="hidden" name="action" value="newProduct"><br>
             </form>    
             <form method="post" action="../product/index.php">                
                 <input class="buttons" type="submit" value="New Category">
-                <input type="hidden" name="action" value="newCategoryForm"><br>
+                <input type="hidden" name="action" value="newCategory"><br>
             </form>
 
             <?php
