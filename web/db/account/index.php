@@ -7,8 +7,6 @@ require_once '../functions.php';
  
  require_once '../model/account.php';
 
-
- 
 //echo ("I am registered");
  $action = filter_input(INPUT_POST, 'action');
  if ($action == NULL) {
@@ -108,9 +106,7 @@ require_once '../functions.php';
          }
          break;
  
-    case 'login':
-            
-    
+     case 'login':
          $email = filter_input(INPUT_POST, 'email');
          $email = checkEmail($email);
          $password = filter_input(INPUT_POST, 'password', FILTER_SANITIZE_STRING);
@@ -155,5 +151,5 @@ require_once '../functions.php';
          session_destroy();
          header('Location: ../index.php');
          exit;
- }
+}
 ?>
