@@ -101,7 +101,7 @@ require_once '../functions.php';
          }
  
          // Hash the checked password
-         $password = password_hash($password, PASSWORD_DEFAULT);
+         $checkPassword = password_hash($password, PASSWORD_DEFAULT);
  
         
          $regOutcome = regVisitor($fullname, $email, $username, $password, $phonenumber);
@@ -121,7 +121,7 @@ require_once '../functions.php';
             $checkPassword = checkPassword($password);
     
     // Run basic checks, return if errors
-            if (empty($email) || empty($passwordCheck)) {
+            if (empty($email) || empty($checkPassword)) {
                 $_SESSION['message'] = '<p class="notice">Please provide a valid email address and password.</p>';
                 include '../view/login.php';
                 exit;
