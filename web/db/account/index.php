@@ -28,7 +28,7 @@ require_once '../functions.php';
      case 'logging':
         $email = filter_input(INPUT_POST, 'email');
         $password = filter_input(INPUT_POST, 'password', FILTER_SANITIZE_STRING);
-        $passwordCheck = checkPassword($password);
+        $checkPassword = checkPassword($password);
 
 // Run basic checks, return if errors
         if (empty($email) || empty($passwordCheck)) {
