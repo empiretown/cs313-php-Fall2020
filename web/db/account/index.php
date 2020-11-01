@@ -141,13 +141,13 @@ require_once '../functions.php';
              exit;
          }
  //A valid user exists, log them in
-         $_SESSION['login'] = TRUE;
+         $_SESSION['loggedin'] = TRUE;
  // Remove the password from the array
  // the array_pop function removes the last
  // element from an array
-//          array_pop($clientData);
-//  // Store the array into the session
-//          $_SESSION['clientData'] = $clientData;
+         array_pop($clientData);
+ // Store the array into the session
+         $_SESSION['clientData'] = $clientData;
          
  // Send them to the admin view
          include '../view/admin.php';
