@@ -105,13 +105,13 @@ function checkExistingEmail($email) {
 function getClient($email) {
     $db = get_db();
 
-    $query = 'SELECT id, customerName, email, userName, phonenumber clientLevel, password  FROM customer WHERE email = :email';
+    $query = 'SELECT id,email, username, phonenumber clientLevel, password  FROM customer WHERE email = :email';
     $stmt = $db->prepare($query);
     $stmt->bindValue(':email', $email, PDO::PARAM_STR);
     
 
     $stmt->execute();
-    $matchEmail = $stmt->fetch(PDO::FETCH_ASSOC);
+    $clientData = $stmt->fetch(PDO::FETCH_ASSOC);
 
     $stmt->closeCursor();
 
