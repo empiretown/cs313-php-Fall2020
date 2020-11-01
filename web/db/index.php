@@ -25,7 +25,7 @@ $action = filter_input(INPUT_POST, 'action');
                 break;
                 
 			case 'login':
-				include '/view/login.php';
+				include '../view/login.php';
                 break;
                 
             case 'registration':
