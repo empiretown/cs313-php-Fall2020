@@ -6,8 +6,6 @@ require_once '../functions.php';
 
  
  require_once '../model/account.php';
- require_once '../model/product-model.php';
- require_once '../model/product.php';
 
 //echo ("I am registered");
  $action = filter_input(INPUT_POST, 'action');
@@ -90,32 +88,32 @@ require_once '../functions.php';
          // Check for existing email address in the table
          if ($checkExistingEmail) {
              $message = '<p class="notice">That email address already exists. Do you want to login instead?</p>';
-             include '/view/login.php';
+             include '../view/login.php';
              exit;
          }
  
          // Check for missing data
          if (empty($fullname) || empty($username) || empty($checkEmail) || empty($checkPassword)) {
              $message = '<p>Please provide information for all empty form fields.</p>';
-             include '/view/registration.php';
+             include '../view/registration.php';
              exit;
          }
  
          // Hash the checked password
          $password = password_hash($password, PASSWORD_DEFAULT);
  
-         // Send the data to the model
-         $regOutcome = regVisitor($fullname, $email, $username, $password, $phonenumber);
-         // Check and report the result --- COOKIES ----
-         if ($regOutcome === 1) {
-             setcookie('firstname', $firstname, strtotime('+1 year'), '/');
-             $message = "<p>Thanks for registering $firstname. Please use your email and password to login.</p>";
-            include '/view/login.php';
-             exit;
-         }
+        //  // Send the data to the model
+        //  $regOutcome = regVisitor($fullname, $email, $username, $password, $phonenumber);
+        //  // Check and report the result --- COOKIES ----
+        //  if ($regOutcome === 1) {
+        //      setcookie('firstname', $firstname, strtotime('+1 year'), '/');
+        //      $message = "<p>Thanks for registering $firstname. Please use your email and password to login.</p>";
+        //      include 'view/login.php';
+        //      exit;
+        //  }
          break;
  
-case 'logging':
+     case 'login':
          $email = filter_input(INPUT_POST, 'email');
          $email = checkEmail($email);
          $password = filter_input(INPUT_POST, 'password', FILTER_SANITIZE_STRING);
@@ -124,24 +122,24 @@ case 'logging':
  // Run basic checks, return if errors
          if (empty($email) || empty($passwordCheck)) {
              $message = '<p class="notice">Please provide a valid email address and password.</p>';
-             include '/view/login.php';
+             include '../view/login.php';
              exit;
          }
  
+ // A valid password exists, proceed with the login process
+ // Query the client data based on the email address
          $clientData = getClient($email);
-         if($passwordCheck){
+ // Compare the password just submitted against
+ // the hashed password for the matching client
          $hashCheck = password_verify($password, $clientData['password']);
-         }
          
  // If the hashes don't match create an error
  // and return to the login view
          if (!$hashCheck) {
-            $_SESSION['message'] = '<p class="notice">Please check your password and try again.</p>';
-            include '/view/login.php';
+             $message = '<p class="notice">Please check your password and try again.</p>';
+             include '../view/login.php';
              exit;
          }
-
-         setcookie('email', $clientData['email'], strtotime('+1 year'), '/');
  //A valid user exists, log them in
          $_SESSION['loggedin'] = TRUE;
  // Remove the password from the array
@@ -152,7 +150,7 @@ case 'logging':
          $_SESSION['clientData'] = $clientData;
          
  // Send them to the admin view
- header("Location: /view/admin.php");
+         include '../view/admin.php';
          exit;
          break;
  
