@@ -8,19 +8,14 @@ require_once '../functions.php';
  require_once '../model/account.php';
 
 
- if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
-    echo "Welcome to the member's area, " . $_SESSION['username'] . "!";
-} else {
-    echo "Please log in first to see this page.";
-}
-
+ 
 //echo ("I am registered");
 //  $action = filter_input(INPUT_POST, 'action');
 //  if ($action == NULL) {
 //      $action = filter_input(INPUT_GET, 'action');
 //  }
  
-//  switch ($action) {
+ switch ($action) {
     
  
  
@@ -113,7 +108,14 @@ require_once '../functions.php';
 //          }
 //          break;
  
-//      case 'login':
+     case 'login':
+            if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
+            
+                echo "Welcome to the member's area, " . $_SESSION['username'] . "!";
+            } else {
+                echo "Please log in first to see this page.";
+            }
+    
 //          $email = filter_input(INPUT_POST, 'email');
 //          $email = checkEmail($email);
 //          $password = filter_input(INPUT_POST, 'password', FILTER_SANITIZE_STRING);
@@ -152,11 +154,11 @@ require_once '../functions.php';
 //  // Send them to the admin view
 //          include '../view/admin.php';
 //          exit;
-//          break;
+         break;
  
 //      case 'logout':
 //          session_destroy();
 //          header('Location: ../index.php');
 //          exit;
-// }
+ }
 ?>
