@@ -16,13 +16,13 @@ require_once '../functions.php';
  }
  
  switch ($action) {
-    //  case 'login':
-    //     header("location: /view/login.php");
-    //  break;
+     case 'login':
+        header("location: /view/login.php");
+     break;
 
-    //  case 'register':
-    //     header("location: /view/registration.php");
-    //  break;
+     case 'register':
+        header("location: /view/registration.php");
+     break;
 
      
  
@@ -156,9 +156,9 @@ require_once '../functions.php';
          exit;
          break;
  
-//      case 'logout':
-//          session_destroy();
-//          header('Location: ../index.php');
-//          exit;
+     case 'logout':
+         session_destroy();
+         header('Location: ../index.php');
+         exit;
 }
 ?>
