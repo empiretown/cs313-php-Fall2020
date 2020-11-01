@@ -104,14 +104,14 @@ require_once '../functions.php';
          $password = password_hash($password, PASSWORD_DEFAULT);
  
          // Send the data to the model
-         $regOutcome = regVisitor($fullname, $email, $username, $password, $phonenumber);
-         // Check and report the result --- COOKIES ----
-         if ($regOutcome === 1) {
-             setcookie('firstname', $firstname, strtotime('+1 year'), '/');
-             $message = "<p>Thanks for registering $firstname. Please use your email and password to login.</p>";
-             include 'view/login.php';
-             exit;
-         }
+        //  $regOutcome = regVisitor($fullname, $email, $username, $password, $phonenumber);
+        //  // Check and report the result --- COOKIES ----
+        //  if ($regOutcome === 1) {
+        //      setcookie('firstname', $firstname, strtotime('+1 year'), '/');
+        //      $message = "<p>Thanks for registering $firstname. Please use your email and password to login.</p>";
+        //      include 'view/login.php';
+        //      exit;
+        //  }
          break;
  
      case 'logging':
@@ -123,7 +123,7 @@ require_once '../functions.php';
  // Run basic checks, return if errors
          if (empty($email) || empty($passwordCheck)) {
              $message = '<p class="notice">Please provide a valid email address and password.</p>';
-             include '../view/registration.php';
+             include '../view/login.php';
              exit;
          }
  
