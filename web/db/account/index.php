@@ -152,7 +152,7 @@ require_once '../functions.php';
          $_SESSION['clientData'] = $clientData;
          
  // Send them to the admin view
-         include '../db/view/admin.php';
+         include '/view/admin.php';
          exit;
          break;
  
