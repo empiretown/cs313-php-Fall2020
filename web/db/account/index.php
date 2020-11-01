@@ -104,7 +104,7 @@ require_once '../functions.php';
          // Check and report the result --- COOKIES ----
          if ($regOutcome === 1) {
              setcookie('firstname', $firstname, strtotime('+1 year'), '/');
-             $message = "<p>Thanks for registering $firstname. Please use your email and password to login.</p>";
+             $message = "<p>Thanks for registering $email. Please use your email and password to login.</p>";
              include 'view/login.php';
              exit;
          }
@@ -117,11 +117,8 @@ require_once '../functions.php';
             $clientPassword = filter_input(INPUT_POST, 'clientPassword', FILTER_SANITIZE_STRING);
             $passwordCheck = checkPassword($clientPassword);
             if(empty($_POST['email']) || empty($_POST['passwordCheck'])) {
-                if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
-                    echo "Welcome to the member's area, " . $_SESSION['email'] . "!";
-                } else {
-                    echo "Please log in first to see this page.";
-                }
+                include '../view/home.php';
+                exit;
             }
 
 
