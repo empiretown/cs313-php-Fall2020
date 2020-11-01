@@ -21,7 +21,7 @@ $action = filter_input(INPUT_POST, 'action');
 
 		switch ($action) {
 			case 'home':
-				include '/view/home.php';
+				include '../view/home.php';
                 break;
                 
 			case 'login':
@@ -29,11 +29,11 @@ $action = filter_input(INPUT_POST, 'action');
                 break;
                 
             case 'registration':
-				include '/view/registration.php';
+				include '../view/registration.php';
                 break;
 
 			case 'error':
-				include '/errordocs/500.php';
+				include '../errordocs/500.php';
 				break;
 		}
 	}

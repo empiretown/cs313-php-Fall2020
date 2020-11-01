@@ -117,8 +117,11 @@ require_once '../functions.php';
             $clientPassword = filter_input(INPUT_POST, 'clientPassword', FILTER_SANITIZE_STRING);
             $passwordCheck = checkPassword($clientPassword);
             if(empty($_POST['email']) || empty($_POST['passwordCheck'])) {
-                include '../view/home.php';
-                die;
+                if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
+                    echo "Welcome to the member's area, " . $_SESSION['email'] . "!";
+                } else {
+                    echo "Please log in first to see this page.";
+                }
             }
 
 
@@ -139,6 +142,12 @@ require_once '../functions.php';
 
             setcookie('email', $clientData['email'], strtotime('+1 year'), '/');
 
+            if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
+                echo "Welcome to the member's area, " . $_SESSION['email'] . "!";
+            } else {
+                echo "Please log in first to see this page.";
+            }
+            
 
 
 //          $email = filter_input(INPUT_POST, 'email');
