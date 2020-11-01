@@ -90,14 +90,14 @@ require_once '../functions.php';
          // Check for existing email address in the table
          if ($checkExistingEmail) {
              $message = '<p class="notice">That email address already exists. Do you want to login instead?</p>';
-             include 'db/view/login.php';
+             include '/view/login.php';
              exit;
          }
  
          // Check for missing data
          if (empty($fullname) || empty($username) || empty($checkEmail) || empty($checkPassword)) {
              $message = '<p>Please provide information for all empty form fields.</p>';
-             include '../view/registration.php';
+             include '/view/registration.php';
              exit;
          }
  
@@ -110,7 +110,7 @@ require_once '../functions.php';
          if ($regOutcome === 1) {
              setcookie('firstname', $firstname, strtotime('+1 year'), '/');
              $message = "<p>Thanks for registering $firstname. Please use your email and password to login.</p>";
-             header("Location: /view/login.php");
+            include '/view/login.php';
              exit;
          }
          break;
@@ -124,7 +124,7 @@ case 'login':
  // Run basic checks, return if errors
          if (empty($email) || empty($passwordCheck)) {
              $message = '<p class="notice">Please provide a valid email address and password.</p>';
-             header("Location: /view/login.php");
+             include '/view/login.php';
              exit;
          }
  
@@ -137,7 +137,7 @@ case 'login':
  // and return to the login view
          if (!$hashCheck) {
             $_SESSION['message'] = '<p class="notice">Please check your password and try again.</p>';
-             header("Location: /view/login.php");
+            include '/view/login.php';
              exit;
          }
 
@@ -152,7 +152,7 @@ case 'login':
          $_SESSION['clientData'] = $clientData;
          
  // Send them to the admin view
- header("Location: ../view/admin.php");;
+ header("Location: /view/admin.php");
          exit;
          break;
  
