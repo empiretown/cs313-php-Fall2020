@@ -6,8 +6,8 @@ require_once '../functions.php';
 
  
  require_once '../model/account.php';
- require_once '../model/account.php';
- require_once '../model/account.php';
+ //require_once '../model/account.php';
+ //require_once '../model/account.php';
 
 
  $action = filter_input(INPUT_POST, 'action');
