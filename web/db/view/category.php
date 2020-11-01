@@ -52,7 +52,7 @@
         <p>&copy; 2020 SHEDMARKET.com<p>
                 <br />
     </footer>
-    <script src="../js/car.js">
+    <script src="../js/nav.js">
     </script>
 </body>
 
