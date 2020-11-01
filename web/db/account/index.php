@@ -74,48 +74,48 @@ require_once '../functions.php';
 //          exit;
 //          break;
  
-     case 'registration':
-         $fullname = filter_input(INPUT_POST, 'fullname', FILTER_SANITIZE_STRING);
-         $email = filter_input(INPUT_POST, 'email');
-         $username = filter_input(INPUT_POST, 'username', FILTER_SANITIZE_STRING);        
-         $phonenumber = filter_input(INPUT_POST, 'phonenumber', FILTER_SANITIZE_STRING);
-         $checkEmail = checkEmail($email);
-         $password = filter_input(INPUT_POST, 'password', FILTER_SANITIZE_STRING);
-         $checkPassword = checkPassword($password);
+    //  case 'registration':
+    //      $fullname = filter_input(INPUT_POST, 'fullname', FILTER_SANITIZE_STRING);
+    //      $email = filter_input(INPUT_POST, 'email');
+    //      $username = filter_input(INPUT_POST, 'username', FILTER_SANITIZE_STRING);        
+    //      $phonenumber = filter_input(INPUT_POST, 'phonenumber', FILTER_SANITIZE_STRING);
+    //      $checkEmail = checkEmail($email);
+    //      $password = filter_input(INPUT_POST, 'password', FILTER_SANITIZE_STRING);
+    //      $checkPassword = checkPassword($password);
 
 
  
-         $checkExistingEmail = checkEmail($email);
+    //      $checkExistingEmail = checkEmail($email);
  
-         // Check for existing email address in the table
-         if ($checkExistingEmail) {
-             $message = '<p class="notice">That email address already exists. Do you want to login instead?</p>';
-             include '/view/login.php';
-             exit;
-         }
+    //      // Check for existing email address in the table
+    //      if ($checkExistingEmail) {
+    //          $message = '<p class="notice">That email address already exists. Do you want to login instead?</p>';
+    //          include '/view/login.php';
+    //          exit;
+    //      }
  
-         // Check for missing data
-         if (empty($fullname) || empty($username) || empty($checkEmail) || empty($checkPassword)) {
-             $message = '<p>Please provide information for all empty form fields.</p>';
-             include '/view/registration.php';
-             exit;
-         }
+    //      // Check for missing data
+    //      if (empty($fullname) || empty($username) || empty($checkEmail) || empty($checkPassword)) {
+    //          $message = '<p>Please provide information for all empty form fields.</p>';
+    //          include '/view/registration.php';
+    //          exit;
+    //      }
  
-         // Hash the checked password
-         $password = password_hash($password, PASSWORD_DEFAULT);
+    //      // Hash the checked password
+    //      $password = password_hash($password, PASSWORD_DEFAULT);
  
-         // Send the data to the model
-         $regOutcome = regVisitor($fullname, $email, $username, $password, $phonenumber);
-         // Check and report the result --- COOKIES ----
-         if ($regOutcome === 1) {
-             setcookie('firstname', $firstname, strtotime('+1 year'), '/');
-             $message = "<p>Thanks for registering $firstname. Please use your email and password to login.</p>";
-            include '/view/login.php';
-             exit;
-         }
-         break;
+    //      // Send the data to the model
+    //      $regOutcome = regVisitor($fullname, $email, $username, $password, $phonenumber);
+    //      // Check and report the result --- COOKIES ----
+    //      if ($regOutcome === 1) {
+    //          setcookie('firstname', $firstname, strtotime('+1 year'), '/');
+    //          $message = "<p>Thanks for registering $firstname. Please use your email and password to login.</p>";
+    //         include '/view/login.php';
+    //          exit;
+    //      }
+    //      break;
  
-case 'login':
+case 'logging':
          $email = filter_input(INPUT_POST, 'email');
          $email = checkEmail($email);
          $password = filter_input(INPUT_POST, 'password', FILTER_SANITIZE_STRING);
