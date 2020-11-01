@@ -81,10 +81,10 @@ require_once '../functions.php';
          $password = filter_input(INPUT_POST, 'password', FILTER_SANITIZE_STRING);
          $checkPassword = checkPassword($password);
  
-         $existingEmail = checkExistingEmail($email);
+         $CheckExistingEmail = checkEmail($email);
  
          // Check for existing email address in the table
-         if ($existingEmail) {
+         if ($CheckExistingEmail) {
              $message = '<p class="notice">That email address already exists. Do you want to login instead?</p>';
              include '../view/login.php';
              exit;
