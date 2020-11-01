@@ -6,7 +6,7 @@ require_once '../functions.php';
 
  
  require_once '../model/account.php';
- require_once '../view/login.php';
+ //require_once '../view/login.php';
 
 //echo ("I am registered");
  $action = filter_input(INPUT_POST, 'action');
