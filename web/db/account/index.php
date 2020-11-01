@@ -14,6 +14,7 @@ require_once '../functions.php';
  }
  
  switch ($action) {
+
     case 'login':
         $email = filter_input(INPUT_POST, 'email');
         $email = checkEmail($email);
@@ -23,7 +24,7 @@ require_once '../functions.php';
 // Run basic checks, return if errors
         if (empty($email) || empty($passwordCheck)) {
             $message = '<p class="notice">Please provide a valid email address and password.</p>';
-            include '../view/registration.php';
+            include '../view/login.php';
             exit;
         }
 
