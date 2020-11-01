@@ -6,7 +6,7 @@ require_once '../functions.php';
 
  
  require_once '../model/account.php';
- //require_once '../model/account.php';
+ require_once '../model/product-model.php';
  //require_once '../model/account.php';
 
 
@@ -72,15 +72,14 @@ require_once '../functions.php';
          break;
  
      case 'registration':
-         $fullname = filter_input(INPUT_POST, 'fullname', FILTER_SANITIZE_STRING);
-         $email = filter_input(INPUT_POST, 'email');
-         $username = filter_input(INPUT_POST, 'username', FILTER_SANITIZE_STRING);        
-         $phonenumber = filter_input(INPUT_POST, 'phonenumber', FILTER_SANITIZE_STRING);
-         $checkEmail = checkEmail($email);
-         $password = filter_input(INPUT_POST, 'password', FILTER_SANITIZE_STRING);
-         $checkPassword = checkPassword($password);
+         
+         $clientEmail = filter_input(INPUT_POST, 'clientEmail');
+         
+       
+         $clientPassword = filter_input(INPUT_POST, 'clientPassword', FILTER_SANITIZE_STRING);
+         $checkPassword = checkPassword($clientPassword);
  
-         $CheckExistingEmail = checkEmail($email);
+         $CheckExistingEmail = checkEmail($clientEmail);
  
          // Check for existing email address in the table
          if ($CheckExistingEmail) {
@@ -90,8 +89,8 @@ require_once '../functions.php';
          }
  
          // Check for missing data
-         if (empty($fullname) || empty($username) || empty($checkEmail) || empty($checkPassword)) {
-             $message = '<p>Please provide information for all empty form fields.</p>';
+         if (empty($clientEmail) || empty($clientPassword)) {
+             $message = "<p>Please provide information for all empty form fields.</p>";
              include '../view/registration.php';
              exit;
          }
@@ -100,12 +99,16 @@ require_once '../functions.php';
          $password = password_hash($password, PASSWORD_DEFAULT);
  
          //Send the data to the model
-         $regOutcome = regVisitor($fullname, $email, $username, $password, $phonenumber);
+         $regOutcome = regVisitor($clientEmail, $password);
          // Check and report the result --- COOKIES ----
          if ($regOutcome === 1) {
-             setcookie('firstname', $firstname, strtotime('+1 year'), '/');
+             setcookie('firstname', $fullname, strtotime('+1 year'), '/');
              $message = "<p>Thanks for registering $email. Please use your email and password to login.</p>";
-             include 'view/login.php';
+             include '../view/login.php';
+             exit;
+         } else {
+             $message = "<p>Sorry $ClientFullname, but the registration failed. Please try again.</p>";
+             include '../view/registration.php';
              exit;
          }
          break;

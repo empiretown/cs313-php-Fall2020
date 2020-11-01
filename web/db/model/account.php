@@ -60,16 +60,16 @@ function getClientInfo($clientid) {
 }
 
 
-function regVisitor($fullname, $email, $username, $password, $phonenumber) {
+function regVisitor($clientEmail, $clientPassword) {
     $db = get_db();
 
-    $query = 'INSERT INTO customer (fullname, email, userName, password)
-              VALUES (:fullname, :email, :username, :password)';
+    $query = 'INSERT INTO customer (email, password)
+              VALUES (:clientEmail, :clientPassword)';
     $stmt = $db->prepare($query);
-    $stmt->bindValue(':fullname', $fullname, PDO::PARAM_STR);
-    $stmt->bindValue(':email', $email, PDO::PARAM_STR);
-    $stmt->bindValue(':password', $password, PDO::PARAM_STR);
-    $stmt->bindValue(':username', $username, PDO::PARAM_STR);
+    $stmt->bindValue(':clientEmail', $clientEmail, PDO::PARAM_STR);
+    
+    $stmt->bindValue(':clientPassword', $clientPassword, PDO::PARAM_STR);
+   
     
 
     $stmt->execute();
@@ -99,12 +99,12 @@ function passwordCheck($clientPassword) {
 
 }
 
-function checkExistingEmail($email) {
+function checkExistingEmail($clientEmailemail) {
     $db = get_db();
 
-    $query = 'SELECT email FROM customer WHERE email = :email';
+    $query = 'SELECT email FROM customer WHERE email = :clientEmail';
     $stmt = $db->prepare($query);
-    $stmt->bindValue(':email', $email, PDO::PARAM_STR);
+    $stmt->bindValue(':clientEmail', $clientEmail, PDO::PARAM_STR);
     
 
     $stmt->execute();
@@ -120,12 +120,12 @@ function checkExistingEmail($email) {
 
 }
 
-function getClient($email) {
+function getClient($clientEmail) {
     $db = get_db();
 
-    $sql = 'SELECT id,fullname,email, username, phonenumber clientLevel, password  FROM customer WHERE email = :email';
+    $sql = 'SELECT id,email, username, password  FROM customer WHERE email = :clientEmail';
     $stmt = $db->prepare($sql);
-    $stmt->bindValue(':email', $email, PDO::PARAM_STR);
+    $stmt->bindValue(':clientEmail', $email, PDO::PARAM_STR);
     
 
     $stmt->execute();
