@@ -14,15 +14,8 @@ require_once '../functions.php';
  }
  
  switch ($action) {
-     case 'login':
-        header("location: /view/login.php");
-     break;
-
-     case 'register':
-        header("location: /view/registration.php");
-     break;
-
-     
+    
+ 
  
      case 'updateClient':
          $clientFullname = filter_input(INPUT_POST, 'clientFullname', FILTER_SANITIZE_STRING);
