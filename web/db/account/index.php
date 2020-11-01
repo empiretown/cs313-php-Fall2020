@@ -112,13 +112,13 @@ require_once '../functions.php';
  
          case 'logging':
 
-            $clientEmail = filter_input(INPUT_POST, 'clientEmail', FILTER_SANITIZE_EMAIL);
-            $clientEmail = checkEmail($clientEmail);
+            $email = filter_input(INPUT_POST, 'clientEmail', FILTER_SANITIZE_EMAIL);
+            $email = checkEmail($email);
             $clientPassword = filter_input(INPUT_POST, 'clientPassword', FILTER_SANITIZE_STRING);
             $passwordCheck = checkPassword($clientPassword);
-            if(empty($_POST['clientEmail']) || empty($_POST['passwordCheck'])) {
+            if(empty($_POST['email']) || empty($_POST['passwordCheck'])) {
                 $_SESSION['message'] = '<p>Please provide the valid information</p>';
-                //include '../view/login.php';
+                //include 'view/login.php';
                 exit;
             }
 

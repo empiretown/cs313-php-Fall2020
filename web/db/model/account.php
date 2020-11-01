@@ -120,12 +120,12 @@ function checkExistingEmail($email) {
 
 }
 
-function getClient($clientEmail) {
+function getClient($email) {
     $db = get_db();
 
-    $query = 'SELECT id,fullname,email, username, phonenumber clientLevel, password  FROM customer WHERE email = :clientEmail';
-    $stmt = $db->prepare($query);
-    $stmt->bindValue(':clientEmail', $clientEmail, PDO::PARAM_STR);
+    $sql = 'SELECT id,fullname,email, username, phonenumber clientLevel, password  FROM customer WHERE email = :email';
+    $stmt = $db->prepare($sql);
+    $stmt->bindValue(':email', $email, PDO::PARAM_STR);
     
 
     $stmt->execute();
