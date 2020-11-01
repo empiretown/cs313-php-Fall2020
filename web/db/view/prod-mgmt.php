@@ -1,6 +1,6 @@
 <?php
 if ($_SESSION['clientData']['clientLevel'] == 1) {
-    header('location: /acme/');
+    header('location: /db/');
     exit;
 }
 if (isset($_SESSION['message'])) {
