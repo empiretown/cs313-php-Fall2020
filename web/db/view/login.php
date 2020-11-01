@@ -36,13 +36,13 @@
             }
         ?>
 
-        <form action="account/index.php" method="post">
+        <form action="/db/account/index.php?action=login" method="post">
             Email <br>
             <input type="email" name="email" value="" required><br> 
             Password <br>
             <input type="password" name="password"><br>
 
-        <input class="button" type="submit" value="Login">
+        <input class="buttons" type="submit" value="Login">
         <input type="hidden" name="action" value="logging">
         <br>
         <br>
