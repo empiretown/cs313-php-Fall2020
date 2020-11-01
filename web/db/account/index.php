@@ -21,7 +21,7 @@ require_once '../functions.php';
     //     include '../view/login.php';
     //  break;
 
-    /  case 'register':
+    case 'register':
     //     h/eader("location: ../view/registration.php");
     //  break;
 
