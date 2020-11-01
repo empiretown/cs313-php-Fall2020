@@ -106,8 +106,8 @@ require_once '../functions.php';
          $regOutcome = regVisitor($clientEmail, $password);
          // Check and report the result --- COOKIES ----
          if ($regOutcome === 1) {
-             setcookie('firstname', $fullname, strtotime('+1 year'), '/');
-             $message = "<p>Thanks for registering $email. Please use your email and password to login.</p>";
+             setcookie('clientEmail', $clientEmail, strtotime('+1 year'), '/');
+             echo("Thanks for registering $clientEmail. Please use your email and password to login.");
              include '../view/login.php';
              exit;
          } else {
@@ -125,9 +125,11 @@ require_once '../functions.php';
 
             $passwordCheck = checkPassword($loginPassword);
 
+            $_SESSION['loggedin'] = $clientEmail;
+
             if(empty($loginEmail)|| empty($passwordCheck)) {
-                
-                include '../view/registration.php';
+                echo("Thank you for registering on ShedMarket");
+                include '../view/category.php';
                 exit;
             }
 
@@ -152,7 +154,7 @@ require_once '../functions.php';
 
             setcookie('email', $clientData['email'], strtotime('+1 year'), '/');
 
-            $_SESSION['loggedin'] == true;
+            
             
 
             array_pop($clientData);
