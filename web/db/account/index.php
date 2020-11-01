@@ -124,7 +124,7 @@ case 'logging':
  // Run basic checks, return if errors
          if (empty($email) || empty($passwordCheck)) {
              $message = '<p class="notice">Please provide a valid email address and password.</p>';
-             include '/view/login.php';
+             include '../..view/login.php';
              exit;
          }
  
@@ -137,7 +137,7 @@ case 'logging':
  // and return to the login view
          if (!$hashCheck) {
             $_SESSION['message'] = '<p class="notice">Please check your password and try again.</p>';
-            include '/view/login.php';
+            include '../../view/login.php';
              exit;
          }
 
@@ -152,7 +152,7 @@ case 'logging':
          $_SESSION['clientData'] = $clientData;
          
  // Send them to the admin view
-    header("Location: /view/admin.php");
+    header("Location: ../../view/admin.php");
          exit;
          break;
  
