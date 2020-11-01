@@ -6,7 +6,6 @@ require_once '../functions.php';
 
  
  require_once '../model/account.php';
- //require_once '../view/login.php';
 
 //echo ("I am registered");
  $action = filter_input(INPUT_POST, 'action');
@@ -15,7 +14,9 @@ require_once '../functions.php';
  }
  
  switch ($action) {
-     
+     case 'login':
+        header("location: ../view/login.php");
+     break;
 
      case 'register':
         header("location: /view/registration.php");
@@ -84,6 +85,7 @@ require_once '../functions.php';
  
          $checkExistingEmail = checkEmail($email);
  
+         // Check for existing email address in the table
          if ($checkExistingEmail) {
              $message = '<p class="notice">That email address already exists. Do you want to login instead?</p>';
              include '../view/login.php';
@@ -100,15 +102,15 @@ require_once '../functions.php';
          // Hash the checked password
          $password = password_hash($password, PASSWORD_DEFAULT);
  
-         // Send the data to the model
-         $regOutcome = regVisitor($fullname, $email, $username, $password, $phonenumber);
-         // Check and report the result --- COOKIES ----
-         if ($regOutcome === 1) {
-             setcookie('firstname', $firstname, strtotime('+1 year'), '/');
-             $message = "<p>Thanks for registering $firstname. Please use your email and password to login.</p>";
-             include '/view/login.php';
-             exit;
-         }
+        //  // Send the data to the model
+        //  $regOutcome = regVisitor($fullname, $email, $username, $password, $phonenumber);
+        //  // Check and report the result --- COOKIES ----
+        //  if ($regOutcome === 1) {
+        //      setcookie('firstname', $firstname, strtotime('+1 year'), '/');
+        //      $message = "<p>Thanks for registering $firstname. Please use your email and password to login.</p>";
+        //      include 'view/login.php';
+        //      exit;
+        //  }
          break;
  
      case 'login':
@@ -120,7 +122,7 @@ require_once '../functions.php';
  // Run basic checks, return if errors
          if (empty($email) || empty($passwordCheck)) {
              $message = '<p class="notice">Please provide a valid email address and password.</p>';
-             include '/view/registration.php';
+             include '/view/login.php';
              exit;
          }
  
