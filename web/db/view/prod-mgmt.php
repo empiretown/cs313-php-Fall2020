@@ -40,7 +40,7 @@ if (isset($_SESSION['message'])) {
         </nav>
     </header>
         <main>
-      <form method="post" action=>
+      <form method="post" action="../product/index.php">
                 <?php
                 if (isset($message)) {
                     echo $message;
