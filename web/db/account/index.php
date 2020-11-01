@@ -115,9 +115,9 @@ require_once '../functions.php';
          }
          break;
  
-     case 'login':
+case 'login':
          $email = filter_input(INPUT_POST, 'email');
-         //$email = checkEmail($email);
+         $email = checkEmail($email);
          $password = filter_input(INPUT_POST, 'password', FILTER_SANITIZE_STRING);
          $passwordCheck = checkPassword($password);
  
@@ -128,20 +128,20 @@ require_once '../functions.php';
              exit;
          }
  
- // A valid password exists, proceed with the login process
- // Query the client data based on the email address
          $clientData = getClient($email);
- // Compare the password just submitted against
- // the hashed password for the matching client
+         if($passwordCheck){
          $hashCheck = password_verify($password, $clientData['password']);
+         }
          
  // If the hashes don't match create an error
  // and return to the login view
          if (!$hashCheck) {
-             $message = '<p class="notice">Please check your password and try again.</p>';
+            $_SESSION['message'] = '<p class="notice">Please check your password and try again.</p>';
              header("Location: /view/login.php");
              exit;
          }
+
+         setcookie('email', $clientData['email'], strtotime('+1 year'), '/');
  //A valid user exists, log them in
          $_SESSION['loggedin'] = TRUE;
  // Remove the password from the array
