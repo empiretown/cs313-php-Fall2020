@@ -118,10 +118,10 @@ require_once '../functions.php';
             $email = filter_input(INPUT_POST, 'email');
             $email = checkEmail($email);
             $password = filter_input(INPUT_POST, 'password', FILTER_SANITIZE_STRING);
-            $checkLoginPassword = checkPassword($password);
+            $password = checkPassword($password);
     
     // Run basic checks, return if errors
-            if (empty($email) || empty($checkLoginPassword)) {
+            if (empty($email) || empty($password)) {
                 $_SESSION['message'] = '<p class="notice">Please provide a valid email address and password.</p>';
                 include '../view/category.php';
                 exit;
@@ -132,7 +132,7 @@ require_once '../functions.php';
             $clientData = getClient($email);
     // Compare the password just submitted against
     // the hashed password for the matching client
-            $hashCheck = password_verify($password, $clientData['password']);
+            $hash = password_verify($password, $clientData['password']);
             
     // If the hashes don't match create an error
     // and return to the login view
