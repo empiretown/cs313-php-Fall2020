@@ -131,7 +131,15 @@ require_once '../functions.php';
                     include '../view/login.php';
                     exit;
             
-                }
+            }
+
+            if (isset($_COOKIE['email'])) {
+                setcookie('email', "", time() -3600, '/');
+            }
+
+            setcookie('email', $clientData['email'], strtotime('+1 year'), '/')
+
+
 
 //          $email = filter_input(INPUT_POST, 'email');
 //          $email = checkEmail($email);
