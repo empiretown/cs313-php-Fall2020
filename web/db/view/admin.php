@@ -11,7 +11,7 @@
 </head>
 
 <body>
-div class="wrapper">
+<div class="wrapper">
         <div id="top-header">
             <a class="logo" href="../../db/view/home.php"><img  class="large-logo" src="../../db/images/shed.png" alt=""></a>
             <div class="small-logo">
@@ -62,7 +62,7 @@ div class="wrapper">
     <footer>
         <hr>
         <br />
-        <p>&copy; 2018 speedxcars.com<p>
+        <p>&copy; 2020 ShedMarket.com<p>
         <br />
     </footer>
     <script src="../js/car.js">
