@@ -112,7 +112,7 @@ require_once '../functions.php';
             
     
          $email = filter_input(INPUT_POST, 'email');
-         $email = checkEEmail($email);
+         $email = checkEmail($email);
          $password = filter_input(INPUT_POST, 'password', FILTER_SANITIZE_STRING);
          $passwordCheck = checkPassword($password);
  
