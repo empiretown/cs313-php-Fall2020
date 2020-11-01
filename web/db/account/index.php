@@ -118,15 +118,14 @@ require_once '../functions.php';
             $email = filter_input(INPUT_POST, 'email');
             $email = checkEmail($email);
             $password = filter_input(INPUT_POST, 'password', FILTER_SANITIZE_STRING);
-            
-            //$loginPassword = checkPassword($password);
+            $password = checkPassword($password);
     
     // Run basic checks, return if errors
-            // if (empty($email)) {
-            //     $_SESSION['message'] = '<p class="notice">Please provide a valid email address.</p>';
-            //     include '../view/registration.php';
-            //     exit;
-            // }
+            if (empty($email) || empty($password)) {
+                $_SESSION['message'] = '<p class="notice">Please provide a valid email address and password.</p>';
+                include '../view/registration.php';
+                exit;
+            }
     
     // A valid password exists, proceed with the login process
     // Query the client data based on the email address
