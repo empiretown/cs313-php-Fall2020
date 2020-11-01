@@ -101,13 +101,13 @@ require_once '../functions.php';
          }
  
          // Hash the checked password
-         $password = password_hash($password, PASSWORD_DEFAULT);
+         $clientPassword = password_hash($password, PASSWORD_DEFAULT);
  
         
-         $regOutcome = regVisitor($fullname, $email, $username, $password, $phonenumber);
+         $regOutcome = regVisitor($fullname, $email, $username, $clientPassword, $phonenumber);
          // Check and report the result --- COOKIES ----
          if ($regOutcome === 1) {
-             setcookie('firstname', $firstname, strtotime('+1 year'), '/');
+             setcookie('firstname', $email, strtotime('+1 year'), '/');
              $message = "<p>Thanks for registering $firstname. Please use your email and password to login.</p>";
              include 'view/login.php';
              exit;
@@ -118,10 +118,10 @@ require_once '../functions.php';
             $email = filter_input(INPUT_POST, 'email');
             $email = checkEmail($email);
             $password = filter_input(INPUT_POST, 'password', FILTER_SANITIZE_STRING);
-            $checkPassword = checkPassword($password);
+            $loginPassword = checkPassword($password);
     
     // Run basic checks, return if errors
-            if (empty($email) || empty($checkPassword)) {
+            if (empty($email) || empty($lPassword)) {
                 $_SESSION['message'] = '<p class="notice">Please provide a valid email address and password.</p>';
                 include '../view/registration.php';
                 exit;
