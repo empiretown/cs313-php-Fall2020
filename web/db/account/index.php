@@ -117,8 +117,7 @@ require_once '../functions.php';
             $clientPassword = filter_input(INPUT_POST, 'clientPassword', FILTER_SANITIZE_STRING);
             $passwordCheck = checkPassword($clientPassword);
             if(empty($_POST['email']) || empty($_POST['passwordCheck'])) {
-                echo ("Welcome");
-                include '../view/category.php';
+                include '../view/home.php';
                 die;
             }
 
