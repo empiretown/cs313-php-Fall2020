@@ -81,6 +81,26 @@ function regVisitor($fullname, $email, $username, $password, $phonenumber) {
 
 }
 
+function passwordCheck($password) {
+    $db = get_db();
+
+    $query = 'SELECT password FROM customer WHERE password = :password';
+    $stmt = $db->prepare($query);
+    $stmt->bindValue(':password', $password, PDO::PARAM_STR);
+    
+
+    $stmt->execute();
+    $matchPassword = $stmt->fetch(PDO::FETCH_NUM);
+
+    $stmt->closeCursor();
+
+   if(empty($matchPassword)) {
+       return 0;
+   } else {
+       return 1;
+   }
+}
+
 function checkExistingEmail($email) {
     $db = get_db();
 
