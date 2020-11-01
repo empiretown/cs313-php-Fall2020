@@ -123,7 +123,7 @@ require_once '../functions.php';
     // Run basic checks, return if errors
             if (empty($email) || empty($passwordCheck)) {
                 $_SESSION['message'] = '<p class="notice">Please provide a valid email address and password.</p>';
-                include '../view/products.php';
+                include '../view/category.php';
                 exit;
             }
     
