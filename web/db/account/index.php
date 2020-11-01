@@ -122,7 +122,7 @@ require_once '../functions.php';
  // Run basic checks, return if errors
          if (empty($email) || empty($passwordCheck)) {
              $message = '<p class="notice">Please provide a valid email address and password.</p>';
-             include '../view/login.php';
+             include '/view/login.php';
              exit;
          }
  
@@ -137,7 +137,7 @@ require_once '../functions.php';
  // and return to the login view
          if (!$hashCheck) {
              $message = '<p class="notice">Please check your password and try again.</p>';
-             include '../view/login.php';
+             include '/view/login.php';
              exit;
          }
  //A valid user exists, log them in
