@@ -16,10 +16,7 @@ require_once '../functions.php';
  }
  
  switch ($action) {
-     case 'login':
-
-        include '../view/admin.php';
-     break;
+    
 
      case 'register':
         header("location: ../view/registration.php");
@@ -121,7 +118,7 @@ require_once '../functions.php';
             $passwordCheck = checkPassword($clientPassword);
             if(empty($clientEmail) || empty($passwordCheck )) {
                 $_SESSION['message'] = '<p>Please provide the valid information</p>';
-                include '../view/registration.php';
+                include '../view/product.php';
                 exit;
             }
 
@@ -129,6 +126,12 @@ require_once '../functions.php';
             $clientData = getClient($clientEmail);
 
             $hashCheck = password_verify($password, $clientData['password']);
+
+            if (!$hashCheck) {
+                     $message = '<p class="notice">Please check your password and try again.</p>';
+                    include '../view/login.php';
+                    exit;
+            }
 //          $email = filter_input(INPUT_POST, 'email');
 //          $email = checkEmail($email);
 //          $password = filter_input(INPUT_POST, 'password', FILTER_SANITIZE_STRING);
@@ -150,11 +153,7 @@ require_once '../functions.php';
          
 //  // If the hashes don't match create an error
 //  // and return to the login view
-//          if (!$hashCheck) {
-//              $message = '<p class="notice">Please check your password and try again.</p>';
-//              include '../view/login.php';
-//              exit;
-//          }
+//          
 //  //A valid user exists, log them in
 //          $_SESSION['loggedin'] = TRUE;
 //  // Remove the password from the array
