@@ -112,7 +112,7 @@ require_once '../functions.php';
  
          case 'logging':
 
-            $email = filter_input(INPUT_POST, 'clientEmail', FILTER_SANITIZE_EMAIL);
+            $email = filter_input(INPUT_POST, 'email', FILTER_SANITIZE_EMAIL);
             $email = checkEmail($email);
             $clientPassword = filter_input(INPUT_POST, 'clientPassword', FILTER_SANITIZE_STRING);
             $passwordCheck = checkPassword($clientPassword);
@@ -133,6 +133,7 @@ require_once '../functions.php';
                     exit;
             
                 }
+
 //          $email = filter_input(INPUT_POST, 'email');
 //          $email = checkEmail($email);
 //          $password = filter_input(INPUT_POST, 'password', FILTER_SANITIZE_STRING);
