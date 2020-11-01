@@ -21,9 +21,9 @@ require_once '../functions.php';
         include '../view/login.php';
      break;
 
-     case 'register':
-        header("location: ../view/registration.php");
-     break;
+    //  case 'register':
+    //     header("location: ../view/registration.php");
+    //  break;
 
      case 'logging':
         $email = filter_input(INPUT_POST, 'email');
@@ -33,7 +33,7 @@ require_once '../functions.php';
 // Run basic checks, return if errors
         if (empty($email) || empty($passwordCheck)) {
             $_SESSION['message'] = '<p class="notice">Please provide a valid email address and password.</p>';
-            header ("Location: ../view/registration.php");
+            header ("Location: ../view/login.php");
             exit;
         }
 
