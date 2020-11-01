@@ -63,7 +63,7 @@ function getClientInfo($clientid) {
 function regVisitor($fullname, $email, $username, $password, $phonenumber) {
     $db = get_db();
 
-    $query = 'INSERT INTO (customerName, email, userName, password)
+    $query = 'INSERT INTO customer (fullname, email, userName, password)
               VALUES (:fullname, :email, :username, :password)';
     $stmt = $db->prepare($query);
     $stmt->bindValue(':fullname', $fullname, PDO::PARAM_STR);
