@@ -8,7 +8,7 @@ require_once '../connect-db.php';
 // Get the functions library
 require_once '../functions.php';
 
-require_once '../model/accounts';
+require_once '../model/account.php';
 // Get the accounts model
 //require_once '../model/accounts-model.php';
 // Get the products model
