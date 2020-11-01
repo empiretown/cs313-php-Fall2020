@@ -81,12 +81,12 @@ function regVisitor($fullname, $email, $username, $password, $phonenumber) {
 
 }
 
-function passwordCheck($password) {
+function passwordCheck($clientPassword) {
     $db = get_db();
 
-    $query = 'SELECT password FROM customer WHERE password = :password';
+    $query = 'SELECT password FROM customer WHERE password = :clientPassword';
     $stmt = $db->prepare($query);
-    $stmt->bindValue(':password', $password, PDO::PARAM_STR);
+    $stmt->bindValue(':clientPassword', $clientPassword, PDO::PARAM_STR);
     
 
     $$stmt->execute();
