@@ -6,7 +6,7 @@ require_once '../functions.php';
 
  
  require_once '../model/account.php';
- //require_once '../view/login.php';
+ require_once '../view/login.php';
 
 //echo ("I am registered");
  $action = filter_input(INPUT_POST, 'action');
@@ -67,7 +67,7 @@ require_once '../functions.php';
          if (count($clientInfo) < 1) {
              $message = 'Sorry, your information could be found.';
          }
-         include '/db/view/client-update.php';
+         include '../view/client-update.php';
          exit;
          break;
  
@@ -84,10 +84,9 @@ require_once '../functions.php';
  
          $checkExistingEmail = checkEmail($email);
  
-         //Check for existing email address in the table
          if ($checkExistingEmail) {
              $message = '<p class="notice">That email address already exists. Do you want to login instead?</p>';
-             header("Location: https://infinite-wave-95292.herokuapp.com/db/view/login.php");
+             include '../view/login.php';
              exit;
          }
  
@@ -107,7 +106,7 @@ require_once '../functions.php';
          if ($regOutcome === 1) {
              setcookie('firstname', $firstname, strtotime('+1 year'), '/');
              $message = "<p>Thanks for registering $firstname. Please use your email and password to login.</p>";
-             header("Location: https://infinite-wave-95292.herokuapp.com/db/view/login.php");           
+             include '/view/login.php';
              exit;
          }
          break;
@@ -136,7 +135,7 @@ require_once '../functions.php';
  // and return to the login view
          if (!$hashCheck) {
              $message = '<p class="notice">Please check your password and try again.</p>';
-             header("Location: https://infinite-wave-95292.herokuapp.com/db/view/login.php");
+             include '/view/login.php';
              exit;
          }
  //A valid user exists, log them in
@@ -149,7 +148,7 @@ require_once '../functions.php';
          $_SESSION['clientData'] = $clientData;
          
  // Send them to the admin view
-         include '/view/admin.php';
+         include '../view/admin.php';
          exit;
          break;
  
