@@ -19,7 +19,7 @@ require_once '../functions.php';
      break;
 
      case 'register':
-        header("location: ../view/registration.php");
+        header("location: zz/view/registration.php");
      break;
 
      
@@ -106,7 +106,7 @@ require_once '../functions.php';
          if ($regOutcome === 1) {
              setcookie('firstname', $firstname, strtotime('+1 year'), '/');
              $message = "<p>Thanks for registering $firstname. Please use your email and password to login.</p>";
-             include '../view/login.php';
+             include 'view/login.php';
              exit;
          }
          break;
@@ -120,7 +120,7 @@ require_once '../functions.php';
  // Run basic checks, return if errors
          if (empty($email) || empty($passwordCheck)) {
              $message = '<p class="notice">Please provide a valid email address and password.</p>';
-             include '../view/login.php';
+             include '../view/registration.php';
              exit;
          }
  
