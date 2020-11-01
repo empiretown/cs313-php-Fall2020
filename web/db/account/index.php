@@ -117,13 +117,12 @@ require_once '../functions.php';
             $clientPassword = filter_input(INPUT_POST, 'clientPassword', FILTER_SANITIZE_STRING);
             $passwordCheck = checkPassword($clientPassword);
             if(empty($_POST['email']) || empty($_POST['passwordCheck'])) {
-                $_SESSION['message'] = '<p>Please provide the valid information</p>';
-                include '../view/login.php';
-                exit;
+                echo ("Welcome");
+                die;
             }
 
 
-            $clientData = getClient($clientEmail);
+            $clientData = getClient($email);
 
             $hashCheck = password_verify($password, $clientData['password']);
 
