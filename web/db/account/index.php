@@ -152,7 +152,7 @@ require_once '../functions.php';
          $_SESSION['clientData'] = $clientData;
          
  // Send them to the admin view
- header("Location: /view/admin.php");;
+ header("Location: ../view/admin.php");;
          exit;
          break;
  
