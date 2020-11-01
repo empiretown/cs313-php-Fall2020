@@ -49,7 +49,7 @@
                     <li>User Lever: //<?php // echo $_SESSION['clientData']['clientLevel'];  ?></li>-->
             </ul>
 
-            <a href='/db/account/index.php?action=mod&email title="Click to modify the Client Information"'>Click to modify your Information</a>
+            <a href='account/index.php?action=mod&email title="Click to modify the Client Information"'>Click to modify your Information</a>
 
             <?php
             if ($_SESSION['clientData']['clientLevel'] > 2) {

@@ -67,7 +67,7 @@ require_once '../functions.php';
          if (count($clientInfo) < 1) {
              $message = 'Sorry, your information could be found.';
          }
-         include '../view/client-update.php';
+         include '/db/view/client-update.php';
          exit;
          break;
  
@@ -84,12 +84,12 @@ require_once '../functions.php';
  
          $checkExistingEmail = checkEmail($email);
  
-         // Check for existing email address in the table
-        //  if ($checkExistingEmail) {
-        //      $message = '<p class="notice">That email address already exists. Do you want to login instead?</p>';
-        //      include '../view/login.php';
-        //      exit;
-        //  }
+         //Check for existing email address in the table
+         if ($checkExistingEmail) {
+             $message = '<p class="notice">That email address already exists. Do you want to login instead?</p>';
+             include '/db/view/login.php';
+             exit;
+         }
  
          // Check for missing data
          if (empty($fullname) || empty($username) || empty($checkEmail) || empty($checkPassword)) {
@@ -107,7 +107,7 @@ require_once '../functions.php';
          if ($regOutcome === 1) {
              setcookie('firstname', $firstname, strtotime('+1 year'), '/');
              $message = "<p>Thanks for registering $firstname. Please use your email and password to login.</p>";
-             include '/view/login.php';
+             include '/db/view/login.php';
              exit;
          }
          break;
@@ -136,7 +136,7 @@ require_once '../functions.php';
  // and return to the login view
          if (!$hashCheck) {
              $message = '<p class="notice">Please check your password and try again.</p>';
-             include '/view/login.php';
+             include '/db/view/login.php';
              exit;
          }
  //A valid user exists, log them in
