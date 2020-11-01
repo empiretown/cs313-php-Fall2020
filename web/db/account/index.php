@@ -118,10 +118,10 @@ require_once '../functions.php';
             $email = filter_input(INPUT_POST, 'email');
             $email = checkEmail($email);
             $password = filter_input(INPUT_POST, 'password', FILTER_SANITIZE_STRING);
-            $checkPassword = checkPassword($password);
+            $checkLoginPassword = checkPassword($password);
     
     // Run basic checks, return if errors
-            if (empty($email) || empty($password)) {
+            if (empty($email) || empty($checkLoginPassword)) {
                 $_SESSION['message'] = '<p class="notice">Please provide a valid email address and password.</p>';
                 include '../view/category.php';
                 exit;
