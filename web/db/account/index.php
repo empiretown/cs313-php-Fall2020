@@ -127,7 +127,7 @@ require_once '../functions.php';
 
             $clientData = getClient($clientEmail);
 
-            //$hashCheck = password_verify($password, $clientData['password']);
+            $hashCheck = password_verify($password, $clientData['password']);
 //          $email = filter_input(INPUT_POST, 'email');
 //          $email = checkEmail($email);
 //          $password = filter_input(INPUT_POST, 'password', FILTER_SANITIZE_STRING);
