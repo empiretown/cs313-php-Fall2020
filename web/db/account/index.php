@@ -109,7 +109,7 @@ echo ("I am registered");
          break;
  
     case 'login':
-            header("Location: ../view/login.php");
+            //header("Location: ../view/login.php");
     
          $email = filter_input(INPUT_POST, 'email', FILTER_SANITIZE_EMAIL);
          $email = checkEEmail($email);
