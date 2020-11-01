@@ -16,13 +16,13 @@ require_once '../functions.php';
  }
  
  switch ($action) {
-     case 'login':
+    //  case 'login':
 
-        include '../view/login.php';
-     break;
+    //     include '../view/login.php';
+    //  break;
 
-    //  case 'register':
-    //     header("location: ../view/registration.php");
+    /  case 'register':
+    //     h/eader("location: ../view/registration.php");
     //  break;
 
      case 'logging':
