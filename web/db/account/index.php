@@ -110,7 +110,7 @@ require_once '../functions.php';
          if ($regOutcome === 1) {
              setcookie('firstname', $firstname, strtotime('+1 year'), '/');
              $message = "<p>Thanks for registering $firstname. Please use your email and password to login.</p>";
-            include '/view/login.php';
+            include '../../db/view/login.php';
              exit;
          }
          break;
@@ -124,7 +124,7 @@ require_once '../functions.php';
  // Run basic checks, return if errors
          if (empty($email) || empty($passwordCheck)) {
              $message = '<p class="notice">Please provide a valid email address and password.</p>';
-             include '/view/login.php';
+             include '../../db/view/login.php';
              exit;
          }
  
@@ -137,7 +137,7 @@ require_once '../functions.php';
  // and return to the login view
          if (!$hashCheck) {
             $_SESSION['message'] = '<p class="notice">Please check your password and try again.</p>';
-            include '/view/login.php';
+            include '../../db/view/login.php';
              exit;
          }
 
@@ -152,7 +152,7 @@ require_once '../functions.php';
          $_SESSION['clientData'] = $clientData;
          
  // Send them to the admin view
-      header("Location: /view/admin.php");
+      include '../../db/view/admin.php';
          exit;
          break;
  
