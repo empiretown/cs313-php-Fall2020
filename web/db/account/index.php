@@ -18,7 +18,7 @@ require_once '../functions.php';
  switch ($action) {
      case 'login':
 
-        //include '../view/login.php';
+        include '../view/admin.php';
      break;
 
      case 'register':
