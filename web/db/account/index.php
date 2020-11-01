@@ -15,7 +15,7 @@ require_once '../functions.php';
  
  switch ($action) {
      case 'login':
-        header("location: ../view/login.php");
+        header("location: ../view/admin.php");
      break;
 
      case 'register':
