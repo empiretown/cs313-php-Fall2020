@@ -14,7 +14,7 @@ require_once '../functions.php';
  }
  
  switch ($action) {
-     case 'login':
+     case 'logging':
         header("location: /view/login.php");
      break;
 
@@ -113,7 +113,7 @@ require_once '../functions.php';
         //  }
          break;
  
-     case 'login':
+     case 'logging':
          $email = filter_input(INPUT_POST, 'email');
          $email = checkEmail($email);
          $password = filter_input(INPUT_POST, 'password', FILTER_SANITIZE_STRING);
