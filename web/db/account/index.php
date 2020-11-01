@@ -115,7 +115,7 @@ require_once '../functions.php';
  
          case 'logging':
 
-            $email = filter_input(INPUT_POST, 'email');
+            $clientEmail = filter_input(INPUT_POST, 'clientEmail');
             $password = filter_input(INPUT_POST, 'password');
 
             if(empty($email) || empty($password)) {
@@ -125,7 +125,7 @@ require_once '../functions.php';
             }
 
 
-            $clientData = getClient($email);
+            $clientData = getClient($clientEmail);
 
             //$hashCheck = password_verify($password, $clientData['password']);
 //          $email = filter_input(INPUT_POST, 'email');
