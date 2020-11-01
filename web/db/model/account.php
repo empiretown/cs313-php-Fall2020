@@ -89,16 +89,14 @@ function passwordCheck($password) {
     $stmt->bindValue(':password', $password, PDO::PARAM_STR);
     
 
-    $stmt->execute();
-    $matchPassword = $stmt->fetch(PDO::FETCH_NUM);
+    $$stmt->execute();
+    $rowsChanged = $stmt->rowCount();
 
     $stmt->closeCursor();
 
-   if(empty($matchPassword)) {
-       return 0;
-   } else {
-       return 1;
-   }
+    return rowChanged();
+
+
 }
 
 function checkExistingEmail($email) {
