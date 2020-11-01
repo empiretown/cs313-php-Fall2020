@@ -9,13 +9,13 @@ require_once '../functions.php';
 
 
  
-//echo ("I am registered");
+echo ("I am registered");
 //  $action = filter_input(INPUT_POST, 'action');
 //  if ($action == NULL) {
 //      $action = filter_input(INPUT_GET, 'action');
 //  }
  
- switch ($action) {
+//  switch ($action) {
     
  
  
@@ -108,18 +108,11 @@ require_once '../functions.php';
 //          }
 //          break;
  
-     case 'login':
-            if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
+    // case 'login':
             
-                echo "Welcome to the member's area, " . $_SESSION['username'] . "!";
-                include '../view/login.php';
-
-            } else {
-                echo "Please log in first to see this page.";
-            }
     
 //          $email = filter_input(INPUT_POST, 'email');
-//          $email = checkEmail($email);
+//          $email = checkEEmail($email);
 //          $password = filter_input(INPUT_POST, 'password', FILTER_SANITIZE_STRING);
 //          $passwordCheck = checkPassword($password);
  
@@ -162,5 +155,5 @@ require_once '../functions.php';
 //          session_destroy();
 //          header('Location: ../index.php');
 //          exit;
- }
+//  }
 ?>
