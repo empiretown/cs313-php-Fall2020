@@ -116,7 +116,7 @@ require_once '../functions.php';
 
          case 'logging':
             $email = filter_input(INPUT_POST, 'email');
-            $email = checkEmail($email);
+            //$email = checkEmail($email);
             $password = filter_input(INPUT_POST, 'password', FILTER_SANITIZE_STRING);
             $checkPassword = checkPassword($password);
     
