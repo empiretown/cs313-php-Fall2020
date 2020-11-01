@@ -24,6 +24,12 @@
     <header class="header">
         <nav class="header-nav" role="navigation">
             <div class="header-nav-brand"></div>
+            <!--<ul class="header-nav-list">
+                    <li><a href="#">Grains</a></li>
+                    <li><a href="#">Home products</a></li>
+                    <li><a href="#">Friuts/a></li>
+                    <li><a href="#">Frozen Foods</a></li>
+                </ul>-->
             <ul class="header-nav-list">
                 <?php echo $navlist; ?>
             </ul>
@@ -43,7 +49,7 @@
     <footer>
         <hr>
         <br />
-        <p>&copy; 2018 speedxcars.com<p>
+        <p>&copy; 2020 SHEDMARKET.com<p>
                 <br />
     </footer>
     <script src="../js/car.js">
