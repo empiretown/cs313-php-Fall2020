@@ -16,13 +16,13 @@ require_once '../functions.php';
  }
  
  switch ($action) {
-     case 'login':
-        header("location: /view/login.php");
-     break;
+    //  case 'login':
+    //     header("location: /view/login.php");
+    //  break;
 
-     case 'register':
-        header("location: /view/registration.php");
-     break;
+    //  case 'register':
+    //     header("location: /view/registration.php");
+    //  break;
 
      
  
@@ -90,7 +90,7 @@ require_once '../functions.php';
          // Check for existing email address in the table
          if ($checkExistingEmail) {
              $message = '<p class="notice">That email address already exists. Do you want to login instead?</p>';
-             include '../view/login.php';
+             include 'db/view/login.php';
              exit;
          }
  
