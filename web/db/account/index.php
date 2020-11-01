@@ -118,7 +118,7 @@ require_once '../functions.php';
             $passwordCheck = checkPassword($clientPassword);
             if(empty($_POST['email']) || empty($_POST['passwordCheck'])) {
                 $_SESSION['message'] = '<p>Please provide the valid information</p>';
-                //include 'view/login.php';
+                include 'view/login.php';
                 exit;
             }
 
