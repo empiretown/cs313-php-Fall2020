@@ -14,8 +14,15 @@ require_once '../functions.php';
  }
  
  switch ($action) {
-    
- 
+     case 'login':
+        header("location: /view/login.php");
+     break;
+
+     case 'register':
+        header("location: /view/registration.php");
+     break;
+
+     
  
      case 'updateClient':
          $clientFullname = filter_input(INPUT_POST, 'clientFullname', FILTER_SANITIZE_STRING);
@@ -95,15 +102,15 @@ require_once '../functions.php';
          // Hash the checked password
          $password = password_hash($password, PASSWORD_DEFAULT);
  
-         // Send the data to the model
-         $regOutcome = regVisitor($fullname, $email, $username, $password, $phonenumber);
-         // Check and report the result --- COOKIES ----
-         if ($regOutcome === 1) {
-             setcookie('firstname', $firstname, strtotime('+1 year'), '/');
-             $message = "<p>Thanks for registering $firstname. Please use your email and password to login.</p>";
-             include '../view/login.php';
-             exit;
-         }
+        //  // Send the data to the model
+        //  $regOutcome = regVisitor($fullname, $email, $username, $password, $phonenumber);
+        //  // Check and report the result --- COOKIES ----
+        //  if ($regOutcome === 1) {
+        //      setcookie('firstname', $firstname, strtotime('+1 year'), '/');
+        //      $message = "<p>Thanks for registering $firstname. Please use your email and password to login.</p>";
+        //      include 'view/login.php';
+        //      exit;
+        //  }
          break;
  
      case 'login':
@@ -115,7 +122,7 @@ require_once '../functions.php';
  // Run basic checks, return if errors
          if (empty($email) || empty($passwordCheck)) {
              $message = '<p class="notice">Please provide a valid email address and password.</p>';
-             include '../view/login.php';
+             include '/view/login.php';
              exit;
          }
  
@@ -138,9 +145,9 @@ require_once '../functions.php';
  // Remove the password from the array
  // the array_pop function removes the last
  // element from an array
-         array_pop($clientData);
- // Store the array into the session
-         $_SESSION['clientData'] = $clientData;
+//          array_pop($clientData);
+//  // Store the array into the session
+//          $_SESSION['clientData'] = $clientData;
          
  // Send them to the admin view
          include '../view/admin.php';
