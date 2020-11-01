@@ -43,7 +43,7 @@
             <input type="password" name="password"><br>
 
         <input class="button" type="submit" value="Login">
-        <input type="hidden" name="action" value="login">
+        <input type="hidden" name="action" value="logging">
         <br>
         <br>
         <p class="negrita">Not a member?</p>
