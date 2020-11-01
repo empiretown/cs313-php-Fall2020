@@ -115,13 +115,14 @@ require_once '../functions.php';
  
      case 'logging':
          $email = filter_input(INPUT_POST, 'email');
+         $email = checkEmail($email);
          $password = filter_input(INPUT_POST, 'password', FILTER_SANITIZE_STRING);
          $passwordCheck = checkPassword($password);
  
  // Run basic checks, return if errors
          if (empty($email) || empty($passwordCheck)) {
-             $_SESSION['message'] = '<p class="notice">Please provide a valid email address and password.</p>';
-             header ("Location: ..view/registration.php");
+             $message = '<p class="notice">Please provide a valid email address and password.</p>';
+             include '../view/login.php';
              exit;
          }
  
@@ -135,13 +136,10 @@ require_once '../functions.php';
  // If the hashes don't match create an error
  // and return to the login view
          if (!$hashCheck) {
-            $_SESSION['message'] = '<p class="notice">Please check your password and try again.</p>';
-             header("Location: ../view/login.php");
+             $message = '<p class="notice">Please check your password and try again.</p>';
+             include '../view/login.php';
              exit;
          }
-         if(isset($_COOKIE['email'])) {
-            setcookie('email', "", time() -3600, '/');
-          }
  //A valid user exists, log them in
          $_SESSION['loggedin'] = TRUE;
  // Remove the password from the array
@@ -152,7 +150,7 @@ require_once '../functions.php';
          $_SESSION['clientData'] = $clientData;
          
  // Send them to the admin view
-         header('Location: ../view/admin.php');
+         include '../view/admin.php';
          exit;
          break;
  
