@@ -118,9 +118,9 @@ require_once '../functions.php';
             $clientEmail = filter_input(INPUT_POST, 'clientEmail');
             $password = filter_input(INPUT_POST, 'password');
 
-            if(empty($email) || empty($password)) {
+            if(empty($clientEmail) || empty($password)) {
                 $_SESSION['message'] = '<p>Please provide the valid information</p>';
-                include '../view/login.php';
+                //include '../view/login.php';
                 exit;
             }
 
