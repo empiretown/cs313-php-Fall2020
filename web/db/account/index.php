@@ -9,7 +9,7 @@ require_once '../functions.php';
 
 
  
-echo ("I am registered");
+//echo ("I am registered");
  $action = filter_input(INPUT_POST, 'action');
  if ($action == NULL) {
      $action = filter_input(INPUT_GET, 'action');
