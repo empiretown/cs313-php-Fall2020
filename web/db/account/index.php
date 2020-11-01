@@ -118,7 +118,8 @@ require_once '../functions.php';
             $email = filter_input(INPUT_POST, 'email');
             $email = checkEmail($email);
             $password = filter_input(INPUT_POST, 'password', FILTER_SANITIZE_STRING);
-            $loginPassword = checkPassword($password);
+            
+            //$loginPassword = checkPassword($password);
     
     // Run basic checks, return if errors
             // if (empty($email)) {
