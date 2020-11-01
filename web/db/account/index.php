@@ -121,11 +121,11 @@ require_once '../functions.php';
             $loginPassword = checkPassword($password);
     
     // Run basic checks, return if errors
-            if (empty($email) || empty($loginPassword)) {
-                $_SESSION['message'] = '<p class="notice">Please provide a valid email address and password.</p>';
-                include '../view/registration.php';
-                exit;
-            }
+            // if (empty($email)) {
+            //     $_SESSION['message'] = '<p class="notice">Please provide a valid email address.</p>';
+            //     include '../view/registration.php';
+            //     exit;
+            // }
     
     // A valid password exists, proceed with the login process
     // Query the client data based on the email address
