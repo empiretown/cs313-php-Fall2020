@@ -101,7 +101,7 @@ require_once '../functions.php';
          }
  
          // Hash the checked password
-         $password = password_hash($password, PASSWORD_DEFAULT);
+         $hashPassword= password_hash($password, PASSWORD_DEFAULT);
  
         
          $regOutcome = regVisitor($fullname, $email, $username, $password, $phonenumber);
