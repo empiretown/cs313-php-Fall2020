@@ -149,7 +149,7 @@ echo ("I am registered");
 //  // Send them to the admin view
 //          include '../view/admin.php';
 //          exit;
-         break;
+         //break;
  
 //      case 'logout':
 //          session_destroy();
