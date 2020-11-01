@@ -137,11 +137,11 @@ require_once '../functions.php';
  // and return to the login view
          if (!$hashCheck) {
              $message = '<p class="notice">Please check your password and try again.</p>';
-             include '/view/login.php';
+             include '../view/login.php';
              exit;
          }
  //A valid user exists, log them in
-         $_SESSION['loggedin'] = TRUE;
+         $_SESSION['login'] = TRUE;
  // Remove the password from the array
  // the array_pop function removes the last
  // element from an array
