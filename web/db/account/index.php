@@ -33,7 +33,7 @@ require_once '../functions.php';
 // Run basic checks, return if errors
         if (empty($email) || empty($passwordCheck)) {
             $_SESSION['message'] = '<p class="notice">Please provide a valid email address and password.</p>';
-            header ("Location: ..view/registration.php");
+            header ("Location: ../view/registration.php");
             exit;
         }
 
