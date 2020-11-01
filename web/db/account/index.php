@@ -121,9 +121,9 @@ require_once '../functions.php';
             $checkPassword = checkPassword($password);
     
     // Run basic checks, return if errors
-            if (empty($email) || empty($passwordCheck)) {
+            if (empty($email) || empty($checkPassword)) {
                 $_SESSION['message'] = '<p class="notice">Please provide a valid email address and password.</p>';
-                include '../view/login.php';
+                include '../view/registration.php';
                 exit;
             }
     
