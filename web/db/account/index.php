@@ -18,55 +18,12 @@ require_once '../functions.php';
  switch ($action) {
      case 'login':
 
-        include '../view/login.php';
+        include '../view/admin.php';
      break;
 
      case 'register':
         header("location: ../view/registration.php");
      break;
-
-     case 'logging':
-        $email = filter_input(INPUT_POST, 'email');
-        $password = filter_input(INPUT_POST, 'password', FILTER_SANITIZE_STRING);
-        $passwordCheck = checkPassword($password);
-
-// Run basic checks, return if errors
-        if (empty($email) || empty($passwordCheck)) {
-            $_SESSION['message'] = '<p class="notice">Please provide a valid email address and password.</p>';
-            header ("Location: ..view/registration.php");
-            exit;
-        }
-
-// A valid password exists, proceed with the login process
-// Query the client data based on the email address
-        $clientData = getClient($email);
-// Compare the password just submitted against
-// the hashed password for the matching client
-        $hashCheck = password_verify($password, $clientData['password']);
-        
-// If the hashes don't match create an error
-// and return to the login view
-        if (!$hashCheck) {
-           $_SESSION['message'] = '<p class="notice">Please check your password and try again.</p>';
-            header("Location: ../view/login.php");
-            exit;
-        }
-        if(isset($_COOKIE['email'])) {
-           setcookie('email', "", time() -3600, '/');
-         }
-//A valid user exists, log them in
-        $_SESSION['loggedin'] = TRUE;
-// Remove the password from the array
-// the array_pop function removes the last
-// element from an array
-        array_pop($clientData);
-// Store the array into the session
-        $_SESSION['clientData'] = $clientData;
-        
-// Send them to the admin view
-        header('Location: ../view/admin.php');
-        exit;
-        break;
      
  
      case 'updateClient':
@@ -156,7 +113,48 @@ require_once '../functions.php';
         //  }
          break;
  
-     
+     case 'logging':
+         $email = filter_input(INPUT_POST, 'email');
+         $password = filter_input(INPUT_POST, 'password', FILTER_SANITIZE_STRING);
+         $passwordCheck = checkPassword($password);
+ 
+ // Run basic checks, return if errors
+         if (empty($email) || empty($passwordCheck)) {
+             $_SESSION['message'] = '<p class="notice">Please provide a valid email address and password.</p>';
+             header ("Location: ..view/registration.php");
+             exit;
+         }
+ 
+ // A valid password exists, proceed with the login process
+ // Query the client data based on the email address
+         $clientData = getClient($email);
+ // Compare the password just submitted against
+ // the hashed password for the matching client
+         $hashCheck = password_verify($password, $clientData['password']);
+         
+ // If the hashes don't match create an error
+ // and return to the login view
+         if (!$hashCheck) {
+            $_SESSION['message'] = '<p class="notice">Please check your password and try again.</p>';
+             header("Location: ../view/login.php");
+             exit;
+         }
+         if(isset($_COOKIE['email'])) {
+            setcookie('email', "", time() -3600, '/');
+          }
+ //A valid user exists, log them in
+         $_SESSION['loggedin'] = TRUE;
+ // Remove the password from the array
+ // the array_pop function removes the last
+ // element from an array
+         array_pop($clientData);
+ // Store the array into the session
+         $_SESSION['clientData'] = $clientData;
+         
+ // Send them to the admin view
+         header('Location: ../view/admin.php');
+         exit;
+         break;
  
      case 'logout':
          session_destroy();
