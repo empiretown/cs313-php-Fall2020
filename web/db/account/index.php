@@ -4,15 +4,15 @@
 session_start();
 
 //Accounts Controller
-require_once '../library/connections.php';
+require_once '../connect-db.php';
 // Get the functions library
-require_once '../library/functions.php';
+require_once '../functions.php';
 
-require_once '../model/car-model.php';
+require_once '../model/accounts';
 // Get the accounts model
-require_once '../model/accounts-model.php';
+//require_once '../model/accounts-model.php';
 // Get the products model
-require_once '../model/products-model.php';
+//require_once '../model/products-model.php';
 
 
 // Get the value from the action key - value pair
