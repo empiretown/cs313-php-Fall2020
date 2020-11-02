@@ -119,9 +119,45 @@ require_once '../functions.php';
  
          case 'logging':
 
-            echo("Thanak for register, $clientEmail");
-
-
+            $loginEmail = filter_input(INPUT_POST, 'clientEmail', FILTER_SANITIZE_EMAIL);
+            $loginPassword = filter_input(INPUT_POST, 'clientPassword', FILTER_SANITIZE_STRING);
+        
+            $checkLoginPassword = checkPassword($loginPassword);
+        
+            if (empty($loginEmail) || empty($checkLoginPassword)) {
+              $_SESSION['message'] = '<p>Please provide information for all empty form fields.</p>';
+              header("Location: /week7ta/registration.php");
+              exit;
+            }
+        
+            //Get client data based on email email
+            $clientData = getClient($loginEmail);
+        
+            if($checkLoginPassword) {
+              $hashCheck = password_verify($loginPassword, $clientData['password']);
+            }
+            if(!$hashCheck) {
+              $_SESSION['message'] = '<p>Incorrect password. Please check your password and try again.</p>';
+              header("Location: ../view/login.php");
+              exit;
+            }
+        
+            if(isset($_COOKIE['username'])) {
+              setcookie('username', "", time() -3600, '/');
+            }
+        
+            setcookie('username', $clientData['username'], strtotime('+1 year'), '/');
+        
+            $_SESSION['loggedin'] = TRUE;
+        
+            //Remove password data from clientData
+            array_pop($clientData);
+        
+            $_SESSION['clientData'] = $clientData;
+        
+            header("Location: /view/admin.php");
+          
+            break;
 
          break;
  
