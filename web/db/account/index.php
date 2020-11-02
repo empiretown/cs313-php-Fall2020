@@ -155,7 +155,7 @@ require_once '../functions.php';
         
             $_SESSION['clientData'] = $clientData;
         
-            header("Location: /view/admin.php");
+            header("Location: ../view/admin.php");
           
             break;
 
