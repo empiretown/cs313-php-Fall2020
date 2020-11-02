@@ -1,7 +1,7 @@
 <?php
 //require ('../connect-db.php');
 function updatePassword($clientPassword, $clientId) {
-    $db = connectDb();
+    $db = get_db();
 
 
     $query = 'UPDATE customer
@@ -21,7 +21,7 @@ function updatePassword($clientPassword, $clientId) {
 }
 
 function updateClient($clientFullname, $userName, $email, $id) {
-    $db = connectDb();
+    $db = get_db();
 
 
     $query = 'UPDATE customer
@@ -45,7 +45,7 @@ function updateClient($clientFullname, $userName, $email, $id) {
 }
 
 function getClientInfo($clientid) {
-     $db = connectDb();
+    $db = get_db();
 
 
     $query = 'SELECT * FROM customer WHERE id = :clientId';
@@ -64,7 +64,7 @@ function getClientInfo($clientid) {
 
 
 function regVisitor($clientEmail, $clientPassword) {
-    $db = connectDb();
+    $db = get_db();
 
    $sql = 'INSERT INTO customer (email, password)
               VALUES (:clientEmail, :clientPassword)';
@@ -85,7 +85,7 @@ function regVisitor($clientEmail, $clientPassword) {
 }
 
 function passwordCheck($clientPassword) {
-    $db = connectDb();
+    $db = get_db();
 
 
     $query = 'SELECT password FROM customer WHERE password = :clientPassword';
@@ -104,7 +104,7 @@ function passwordCheck($clientPassword) {
 }
 
 function checkExistingEmail($clientEmail) {
-    $db = connectDb();
+    $db = get_db();
 
 
     $sql = 'SELECT email FROM customer WHERE email = :email';
@@ -126,7 +126,7 @@ function checkExistingEmail($clientEmail) {
 }
 
 function getClient($clientEmail) {
-    $db = connectDb();
+    $db = get_db();
 
 
     $sql = 'SELECT id,email, username, password  FROM customer WHERE email = :clientEmail';
