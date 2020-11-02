@@ -119,7 +119,7 @@ require_once '../functions.php';
  
          case 'logging':
 
-            echo("Thanak for register, $clientEmail")
+            echo("Thanak for register, $clientEmail");
 
 
 //          $email = filter_input(INPUT_POST, 'email');
