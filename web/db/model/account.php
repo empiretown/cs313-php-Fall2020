@@ -131,7 +131,7 @@ function getClient($clientEmail) {
 
     $sql = 'SELECT id,email, username, password  FROM customer WHERE email = :clientEmail';
     $stmt = $db->prepare($sql);
-    $stmt->bindValue(':clientEmail', $email, PDO::PARAM_STR);
+    $stmt->bindValue(':clientEmail', $clientEmail, PDO::PARAM_STR);
     
 
     $stmt->execute();
