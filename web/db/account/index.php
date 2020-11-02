@@ -121,8 +121,8 @@ require_once '../functions.php';
 
             $passwordCheck = checkPassword($loginPassword);
 
-            if(empty($loginEmail) || empty($passwordCheck)) {
-                include '../view/registration.php';
+            if(empty($_POST['loginEmail']) || empty($_POST['passwordCheck'])) {
+                include '../view/admin.php';
                 exit;
             }
 
@@ -149,8 +149,9 @@ require_once '../functions.php';
 
             $_SESSION['loggedin'] == true;
             
-            include '../view/admin.php';
-            exit;
+
+          
+            
             
 
 
