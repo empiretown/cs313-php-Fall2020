@@ -4,8 +4,9 @@ CREATE DATABASE SHEDMARKET;
 CREATE TABLE seller
 (
     id SERIAL PRIMARY KEY,
-    companyName Varchar(20) NOT NULL,
-    companyLogo Varchar(20) NOT NULL
+    email Varchar(20) NOT NULL,
+    username Varchar (20) NOT NULL,
+    pass Varchar(20) NOT NULL
 
 );
 
@@ -13,17 +14,14 @@ CREATE TYPE rlevel AS ENUM ('1', '2', '3');
 CREATE TABLE customer 
 (
     id SERIAL PRIMARY KEY,
-    fullname Varchar(40) NOT NULL,
     email Varchar(50) NOT NULL,
     username Varchar(50),
     password Varchar(255) NOT NULL,
-    phoneNumber INT,
     roleLevel rlevel DEFAULT '1'
 );
 
 CREATE TABLE product_item
 (
-
 	id SERIAL PRIMARY KEY NOT NULL,
     product_item_name varchar(20) NOT NULL,
     product_item_price varchar(20) NOT NULL,
@@ -31,6 +29,13 @@ CREATE TABLE product_item
     seller_id INT NOT NULL REFERENCES seller(id)
 
 );
+
+CREATE TABLE category
+{
+    id SERIAL PRIMARY KEY,
+    catType Varchar(20),
+    
+}
 
 
 CREATE TABLE product_orders
