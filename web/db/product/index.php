@@ -3,13 +3,13 @@
 session_start();
 
 require ('../connect-db.php');
-require_once '../model/product-model.php';
+require_once '../model/product.php';
 
 require_once '../model/account.php';
 require_once '../model/product-model.php';
 require_once '../functions.php';
 
-$sellers = getSellers();
+$seller = getSellers();
 
 $navlist .= '<li><a href="/db/product/index.php?action=category&type=' . $seller["companyName"] . '" title=View our ' . $seller["companyName"] . 'product line>' . $seller["companyName"] . '</a></li>';
 
