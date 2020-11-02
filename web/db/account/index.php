@@ -1,10 +1,9 @@
 <?php
-if (session_status() == PHP_SESSION_NONE) {
-    session_start();
-}
-?>
 
-<?php
+session_start();
+
+
+
 require_once '../connect-db.php';
 require_once '../functions.php';
 
@@ -21,59 +20,15 @@ require_once '../functions.php';
  
  switch ($action) {
     
-
+case 'login':
+    header("Location: ../view/login.php");
+break;
      case 'register':
         header("location: ../view/registration.php");
      break;
      
  
-     case 'updateClient':
-         $clientFullname = filter_input(INPUT_POST, 'clientFullname', FILTER_SANITIZE_STRING);
-         $email = filter_input(INPUT_POST, 'email');        
-         $userName = filter_input(INPUT_POST, 'userName', FILTER_SANITIZE_STRING);
-         $checkEmail = checkEmail($clientEmail);
- 
-         $id = filter_input(INPUT_POST, 'id', FILTER_SANITIZE_NUMBER_INT);
- 
- 
-         if (empty($clientFullname) || empty($userName) || empty($email)) {
-             $message = '<p>Please complete all information for the updated the contact information.</p>';
-             include '../view/client-update.php';
-             exit;
-         }
-         $updateResult = updateClient($clientFullname, $userName, $clientEmail, $id);
- var_dump($updateResult);
- 
-         if ($updateResult === 1) {
-             $clientData = getClientInfo($clientId);
-             $_SESSION['loggedin'] = TRUE;
- // Remove the password from the array
- // the array_pop function removes the last
- // element from an array
-             array_pop($clientData);
- // Store the array into the session
-             $_SESSION['clientData'] = $clientData;
-             $message = "<p>Congratulations, $clientFirstname  was successfully updated.</p>";
-             $_SESSION['message'] = $message;
- // Send them to the admin view
-             include '../view/admin.php';
-             exit;
-         } else {
-             $message = "<p>Error. The client was not modify.</p>";
-             include '../view/client-update.php';
-             exit;
-         }
-         break;
- 
-     case 'mod':
-         $clientId = $_SESSION['clientData']['id'];
-         $clientInfo = getClientInfo($clientId);
-         if (count($clientInfo) < 1) {
-             $message = 'Sorry, your information could be found.';
-         }
-         include '../view/client-update.php';
-         exit;
-         break;
+    
  
      case 'registration':
          
@@ -127,12 +82,11 @@ require_once '../functions.php';
 
            
 
-            if(!empty($loginEmail) && empty($passwordCheck)) {
+            if(($loginEmail) && !empty($passwordCheck)) {
                 
-              echo ('Welcome to ShedMarket.');
-              die;
+              
                 
-            } else {
+            
                 include '../view/login.php';
             }
 
@@ -200,6 +154,53 @@ require_once '../functions.php';
          include '../view/admin.php';
          exit;
          break;
+         case 'updateClient':
+            $clientFullname = filter_input(INPUT_POST, 'clientFullname', FILTER_SANITIZE_STRING);
+            $email = filter_input(INPUT_POST, 'email');        
+            $userName = filter_input(INPUT_POST, 'userName', FILTER_SANITIZE_STRING);
+            $checkEmail = checkEmail($clientEmail);
+    
+            $id = filter_input(INPUT_POST, 'id', FILTER_SANITIZE_NUMBER_INT);
+    
+    
+            if (empty($clientFullname) || empty($userName) || empty($email)) {
+                $message = '<p>Please complete all information for the updated the contact information.</p>';
+                include '../view/client-update.php';
+                exit;
+            }
+            $updateResult = updateClient($clientFullname, $userName, $clientEmail, $id);
+    var_dump($updateResult);
+    
+            if ($updateResult === 1) {
+                $clientData = getClientInfo($clientId);
+                $_SESSION['loggedin'] = TRUE;
+    // Remove the password from the array
+    // the array_pop function removes the last
+    // element from an array
+                array_pop($clientData);
+    // Store the array into the session
+                $_SESSION['clientData'] = $clientData;
+                $message = "<p>Congratulations, $clientFirstname  was successfully updated.</p>";
+                $_SESSION['message'] = $message;
+    // Send them to the admin view
+                include '../view/admin.php';
+                exit;
+            } else {
+                $message = "<p>Error. The client was not modify.</p>";
+                include '../view/client-update.php';
+                exit;
+            }
+            break;
+    
+        case 'mod':
+            $clientId = $_SESSION['clientData']['id'];
+            $clientInfo = getClientInfo($clientId);
+            if (count($clientInfo) < 1) {
+                $message = 'Sorry, your information could be found.';
+            }
+            include '../view/client-update.php';
+            exit;
+            break;
  
      case 'logout':
          session_destroy();
