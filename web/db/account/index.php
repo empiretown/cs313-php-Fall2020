@@ -127,7 +127,7 @@ require_once '../functions.php';
 
            
 
-            if(empty($loginEmail)|| empty($passwordCheck)) {
+            if(!empty($loginEmail) && empty($passwordCheck)) {
                 
                 $_SESSION['message'] = '<p>Welcome to ShedMarket.</p>';
                 exit;
