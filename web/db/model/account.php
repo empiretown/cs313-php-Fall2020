@@ -4,10 +4,10 @@ function updatePassword($clientPassword, $clientId) {
     $db = connectDb();
 
 
-    $query = 'UPDATE customer
+    $sql = 'UPDATE customer
               SET password = :clientPassword
               WHERE id = :clientId';
-    $stmt = $db->prepare($query);
+    $stmt = $db->prepare($sql);
     $stmt->bindValue(':clientPassword', $clientPassword, PDO::PARAM_STR);
     $stmt->bindValue(':clientId', $clientId, PDO::PARAM_INT);
 
@@ -24,12 +24,12 @@ function updateClient($clientFullname, $userName, $email, $id) {
     $db = connectDb();
 
 
-    $query = 'UPDATE customer
+    $sql = 'UPDATE customer
               SET customerName = :clientFullname,
               email = :clientEmail,
               userName = :clientUsername
               WHERE id = :clientId';
-    $stmt = $db->prepare($query);
+    $stmt = $db->prepare($sql);
     $stmt->bindValue(':clientFullname', $clientFirstname, PDO::PARAM_STR);
     $stmt->bindValue(':clientEmail', $clientEmail, PDO::PARAM_INT);
     $stmt->bindValue(':clientUsername', $clientLastname, PDO::PARAM_INT);
@@ -48,8 +48,8 @@ function getClientInfo($clientid) {
     $db = connectDb();
 
 
-    $query = 'SELECT * FROM customer WHERE id = :clientId';
-    $stmt = $db->prepare($query);
+    $sql = 'SELECT * FROM customer WHERE id = :clientId';
+    $stmt = $db->prepare($sql);
     $stmt->bindValue(':clientId', $clientId, PDO::PARAM_INT);
     
 
@@ -88,8 +88,8 @@ function passwordCheck($clientPassword) {
     $db = connectDb();
 
 
-    $query = 'SELECT password FROM customer WHERE password = :clientPassword';
-    $stmt = $db->prepare($query);
+    $sql = 'SELECT password FROM customer WHERE password = :clientPassword';
+    $stmt = $db->prepare($sql);
     $stmt->bindValue(':clientPassword', $clientPassword, PDO::PARAM_STR);
     
 
@@ -131,7 +131,7 @@ function getClient($clientEmail) {
 
     $sql = 'SELECT id,email, username, password  FROM customer WHERE email = :clientEmail';
     $stmt = $db->prepare($sql);
-    $stmt->bindValue(':clientEmail', $email, PDO::PARAM_STR);
+    $stmt->bindValue(':clientEmail', $clientEmail, PDO::PARAM_STR);
     
 
     $stmt->execute();

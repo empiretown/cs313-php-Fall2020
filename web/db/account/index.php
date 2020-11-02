@@ -114,6 +114,7 @@ require_once '../functions.php';
          break;
  
          case 'logging':
+            
             $loginUsername = filter_input(INPUT_POST, 'clientEmail', FILTER_SANITIZE_EMAIL);
             $loginPassword = filter_input(INPUT_POST, 'clientPassword', FILTER_SANITIZE_STRING);
         

@@ -31,7 +31,7 @@
                     <li><a href="#">Friuts/a></li>
                     <li><a href="#">Frozen Foods</a></li>
                 </ul>-->
-            <ul class="header-nav-list">
+            <ul class="header-nav-list" >
                 <?php echo $navlist; ?>
             </ul>
 
