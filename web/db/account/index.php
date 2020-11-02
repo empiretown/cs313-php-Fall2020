@@ -119,47 +119,51 @@ require_once '../functions.php';
  
          case 'logging':
 
-            $loginEmail = filter_input(INPUT_POST, 'clientEmail', FILTER_SANITIZE_EMAIL);
-            $loginPassword = filter_input(INPUT_POST, 'clientPassword', FILTER_SANITIZE_STRING);
-        
-            $checkLoginPassword = checkPassword($loginPassword);
-        
-            if (empty($loginEmail) || empty($checkLoginPassword)) {
-              $_SESSION['message'] = '<p>Please provide information for all empty form fields.</p>';
-              header("Location: ../view/registration.php");
-              exit;
-            }
-        
-            //Get client data based on email email
-            $clientData = getClient($loginEmail);
-        
-            if($checkLoginPassword) {
-              $hashCheck = password_verify($loginPassword, $clientData['password']);
-            }
-            if(!$hashCheck) {
-              $_SESSION['message'] = '<p>Incorrect password. Please check your password and try again.</p>';
-              header("Location: ../view/login.php");
-              exit;
-            }
-        
-            if(isset($_COOKIE['email'])) {
-              setcookie('email', "", time() -3600, '/');
-            }
-        
-            setcookie('email', $clientData['email'], strtotime('+1 year'), '/');
-        
-            $_SESSION['loggedin'] = TRUE;
-        
-            //Remove password data from clientData
-            array_pop($clientData);
-        
-            $_SESSION['clientData'] = $clientData;
-        
-            header("Location: ../view/admin.php");
-          
-            break;
+            echo("we are here, $clientEmail");
 
          break;
+
+            // $loginEmail = filter_input(INPUT_POST, 'clientEmail', FILTER_SANITIZE_EMAIL);
+            // $loginPassword = filter_input(INPUT_POST, 'clientPassword', FILTER_SANITIZE_STRING);
+        
+            // $checkLoginPassword = checkPassword($loginPassword);
+        
+            // if (empty($loginEmail) || empty($checkLoginPassword)) {
+            //   $_SESSION['message'] = '<p>Please provide information for all empty form fields.</p>';
+            //   header("Location: ../view/registration.php");
+            //   exit;
+            // }
+        
+            // //Get client data based on email email
+            // $clientData = getClient($loginEmail);
+        
+            // if($checkLoginPassword) {
+            //   $hashCheck = password_verify($loginPassword, $clientData['password']);
+            // }
+            // if(!$hashCheck) {
+            //   $_SESSION['message'] = '<p>Incorrect password. Please check your password and try again.</p>';
+            //   header("Location: ../view/login.php");
+            //   exit;
+            // }
+        
+            // if(isset($_COOKIE['email'])) {
+            //   setcookie('email', "", time() -3600, '/');
+            // }
+        
+            // setcookie('email', $clientData['email'], strtotime('+1 year'), '/');
+        
+            // $_SESSION['loggedin'] = TRUE;
+        
+            // //Remove password data from clientData
+            // array_pop($clientData);
+        
+            // $_SESSION['clientData'] = $clientData;
+        
+            // header("Location: ../view/admin.php");
+          
+            // break;
+
+        
  
      case 'logout':
          session_destroy();
