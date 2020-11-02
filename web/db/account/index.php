@@ -120,15 +120,15 @@ require_once '../functions.php';
          case 'logging':
 
             $loginEmail = filter_input(INPUT_POST,'clientEmail', FILTER_SANITIZE_EMAIL);
-            $loginEmail =checkEmail($loginEmail);
+            
             $loginPassword = filter_input(INPUT_POST, 'clientPassword', FILTER_SANITIZE_STRING);
 
             $passwordCheck = checkPassword($loginPassword);
 
-            //$_SESSION['loggedin'] = $clientEmail;
+            $_SESSION['loggedin'] = $clientEmail;
 
             if(empty($loginEmail)|| empty($passwordCheck)) {
-                $_SESSION['message'] = 'Please provide information for all empty form fields.</p>';
+                echo("Thank you for registering on ShedMarket");
                 include '../view/category.php';
                 exit;
             }
