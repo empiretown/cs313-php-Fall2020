@@ -10,14 +10,14 @@
   </head>
 
   <body>
-  <nav class="navbar navbar-expand-lg navbar-light bg-light mr-auto">
+  <nav class="navbar navbar-expand-lg navbar-light bg-light ">
   <img class="navbar-brand"  style="height:80; min-height:80px"src="../images/logo.jpg"></a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
 
-  <div class="collapse navbar-collapse mr-auto" id="navbarSupportedContent">
-    <ul class="navbar-nav mr-auto">
+  <div class="collapse navbar-collapse ml-auto" id="navbarSupportedContent">
+    <ul class="navbar-nav ">
       <li class="nav-item active">
         <a class="nav-link" href="../view/home.php">Home <span class="sr-only">(current)</span></a>
       </li>
