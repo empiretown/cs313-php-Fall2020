@@ -87,11 +87,7 @@ break;
               $_SESSION['message'] = 'Fill in the blanks';
             
                 include '../view/login.php';
-            } else if($getClient){
-
-                $clientData = getClient($loginEmail);
-            }
-
+            } 
 
             
 
