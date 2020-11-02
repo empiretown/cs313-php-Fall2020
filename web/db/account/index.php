@@ -1,11 +1,7 @@
 <?php
-if (session_status() == PHP_SESSION_NONE) {
-    session_start();
-}
-?>
+session_start();
 
-<?php
-require ('../connectDb.php');
+require ('../connect-db.php');
 require_once '../functions.php';
 
  
@@ -77,7 +73,7 @@ require_once '../functions.php';
  
      case 'registration':
          
-         $clientEmail = filter_input(INPUT_POST, 'clientEmail', FILTER_SANITIZE_EMAIL);
+         $clientEmail = filter_input(INPUT_POST, 'clientEmail');
          
        
          $clientPassword = filter_input(INPUT_POST, 'clientPassword', FILTER_SANITIZE_STRING);
@@ -107,7 +103,7 @@ require_once '../functions.php';
          // Check and report the result --- COOKIES ----
          if ($regOutcome === 1) {
              setcookie('firstname', $fullname, strtotime('+1 year'), '/');
-             echo("Thanks for registering $email. Please use your email and password to login.");
+             $message = "<p>Thanks for registering $email. Please use your email and password to login.</p>";
              include '../view/login.php';
              exit;
          } else {
@@ -119,7 +115,44 @@ require_once '../functions.php';
  
          case 'logging':
 
-            echo("Thanak for register, $client");
+            $loginEmail = filter_input(INPUT_POST,'clientEmail', FILTER_SANITIZE_EMAIL);
+            
+            $loginPassword = filter_input(INPUT_POST, 'clientPassword', FILTER_SANITIZE_STRING);
+
+            $passwordCheck = checkPassword($loginPassword);
+
+            if(empty($_POST['loginEmail']) || empty($_POST['passwordCheck'])) {
+                include '../view/registration.php';
+                exit;
+            }
+
+
+            $clientData = getClient($loginEmail);
+
+            //$hashCheck = password_verify($password, $clientData['password']);
+
+            if ($passwordCheck) {
+                    $hashCheck = password_verify($loginPassword, $clientData['password']);
+            
+            }
+
+            if(!$hashCheck){
+                $message = '<p>Incorrect password.</p>';
+                include '../view/login.php';
+            }
+
+            if (isset($_COOKIE['email'])) {
+                setcookie('email', "", time() -3600, '/');
+            }
+
+            setcookie('email', $clientData['email'], strtotime('+1 year'), '/');
+
+            $_SESSION['loggedin'] == true;
+            
+
+          
+            
+            
 
 
 //          $email = filter_input(INPUT_POST, 'email');
