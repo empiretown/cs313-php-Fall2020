@@ -99,7 +99,7 @@ function passwordCheck($clientPassword) {
 
 }
 
-function checkExistingEmail($clientEmail) {
+function checkExistingEmail($email) {
     $db = get_db();
 
     $sql = 'SELECT email FROM customer WHERE email = :clientEmail';
