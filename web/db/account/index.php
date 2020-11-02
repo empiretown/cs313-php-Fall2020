@@ -125,12 +125,14 @@ require_once '../functions.php';
 
             $passwordCheck = checkPassword($loginPassword);
 
-            $_SESSION['loggedin'] = TRUE;
+           
 
             if(empty($loginEmail)|| empty($passwordCheck)) {
-                echo("Thank you for registering on ShedMarket");
-                include '../view/category.php';
+                
+                $_SESSION['message'] = '<p>Welcome to ShedMarket.</p>';
                 exit;
+            } else {
+                include '../view/login.php';
             }
 
 
@@ -154,7 +156,7 @@ require_once '../functions.php';
 
             setcookie('email', $clientData['email'], strtotime('+1 year'), '/');
 
-            
+            $_SESSION['loggedin'] = TRUE;
             
 
             array_pop($clientData);
