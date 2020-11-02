@@ -119,45 +119,7 @@ require_once '../functions.php';
  
          case 'logging':
 
-            $loginEmail = filter_input(INPUT_POST,'clientEmail', FILTER_SANITIZE_EMAIL);
-            
-            $loginPassword = filter_input(INPUT_POST, 'clientPassword', FILTER_SANITIZE_STRING);
-
-            $passwordCheck = checkPassword($loginPassword);
-
-            if(empty($loginEmail)|| empty($passwordCheck)) {
-                
-                include '../view/category.php';
-                exit;
-            }
-
-
-            $clientData = getClient($loginEmail);
-
-            //$hashCheck = password_verify($password, $clientData['password']);
-
-            if ($passwordCheck) {
-                    $hashCheck = password_verify($loginPassword, $clientData['password']);
-            
-            }
-
-            if(!$hashCheck){
-                $message = '<p>Incorrect password.</p>';
-                include '../view/login.php';
-            }
-
-            if (isset($_COOKIE['email'])) {
-                setcookie('email', "", time() -3600, '/');
-            }
-
-            setcookie('email', $clientData['email'], strtotime('+1 year'), '/');
-
-            $_SESSION['loggedin'] == true;
-            
-
-            array_pop($clientData);
-            
-            
+            echo("Thanak for register, $clientEmail")
 
 
 //          $email = filter_input(INPUT_POST, 'email');
