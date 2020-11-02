@@ -82,10 +82,9 @@ break;
 
            
 
-            if(($loginEmail) && !empty($passwordCheck)) {
+            if(empty($loginEmail) && empty($passwordCheck)) {
                 
-              
-                
+              $_SESSION['message'] = 'Fill in the blanks';
             
                 include '../view/login.php';
             }
