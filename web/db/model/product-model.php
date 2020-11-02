@@ -3,9 +3,9 @@ function getSellers() {
 
     $db = connectDb();
 
-    $query = 'SELECT companyName FROM seller ORDER BY companyName ASC';
+    $sql = 'SELECT companyName FROM seller ORDER BY companyName ASC';
 
-    $stmt = $db->prepare($query);
+    $stmt = $db->prepare($sql);
 
     $stmt->execute();
 
