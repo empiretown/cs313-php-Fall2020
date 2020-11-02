@@ -45,7 +45,7 @@
             
 
         <input class="button" type="submit" value="Login">
-        <input type="hidden" name="action" value="logging">
+        <input type="hidden" name="action" value="login">
         <br>
         <br>
         <p class="negrita">Not a member?</p>

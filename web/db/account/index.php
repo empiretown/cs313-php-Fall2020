@@ -117,7 +117,7 @@ require_once '../functions.php';
          }
          break;
  
-         case 'logging':
+         case 'login':
 
             $loginEmail = filter_input(INPUT_POST,'clientEmail', FILTER_SANITIZE_EMAIL);
             
