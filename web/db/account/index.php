@@ -128,7 +128,7 @@ require_once '../functions.php';
             $_SESSION['loggedin'] = $clientEmail;
 
             if(empty($loginEmail)|| empty($passwordCheck)) {
-                echo("Thank you for registering on ShedMarket");
+                $_SESSION['message'] = '<p>Please provide information for all empty form fields.</p>';
                 include '../view/category.php';
                 exit;
             }

@@ -30,11 +30,12 @@
     </header>
 
     <main>
-        <?php
-            if(isset($message)) {
-                echo $message;
-            }
-        ?>
+    <?php
+          
+          if (isset($_SESSION['message'])) {
+              echo $_SESSION['message'];
+          }
+          ?>
 
         <form action="../account/index.php" method="post">
         <h1>SHED MARKET</h1>
