@@ -5,7 +5,7 @@ if (session_status() == PHP_SESSION_NONE) {
 ?>
 
 <?php
-require ('../connect-db.php');
+require ('../connectDb.php');
 require_once '../functions.php';
 
  
