@@ -77,7 +77,7 @@ require_once '../functions.php';
  
      case 'registration':
          
-         $clientEmail = filter_input(INPUT_POST, 'clientEmail');
+         $clientEmail = filter_input(INPUT_POST, 'clientEmail', FILTER_SANITIZE_EMAIL);
          
        
          $clientPassword = filter_input(INPUT_POST, 'clientPassword', FILTER_SANITIZE_STRING);
@@ -119,14 +119,81 @@ require_once '../functions.php';
  
          case 'logging':
 
-            $loginUsername = filter_input(INPUT_POST, 'clientUsername', FILTER_SANITIZE_EMAIL);
+            $loginEmail = filter_input(INPUT_POST,'clientEmail', FILTER_SANITIZE_EMAIL);
+            
             $loginPassword = filter_input(INPUT_POST, 'clientPassword', FILTER_SANITIZE_STRING);
-        
-            $checkLoginPassword = checkPassword($loginPassword);
-        
 
-            //echo ("thanks for register, $clientEmail");
+            $passwordCheck = checkPassword($loginPassword);
 
+            if(empty($loginEmail)|| empty($passwordCheck)) {
+                
+                include '../view/category.php';
+                exit;
+            }
+
+
+            $clientData = getClient($loginEmail);
+
+            //$hashCheck = password_verify($password, $clientData['password']);
+
+            if ($passwordCheck) {
+                    $hashCheck = password_verify($loginPassword, $clientData['password']);
+            
+            }
+
+            if(!$hashCheck){
+                $message = '<p>Incorrect password.</p>';
+                include '../view/login.php';
+            }
+
+            if (isset($_COOKIE['email'])) {
+                setcookie('email', "", time() -3600, '/');
+            }
+
+            setcookie('email', $clientData['email'], strtotime('+1 year'), '/');
+
+            $_SESSION['loggedin'] == true;
+            
+
+            array_pop($clientData);
+            
+            
+
+
+//          $email = filter_input(INPUT_POST, 'email');
+//          $email = checkEmail($email);
+//          $password = filter_input(INPUT_POST, 'password', FILTER_SANITIZE_STRING);
+//          $passwordCheck = checkPassword($password);
+ 
+//  // Run basic checks, return if errors
+//          if (empty($email) || empty($passwordCheck)) {
+//              $message = '<p class="notice">Please provide a valid email address and password.</p>';
+//              include '../view/login.php';
+//              exit;
+//          }
+ 
+//  // A valid password exists, proceed with the login process
+//  // Query the client data based on the email address
+//          $clientData = getClient($email);
+//  // Compare the password just submitted against
+//  // the hashed password for the matching client
+//          $hashCheck = password_verify($password, $clientData['password']);
+         
+//  // If the hashes don't match create an error
+//  // and return to the login view
+//          
+//  //A valid user exists, log them in
+//          $_SESSION['loggedin'] = TRUE;
+//  // Remove the password from the array
+//  // the array_pop function removes the last
+//  // element from an array
+//          array_pop($clientData);
+//  // Store the array into the session
+//          $_SESSION['clientData'] = $clientData;
+         
+//  // Send them to the admin view
+//          include '../view/admin.php';
+//          exit;
          break;
  
      case 'logout':
