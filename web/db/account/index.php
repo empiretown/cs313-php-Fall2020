@@ -106,7 +106,7 @@ require_once '../functions.php';
          $regOutcome = regVisitor($clientEmail, $password);
          // Check and report the result --- COOKIES ----
          if ($regOutcome === 1) {
-             setcookie('firstname', $fullname, strtotime('+1 year'), '/');
+             setcookie('email', $email, strtotime('+1 year'), '/');
              echo("Thanks for registering $email. Please use your email and password to login.");
              include '../view/login.php';
              exit;
@@ -142,11 +142,11 @@ require_once '../functions.php';
               exit;
             }
         
-            if(isset($_COOKIE['username'])) {
-              setcookie('username', "", time() -3600, '/');
+            if(isset($_COOKIE['email'])) {
+              setcookie('email', "", time() -3600, '/');
             }
         
-            setcookie('username', $clientData['username'], strtotime('+1 year'), '/');
+            setcookie('email', $clientData['email'], strtotime('+1 year'), '/');
         
             $_SESSION['loggedin'] = TRUE;
         
