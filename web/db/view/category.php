@@ -28,7 +28,7 @@
 
                     <li><a href="#">Grains</a></li>
                     <li><a href="#">Home products</a></li>
-                    <li><a href="#">Friuts</a></li>
+                    <li><a href="#">Friuts/a></li>
                     <li><a href="#">Frozen Foods</a></li>
                 </ul>-->
             <ul class="header-nav-list">
@@ -41,10 +41,10 @@
 
             <h1>
                 <?php echo $type; ?> Products </h1>
-                <div id="prod-display">
-            <a href="../product/index.php?=catergory&type=<?php { echo $prodDisplay; } ?>">
+            <?php if (isset($message)) { echo $message; }?>
+            <div id="prod-display">
+            <?php if (isset($prodDisplay)) { echo $prodDisplay; } ?>
             </div>
-            
         </main>
     </div>
     <footer>
