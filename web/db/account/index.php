@@ -125,7 +125,7 @@ require_once '../functions.php';
 
             $passwordCheck = checkPassword($loginPassword);
 
-            $_SESSION['loggedin'] = $clientEmail;
+            $_SESSION['loggedin'] = TRUE;
 
             if(empty($loginEmail)|| empty($passwordCheck)) {
                 echo("Thank you for registering on ShedMarket");
