@@ -84,24 +84,24 @@ function regVisitor($clientEmail, $clientPassword) {
 
 }
 
-function passwordCheck($clientPassword) {
-    $db = connectDb();
+// function passwordCheck($clientPassword) {
+//     $db = connectDb();
 
 
-    $sql = 'SELECT password FROM customer WHERE password = :clientPassword';
-    $stmt = $db->prepare($sql);
-    $stmt->bindValue(':clientPassword', $clientPassword, PDO::PARAM_STR);
+//     $sql = 'SELECT password FROM customer WHERE password = :clientPassword';
+//     $stmt = $db->prepare($sql);
+//     $stmt->bindValue(':clientPassword', $clientPassword, PDO::PARAM_STR);
     
 
-    $$stmt->execute();
-    $rowsChanged = $stmt->rowCount();
+//     $$stmt->execute();
+//     $rowsChanged = $stmt->rowCount();
 
-    $stmt->closeCursor();
+//     $stmt->closeCursor();
 
-    return rowChanged();
+//     return rowChanged();
 
 
-}
+// }
 
 function checkExistingEmail($clientEmail) {
     $db = connectDb();

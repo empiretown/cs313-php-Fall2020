@@ -114,15 +114,14 @@ require_once '../functions.php';
          break;
  
          case 'logging':
-            
+
             $loginUsername = filter_input(INPUT_POST, 'clientEmail', FILTER_SANITIZE_EMAIL);
             $loginPassword = filter_input(INPUT_POST, 'clientPassword', FILTER_SANITIZE_STRING);
         
-            $checkLoginPassword = checkPassword($loginPassword);
+            $passwordCheck = checkPassword($loginPassword);
         
-            if (empty($loginUsername) || empty($checkLoginPassword)) {
-              $_SESSION['message'] = '<p>Please provide information for all empty form fields.</p>';
-              header("Location: ../view/category.php");
+            if (empty($loginUsername) || empty($passwordCheck)) {
+              include '../view/category.php';
               exit;
             }
         
