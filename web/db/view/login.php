@@ -61,7 +61,7 @@
 
         <form action="../account/index.php" method="post">
         <h1>SHED MARKET</h1>
-        <div class="container">
+        <div class="container .col6">
              Email Address<br>
             <input type="text" name="clientEmail" id="email" <?php if(isset($clientEmail)){echo "value='$clientEmail'" ;} ?> /><br>
             Password<br>
