@@ -194,8 +194,8 @@ require_once '../functions.php';
 //          $_SESSION['clientData'] = $clientData;
          
 //  // Send them to the admin view
-//          include '../view/admin.php';
-//          exit;
+         include '../view/admin.php';
+         exit;
          break;
  
      case 'logout':
