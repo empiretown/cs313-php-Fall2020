@@ -200,7 +200,7 @@ function buildProductsDisplay($products) {
         var_dump($image);
         $pd .= '<li>';
         $pd .= '<a href="#">';
-        $pd .= '<img src="' .$image. '" alt="Image of ' .$product[productname]. ' on SpeedX.com">';
+        $pd .= '<img src="' .$image. '" alt="Image of ' .$product[productname]. ' on SHEDMARKET.com">';
         $pd .= '</a>';
         $pd .= '<hr>';
         $pd .= '<a href="#"><h2>' . $product[productname] .'</h2></a>';
@@ -229,7 +229,7 @@ function buildNav() {
     $suppliers = getSuppliers();
     $navlist = "<li><a href='.' title='View the Car Homepage'>Home</a></li>";
     foreach ($suppliers as $supplier) {
-        $navlist .= '<li><a href="../product/index.php?action=category&type= ' . $supplier["companyname"] . ' " title=View our ' . $supplier["companyname"] . 'product line>' .$supplier["companyname"] . '</a></li>';
+        $navlist .= '<li><a href="../product/index.php?action=category&type= ' . $seller["companyname"] . ' " title=View our ' . $seller["companyname"] . 'product line>' .$seller["companyname"] . '</a></li>';
     }
     return $navlist;
 }

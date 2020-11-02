@@ -24,13 +24,13 @@
     <header class="header">
         <nav class="header-nav" role="navigation">
             <div class="header-nav-brand"></div>
-            <ul class="header-nav-list">
+            <!--<ul class="header-nav-list">
 
                     <li><a href="#">Grains</a></li>
                     <li><a href="#">Home products</a></li>
-                    <li><a href="#">Friuts/a></li>
+                    <li><a href="#">Friuts</a></li>
                     <li><a href="#">Frozen Foods</a></li>
-                </ul>
+                </ul>-->
             <ul class="header-nav-list">
                 <?php echo $navlist; ?>
             </ul>
@@ -42,12 +42,9 @@
             <h1>
                 <?php echo $type; ?> Products </h1>
                 <div id="prod-display">
-            <?php if (isset($prodDisplay)) { echo $prodDisplay; }
-            
-            
-            ?>
+            <a href="../product/index.php?=<?php { echo $prodDisplay; } ?>">
             </div>
-
+            
         </main>
     </div>
     <footer>
