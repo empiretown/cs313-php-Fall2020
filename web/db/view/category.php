@@ -42,7 +42,7 @@
             <h1>
                 <?php echo $type; ?> Products </h1>
                 <div id="prod-display">
-            <a href="../product/index.php?=<?php { echo $prodDisplay; } ?>">
+            <?php if (isset($prodDisplay)) { echo $prodDisplay; } ?>
             </div>
             
         </main>

@@ -9,7 +9,7 @@ $sellers = getSellers();
 $navlist = "<li><a href='.' title='View the Product Homepage'>Home</a></li>";
 
 foreach ($sellers as $seller) {
-    $navlist .= '<li><a href="../../product/index.php?action=category&type=' . $seller["companyName"] . '" title=View our ' . $seller["companyName"] . 'product line>' . $seller["companyName"] . '</a></li>';
+    $navlist .= '<li><a href="../../product/index.php' . $seller["companyName"] . '" title=View our ' . $seller["companyName"] . 'product line>' . $seller["companyName"] . '</a></li>';
 }
 
 $action = filter_input(INPUT_POST, 'action');
