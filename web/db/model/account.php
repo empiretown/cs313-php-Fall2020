@@ -99,11 +99,11 @@ function passwordCheck($clientPassword) {
 
 }
 
-function checkExistingEmail($clientEmailemail) {
+function checkExistingEmail($clientEmail) {
     $db = get_db();
 
-    $query = 'SELECT email FROM customer WHERE email = :clientEmail';
-    $stmt = $db->prepare($query);
+    $sql = 'SELECT email FROM customer WHERE email = :clientEmail';
+    $stmt = $db->prepare($sql);
     $stmt->bindValue(':clientEmail', $clientEmail, PDO::PARAM_STR);
     
 
