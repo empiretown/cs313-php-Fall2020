@@ -60,7 +60,7 @@
         ?>
 
         <form action="../account/index.php" method="post">
-        <h1>SHED MARKET</h1>
+        <h1 style="padding-right:25px">SHED MARKET</h1>
         <div class="container  bg-light ">
              Email Address<br>
             <input type="text" name="clientEmail" id="email" <?php if(isset($clientEmail)){echo "value='$clientEmail'" ;} ?> /><br>
