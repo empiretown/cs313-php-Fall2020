@@ -129,7 +129,7 @@ require_once '../functions.php';
 
             if(!empty($loginEmail) && empty($passwordCheck)) {
                 
-                $_SESSION['message'] = 'Welcome to ShedMarket.';
+                $_SESSION['message'] == 'Welcome to ShedMarket.';
                 exit;
             } else {
                 include '../view/login.php';
