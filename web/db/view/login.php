@@ -30,12 +30,11 @@
     </header>
 
     <main>
-    <?php
-          
-          if (isset($_SESSION['message'])) {
-              echo $_SESSION['message'];
-          }
-          ?>
+        <?php
+            if(isset($message)) {
+                echo $message;
+            }
+        ?>
 
         <form action="../account/index.php" method="post">
         <h1>SHED MARKET</h1>
@@ -46,7 +45,7 @@
             
 
         <input class="button" type="submit" value="Login">
-        <input type="hidden" name="action" value="logging">
+        <input type="hidden" name="action" value="login">
         <br>
         <br>
         <p class="negrita">Not a member?</p>
