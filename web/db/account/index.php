@@ -126,7 +126,7 @@ require_once '../functions.php';
         
             if (empty($loginEmail) || empty($checkLoginPassword)) {
               $_SESSION['message'] = '<p>Please provide information for all empty form fields.</p>';
-              header("Location: /week7ta/registration.php");
+              header("Location: ../view/registration.php");
               exit;
             }
         
