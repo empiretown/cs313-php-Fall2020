@@ -40,11 +40,11 @@ switch ($action) {
     
     case 'category':
              $type = filter_input(INPUT_GET, 'type', FILTER_SANITIZE_STRING);
-             $products = getProductByCategory($type);
-              if(!count($products)) {
+             $product = getProductByCategory($type);
+              if(!count($product)) {
                 $message = "<p class='error'>Sorry, no $item products could be found.</p>";
             } else {
-                $prodDisplay = buildProductsDisplay($products);
+                $prodDisplay = buildProductsDisplay($product);
             }
             include '../view/category.php';
         break;
