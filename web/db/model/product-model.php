@@ -1,7 +1,7 @@
 <?php
 function getSellers() {
 
-    $db = get_db();
+    $db = connectDb();
 
     $query = 'SELECT companyName FROM seller ORDER BY companyName ASC';
 
