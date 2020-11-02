@@ -41,10 +41,10 @@
 
             <h1>
                 <?php echo $type; ?> Products </h1>
-            <?php if (isset($message)) { echo $message; }?>
-            <div id="prod-display">
+                <div id="prod-display">
             <?php if (isset($prodDisplay)) { echo $prodDisplay; } ?>
             </div>
+
         </main>
     </div>
     <footer>
