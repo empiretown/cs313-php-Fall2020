@@ -2,7 +2,7 @@
 <html>
 
 <head>
-    <title>SpeedX Buy Cars - Login</title>
+    <title>SHEDMARKET | Category</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width">
     <link href='https://fonts.googleapis.com/css?family=Roboto:400,700,300' rel='stylesheet' type='text/css'>

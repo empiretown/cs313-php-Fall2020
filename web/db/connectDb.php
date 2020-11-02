@@ -1,6 +1,5 @@
 <?php
-function get_db(){
-    $db = NULL;
+
 try
 {
   $dbUrl = new PDO(getenv('DATABASE_URL'));
@@ -18,7 +17,6 @@ catch (PDOException $ex)
   echo 'Error!: ' . $ex->getMessage();
   die();
 }
-return $db;
-}
+
 
 ?>

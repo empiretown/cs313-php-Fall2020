@@ -212,8 +212,8 @@ function buildProductsDisplay($products) {
 }
 
 function checkEmail($clientEmail) {
-    $sanEmail = filter_var($clientEmail, FILTER_SANITIZE_EMAIL);
-    $valEmail = filter_var($sanEmail, FILTER_VALIDATE_EMAIL);
+    
+    $valEmail = filter_var($clientEmail, FILTER_VALIDATE_EMAIL);
     return $valEmail;
 }
 

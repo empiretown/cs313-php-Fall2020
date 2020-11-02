@@ -120,7 +120,7 @@ require_once '../functions.php';
          case 'logging':
 
             $loginEmail = filter_input(INPUT_POST,'clientEmail', FILTER_SANITIZE_EMAIL);
-            
+            $loginEmail =checkEmail($loginEmail);
             $loginPassword = filter_input(INPUT_POST, 'clientPassword', FILTER_SANITIZE_STRING);
 
             $passwordCheck = checkPassword($loginPassword);

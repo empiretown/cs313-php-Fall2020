@@ -1,7 +1,8 @@
 <?php
 //require ('../connect-db.php');
 function updatePassword($clientPassword, $clientId) {
-    $db = get_db();
+    $db = connectDb();
+
 
     $query = 'UPDATE customer
               SET password = :clientPassword
@@ -20,7 +21,8 @@ function updatePassword($clientPassword, $clientId) {
 }
 
 function updateClient($clientFullname, $userName, $email, $id) {
-    $db = get_db();
+    $db = connectDb();
+
 
     $query = 'UPDATE customer
               SET customerName = :clientFullname,
@@ -43,7 +45,8 @@ function updateClient($clientFullname, $userName, $email, $id) {
 }
 
 function getClientInfo($clientid) {
-    $db = get_db();
+    $db = connectDb();
+
 
     $query = 'SELECT * FROM customer WHERE id = :clientId';
     $stmt = $db->prepare($query);
@@ -61,7 +64,7 @@ function getClientInfo($clientid) {
 
 
 function regVisitor($clientEmail, $clientPassword) {
-    $db = get_db();
+    $db = connectDb();
 
    $sql = 'INSERT INTO customer (email, password)
               VALUES (:clientEmail, :clientPassword)';
@@ -82,7 +85,8 @@ function regVisitor($clientEmail, $clientPassword) {
 }
 
 function passwordCheck($clientPassword) {
-    $db = get_db();
+    $db = connectDb();
+
 
     $query = 'SELECT password FROM customer WHERE password = :clientPassword';
     $stmt = $db->prepare($query);
@@ -99,12 +103,13 @@ function passwordCheck($clientPassword) {
 
 }
 
-function checkExistingEmail($email) {
-    $db = get_db();
+function checkExistingEmail($clientEmail) {
+    $db = connectDb();
 
-    $sql = 'SELECT email FROM customer WHERE email = :clientEmail';
+
+    $sql = 'SELECT email FROM customer WHERE email = :email';
     $stmt = $db->prepare($sql);
-    $stmt->bindValue(':clientEmail', $clientEmail, PDO::PARAM_STR);
+    $stmt->bindValue(':email', $clientEmail, PDO::PARAM_STR);
     
 
     $stmt->execute();
@@ -121,7 +126,8 @@ function checkExistingEmail($email) {
 }
 
 function getClient($clientEmail) {
-    $db = get_db();
+    $db = connectDb();
+
 
     $sql = 'SELECT id,email, username, password  FROM customer WHERE email = :clientEmail';
     $stmt = $db->prepare($sql);
