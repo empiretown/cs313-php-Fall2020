@@ -43,19 +43,19 @@ CREATE TABLE product_orders
 );
 
 INSERT INTO seller (companyName, companyLogo) VALUES
-('Grains', ../images/rice beans market.jpg),
-('Home product', ../images/bleach.jpg),
-('Friuts', ../images/cashew.jpg),
-('Frozen foods', ../images/titus.jpg);
+('Grains', '../images/rice beans market.jpg'),
+('Home product',' ../images/bleach.jpg'),
+('Friuts', '../images/cashew.jpg'),
+('Frozen foods', '../images/titus.jpg');
 
 INSERT INTO product_item( product_item_name, product_item_price, product_image, seller_id) VALUES
-('PGrains1' ../images/parboiledrice.jpg, 'Parboiled Rice', 15000.00, 1),
-('PGrains2', ../images/beans.jpg, 'Beans', 600.00, 1),
-('PGrains3', ../images/millet.jpeg, 'Millet', 1000.00, 2),
-('PHome product1'../images/bleach2.jpg, 'Jik', '1500.00', 3),
-('PHome product2', ../images/dettol.jpg, 'Dettol', 800.00, 2),
-('PHome product', ../images/dettolsoap.jpg, 'Dettol Soap', 500.00, 3),
-('PFriuts1', ../images/avocado.jpg, 'Avocado', 50.00, 4),
-('PFriuts2', ../images/cucumber.jpg, 'Cucumber', 50.00, 4),
-('PFrozen foods', ../images/titus.jpg,'Titus', 450.00, 5);
+('PGrains1', '../images/parboiledrice.jpg', 'Parboiled Rice', 15000.00, 1),
+('PGrains2', '../images/beans.jpg', 'Beans', 600.00, 1),
+('PGrains3', '../images/millet.jpeg', 'Millet', 1000.00, 2),
+('PHome product1', '../images/bleach2.jpg', 'Jik', '1500.00', 3),
+('PHome product2', '../images/dettol.jpg', 'Dettol', 800.00, 2),
+('PHome product', '../images/dettolsoap.jpg', 'Dettol Soap', 500.00, 3),
+('PFriuts1', '../images/avocado.jpg', 'Avocado', 50.00, 4),
+('PFriuts2', '../images/cucumber.jpg', 'Cucumber', 50.00, 4),
+('PFrozen foods', '../images/titus.jpg','Titus', 450.00, 5);
 
