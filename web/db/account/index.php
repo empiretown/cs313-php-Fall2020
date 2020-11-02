@@ -149,9 +149,8 @@ require_once '../functions.php';
 
             $_SESSION['loggedin'] == true;
             
-
-          
-            
+            include '../view/admin.php';
+            exit;
             
 
 
