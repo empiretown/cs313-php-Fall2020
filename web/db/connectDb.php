@@ -1,8 +1,9 @@
 <?php
-
+function get_db(){
+    $db = NULL;
 try
 {
-  $dbUrl = new PDO(getenv('DATABASE_URL'));
+  $dbUrl = getenv('DATABASE_URL');
   $dbOpts = parse_url($dbUrl);
   $dbHost = $dbOpts["host"];
   $dbPort = $dbOpts["port"];
@@ -17,6 +18,8 @@ catch (PDOException $ex)
   echo 'Error!: ' . $ex->getMessage();
   die();
 }
-
-
+return $db;
+}
 ?>
+
+
