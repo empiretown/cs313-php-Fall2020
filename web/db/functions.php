@@ -211,8 +211,8 @@ function buildProductsDisplay($products) {
     return $pd;
 }
 
-function checkEmail($email) {
-    $sanEmail = filter_var($email, FILTER_SANITIZE_EMAIL);
+function checkEmail($clientEmail) {
+    $sanEmail = filter_var($clientEmail, FILTER_SANITIZE_EMAIL);
     $valEmail = filter_var($sanEmail, FILTER_VALIDATE_EMAIL);
     return $valEmail;
 }
@@ -220,9 +220,9 @@ function checkEmail($email) {
 // Check the password for a minimum of 8 characters,
 // at least one 1 capital letter, at least 1 number and
 // at least 1 special character
-function checkPassword($password) {
+function checkPassword($clientPassword) {
     $pattern = '/^(?=.*[\W])(?=[a-zA-Z0-9])[\w\W]{8,}$/i';
-    return preg_match($pattern, $password);
+    return preg_match($pattern, $clientPassword);
 }
 
 function buildNav() {
