@@ -119,16 +119,16 @@ require_once '../functions.php';
  
          case 'logging':
 
-            $loginEmail = filter_input(INPUT_POST,'loginEmail', FILTER_SANITIZE_EMAIL);
-            //$CheckExistingEmail = checkEmail($loginEmail);
-            $loginPassword = filter_input(INPUT_POST, 'loginPassword', FILTER_SANITIZE_STRING);
-            $passwordCheck = checkPassword($loginPassword);
+            $loginEmail = filter_input(INPUT_POST,'clientEmail', FILTER_SANITIZE_EMAIL);
             
+            $loginPassword = filter_input(INPUT_POST, 'clientPassword', FILTER_SANITIZE_STRING);
 
-            $_SESSION['loggedin'] = True;
+            $passwordCheck = checkPassword($loginPassword);
+
+            $_SESSION['loggedin'] = $clientEmail;
 
             if(empty($loginEmail)|| empty($passwordCheck)) {
-                $_SESSION['message'] = 'Please provide information for all empty form fields.';
+                $_SESSION['message'] = 'Please provide information for all empty form fields.</p>';
                 include '../view/category.php';
                 exit;
             }
