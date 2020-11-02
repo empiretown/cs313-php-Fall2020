@@ -5,13 +5,13 @@ if (session_status() == PHP_SESSION_NONE) {
 ?>
 
 <?php
-require_once '../connectDb.php';
+require ('../connect-db.php');
 require_once '../functions.php';
 
  
  require_once '../model/account.php';
  require_once '../model/product-model.php';
- require_once '../model/product.php';
+ //require_once '../model/account.php';
 
 
  $action = filter_input(INPUT_POST, 'action');
@@ -106,8 +106,8 @@ require_once '../functions.php';
          $regOutcome = regVisitor($clientEmail, $password);
          // Check and report the result --- COOKIES ----
          if ($regOutcome === 1) {
-             setcookie('clientEmail', $clientEmail, strtotime('+1 year'), '/');
-             echo("Thanks for registering $clientEmail. Please use your email and password to login.");
+             setcookie('firstname', $fullname, strtotime('+1 year'), '/');
+             echo("Thanks for registering $email. Please use your email and password to login.");
              include '../view/login.php';
              exit;
          } else {
@@ -119,83 +119,14 @@ require_once '../functions.php';
  
          case 'logging':
 
-            $loginEmail = filter_input(INPUT_POST,'clientEmail', FILTER_SANITIZE_EMAIL);
-            
+            $loginUsername = filter_input(INPUT_POST, 'clientUsername', FILTER_SANITIZE_EMAIL);
             $loginPassword = filter_input(INPUT_POST, 'clientPassword', FILTER_SANITIZE_STRING);
+        
+            $checkLoginPassword = checkPassword($loginPassword);
+        
 
-            $passwordCheck = checkPassword($loginPassword);
+            //echo ("thanks for register, $clientEmail");
 
-            $_SESSION['loggedin'] = $clientEmail;
-
-            if(empty($loginEmail)|| empty($passwordCheck)) {
-                $_SESSION['message'] = 'Please provide information for all empty form fields.</p>';
-                include '../view/category.php';
-                exit;
-            }
-
-
-            $clientData = getClient($loginEmail);
-
-            //$hashCheck = password_verify($password, $clientData['password']);
-
-            if ($passwordCheck) {
-                    $hashCheck = password_verify($loginPassword, $clientData['password']);
-            
-            }
-
-            if(!$hashCheck){
-                $message = '<p>Incorrect password.</p>';
-                include '../view/login.php';
-            }
-
-            if (isset($_COOKIE['email'])) {
-                setcookie('email', "", time() -3600, '/');
-            }
-
-            setcookie('email', $clientData['email'], strtotime('+1 year'), '/');
-
-            
-            
-
-            array_pop($clientData);
-            
-            
-
-
-//          $email = filter_input(INPUT_POST, 'email');
-//          $email = checkEmail($email);
-//          $password = filter_input(INPUT_POST, 'password', FILTER_SANITIZE_STRING);
-//          $passwordCheck = checkPassword($password);
- 
-//  // Run basic checks, return if errors
-//          if (empty($email) || empty($passwordCheck)) {
-//              $message = '<p class="notice">Please provide a valid email address and password.</p>';
-//              include '../view/login.php';
-//              exit;
-//          }
- 
-//  // A valid password exists, proceed with the login process
-//  // Query the client data based on the email address
-//          $clientData = getClient($email);
-//  // Compare the password just submitted against
-//  // the hashed password for the matching client
-//          $hashCheck = password_verify($password, $clientData['password']);
-         
-//  // If the hashes don't match create an error
-//  // and return to the login view
-//          
-//  //A valid user exists, log them in
-//          $_SESSION['loggedin'] = TRUE;
-//  // Remove the password from the array
-//  // the array_pop function removes the last
-//  // element from an array
-//          array_pop($clientData);
-//  // Store the array into the session
-//          $_SESSION['clientData'] = $clientData;
-         
-//  // Send them to the admin view
-//          include '../view/admin.php';
-//          exit;
          break;
  
      case 'logout':
