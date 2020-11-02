@@ -20,9 +20,7 @@ require_once '../functions.php';
  
  switch ($action) {
     
-case 'login':
-    header("Location: ../view/login.php");
-break;
+
      case 'register':
         header("location: ../view/registration.php");
      break;
@@ -82,14 +80,16 @@ break;
 
            
 
-            if(empty($loginEmail) && empty($passwordCheck)) {
+            if(($loginEmail) && !empty($passwordCheck)) {
                 
-              $_SESSION['message'] = 'Fill in the blanks';
+              
+                
             
                 include '../view/login.php';
-            } 
+            }
 
-            
+
+            $clientData = getClient($loginEmail);
 
             //$hashCheck = password_verify($password, $clientData['password']);
 
