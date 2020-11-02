@@ -117,7 +117,7 @@ require_once '../functions.php';
          }
          break;
  
-         case 'login':
+         case 'logging':
 
             $loginEmail = filter_input(INPUT_POST,'clientEmail', FILTER_SANITIZE_EMAIL);
             
@@ -125,7 +125,7 @@ require_once '../functions.php';
 
             $passwordCheck = checkPassword($loginPassword);
 
-            $_SESSION['loggedin'] = TRUE;
+            $_SESSION['loggedin'] = $clientEmail;
 
             if(empty($loginEmail)|| empty($passwordCheck)) {
                 echo("Thank you for registering on ShedMarket");
