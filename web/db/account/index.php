@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-require ('../connect-db.php');
+require ('../connectDb.php');
 require_once '../functions.php';
 
  
