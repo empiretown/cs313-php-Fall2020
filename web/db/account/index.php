@@ -125,7 +125,7 @@ require_once '../functions.php';
 
             $passwordCheck = checkPassword($loginPassword);
 
-            $_SESSION['loggedin'] = $clientEmail;
+            //$_SESSION['loggedin'] = $clientEmail;
 
             if(empty($loginEmail)|| empty($passwordCheck)) {
                 $_SESSION['message'] = 'Please provide information for all empty form fields.</p>';
