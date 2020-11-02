@@ -10,8 +10,8 @@ require_once '../functions.php';
 
  
  require_once '../model/account.php';
- //require_once '../model/product-model.php';
- //require_once '../model/product.php';
+ require_once '../model/product-model.php';
+ require_once '../model/product.php';
 
 
  $action = filter_input(INPUT_POST, 'action');
@@ -128,7 +128,7 @@ require_once '../functions.php';
             $_SESSION['loggedin'] = $clientEmail;
 
             if(empty($loginEmail)|| empty($passwordCheck)) {
-                echo("Thank you for registering on ShedMarket");
+                $_SESSION['message'] = 'Please provide information for all empty form fields.</p>';
                 include '../view/category.php';
                 exit;
             }
