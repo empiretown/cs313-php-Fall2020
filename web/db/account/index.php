@@ -122,40 +122,7 @@ require_once '../functions.php';
             echo("Thanak for register, $clientEmail");
 
 
-//          $email = filter_input(INPUT_POST, 'email');
-//          $email = checkEmail($email);
-//          $password = filter_input(INPUT_POST, 'password', FILTER_SANITIZE_STRING);
-//          $passwordCheck = checkPassword($password);
- 
-//  // Run basic checks, return if errors
-//          if (empty($email) || empty($passwordCheck)) {
-//              $message = '<p class="notice">Please provide a valid email address and password.</p>';
-//              include '../view/login.php';
-//              exit;
-//          }
- 
-//  // A valid password exists, proceed with the login process
-//  // Query the client data based on the email address
-//          $clientData = getClient($email);
-//  // Compare the password just submitted against
-//  // the hashed password for the matching client
-//          $hashCheck = password_verify($password, $clientData['password']);
-         
-//  // If the hashes don't match create an error
-//  // and return to the login view
-//          
-//  //A valid user exists, log them in
-//          $_SESSION['loggedin'] = TRUE;
-//  // Remove the password from the array
-//  // the array_pop function removes the last
-//  // element from an array
-//          array_pop($clientData);
-//  // Store the array into the session
-//          $_SESSION['clientData'] = $clientData;
-         
-//  // Send them to the admin view
-//          include '../view/admin.php';
-//          exit;
+
          break;
  
      case 'logout':
