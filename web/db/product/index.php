@@ -2,7 +2,7 @@
 
 session_start();
 
-require ('../connect-db.php');
+require ('../connectDb.php');
 require_once '../model/product.php';
 
 require_once '../model/account.php';
@@ -11,7 +11,7 @@ require_once '../functions.php';
 
 $seller = getSellers();
 
-$navlist .= '<li><a href="/db/product/index.php?action=category&type=' . $seller["companyName"] . '" title=View our ' . $seller["companyName"] . 'product line>' . $seller["companyName"] . '</a></li>';
+$navlist .= '<li><a href="../db/product/index.php?action=category&type=' . $seller["companyName"] . '" title=View our ' . $seller["companyName"] . 'product line>' . $seller["companyName"] . '</a></li>';
 
 $action = filter_input(INPUT_POST, 'action');
 
@@ -19,7 +19,7 @@ if($action == NULL) {
     $action = filter_input(INPUT_GET, 'action');
     if($action == NULL) {
         $action = 'prod-mgmt';
-        header('location: /db/product/index.php?action=prod-mgmt');
+        header('location: ../db/product/index.php?action=prod-mgmt');
         exit;
     }
 }
@@ -58,7 +58,7 @@ switch ($action) {
             if ($deleteResult) {
                 $message = "<p>Congratulations, $prodName was deleted sucessfully.</p>";
                 $_SESSION['message'] = $message;
-                header('location: /acme/product/');
+                //header('location: /acme/product/');
                 exit;
             }
         break;
@@ -94,7 +94,7 @@ switch ($action) {
                 if(updateResult) {
                     $message = "<p>Congratulations, $prodName has been successfully updated.</p>";
                     $_SESSION['message'] = $message;
-                    header ('location: /acme/product/');
+                    //header ('location: //product/');
                     exit;
                 }else {
                     $message = "<p>Error. The new product was not modified.</p>";
@@ -205,7 +205,7 @@ switch ($action) {
             
                         if ($regOutcome === 1) {
                             $message = "<p class='good'>Thanks for registering $categoryName as a new category.</p>";
-                            header('location: index.php');
+                            header('location: ../index.php');
                             exit;
                         } else {
                             $message = "<p class=bad'>Sorry $categoryName, but the registration for the category failed. Please try again.</p>";

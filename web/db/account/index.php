@@ -122,7 +122,7 @@ require_once '../functions.php';
             $passwordCheck = checkPassword($loginPassword);
 
             if(empty($_POST['loginEmail']) || empty($_POST['passwordCheck'])) {
-                include '../view/admin.php';
+                include '../view/registration.php';
                 exit;
             }
 
