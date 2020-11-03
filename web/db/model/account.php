@@ -4,7 +4,7 @@ function registerClient($clientEmail, $clientPassword) {
     $db = connectDb();
 
     //SQL statement
-    $sql = 'INSERT INTO usersta (email, password)
+    $sql = 'INSERT INTO customer (email, password)
     VALUES (:clientEmail, :clientPassword)';
 
     //Prepare Statement
