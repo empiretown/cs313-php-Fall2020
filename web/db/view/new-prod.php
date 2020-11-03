@@ -45,7 +45,7 @@ if ($_SESSION['clientData']['clientLevel'] == 1) {
         </div>
       </li>
       <li class="nav-item">
-        <a class="nav-link disabled" href="#">Disabled</a>
+        <a class="nav-link" href="../view/new-prod.php">Add Product</a>
       </li>
     </ul>
     
