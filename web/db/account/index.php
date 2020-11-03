@@ -16,47 +16,44 @@ require_once '../functions.php';
  }
  
  switch ($action) {
-   case 'registration':
-   echo ("here");
-   include '../view/login.php';
-   break;
-    // case 'login':
-    //     header("Location: ../view/login.php");
-    //     break;
+  
+    case 'login':
+        header("Location: ../view/login.php");
+        break;
     
-    //   case 'register':
-    //     header("Location: ../view/registration.php");
-    //     break;
+      case 'register':
+        header("Location: ../view/registration.php");
+        break;
     
-    //   case 'registration':
+      case 'registration':
     
-    //     $clientEmail = filter_input(INPUT_POST, 'clientEmail', FILTER_SANITIZE_EMAIL);
-    //     $clientPassword = filter_input(INPUT_POST, 'clientPassword', FILTER_SANITIZE_STRING);
+        $clientEmail = filter_input(INPUT_POST, 'clientEmail', FILTER_SANITIZE_EMAIL);
+        $clientPassword = filter_input(INPUT_POST, 'clientPassword', FILTER_SANITIZE_STRING);
         
-    //     $checkPassword = checkPassword($clientPassword);
+        $checkPassword = checkPassword($clientPassword);
     
-    //     if (empty($clientEmail) || empty($checkPassword)) {
-    //       $_SESSION['message'] = '<p>Please provide information for all empty form fields.</p>';
-    //       header("Location: ../view/registration.php");
-    //       exit;
-    //     }
+        if (empty($clientEmail) || empty($checkPassword)) {
+          $_SESSION['message'] = '<p>Please provide information for all empty form fields.</p>';
+          header("Location: ../view/registration.php");
+          exit;
+        }
     
-    //     $hashedPassword = password_hash($clientPassword, PASSWORD_DEFAULT);
+        $hashedPassword = password_hash($clientPassword, PASSWORD_DEFAULT);
     
-    //     $regOutcome = registerClient($clientEmail, $hashedPassword);
+        $regOutcome = registerClient($clientEmail, $hashedPassword);
     
-    //     if($regOutcome === 1){
-    //       setcookie('firstname', $clientEmail, strtotime('+1 year'), '/');
-    //       $_SESSION['message'] = "<p>Thanks for registering, $clientFullname. Please use your email and password to login.</p>";
-    //       header("Location: ../view/login.php");
-    //       exit;
-    //      } else {
-    //       $_SESSION['message'] = "<p>Sorry $clientFulltname, but the registration failed. Please try again.</p>";
-    //       header("Location: ../view/registration.php");
-    //       exit;
-    //      }
+        if($regOutcome === 1){
+          setcookie('firstname', $clientEmail, strtotime('+1 year'), '/');
+          $_SESSION['message'] = "<p>Thanks for registering, $clientFullname. Please use your email and password to login.</p>";
+          header("Location: ../view/login.php");
+          exit;
+         } else {
+          $_SESSION['message'] = "<p>Sorry $clientFulltname, but the registration failed. Please try again.</p>";
+          header("Location: ../view/registration.php");
+          exit;
+         }
     
-    //     break;
+        break;
     
     //   case 'Logging':
     
