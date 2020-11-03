@@ -12,7 +12,7 @@
   width: 130px;
   position: fixed;
   z-index: -1;
-  top: 20px;
+  top: 50px;
   left: 10px;
   background: #eee;
   overflow-x: hidden;
