@@ -1,6 +1,6 @@
 <?php
 
-require_once ('../connect-db.php');
+require_once '../connectDb.php';
 require_once '../model/product-model.php';
 
 $sellers = getSellers();
