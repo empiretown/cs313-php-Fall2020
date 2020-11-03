@@ -23,7 +23,7 @@
   padding: 6px 8px 6px 16px;
   text-decoration: none;
   font-size: 15px;
-  color: #2196F3;
+  color: #f8f9fa;
   display: block;
 }
 
