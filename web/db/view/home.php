@@ -13,8 +13,8 @@
   width: 160px;
   position: fixed;
   z-index: -1;
-  top: 0;
-  left: 0;
+  top: 50px;
+  left: 10px;
   background: #999;
   overflow-x: hidden;
   padding: 45px 0;
