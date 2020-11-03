@@ -26,6 +26,8 @@ if($action == NULL) {
 
 switch ($action) {
 
+   
+
     case 'detailProduct':
         $prodId = filter_input(INPUT_GET, 'prodId', FILTER_VALIDATE_INT);
         $item = getProductsById($prodId);
