@@ -1,17 +1,18 @@
 <?php
 function registerClient($clientEmail, $clientPassword) {
     //Database Connection
-    $db = connectDb();
+    $db = sconnectDb();
 
     //SQL statement
-    $sql = 'INSERT INTO customer (email, password)
-    VALUES (:clientEmail, :clientPassword)';
+    $sql = 'INSERT INTO email (email, password)
+    VALUES (:ClientEmail, :clientPassword)';
+
 
     //Prepare Statement
     $stmt = $db->prepare($sql);
 
     //Replace placeholders with variables
-    $stmt->bindValue(':clientEmail', $clientEmail, PDO::PARAM_STR);
+    $stmt->bindValue(':ClientEmail', $ClientEmail, PDO::PARAM_STR);
     $stmt->bindValue(':clientPassword', $clientPassword, PDO::PARAM_STR);
 
     //Execute statement
@@ -26,6 +27,8 @@ function registerClient($clientEmail, $clientPassword) {
     //Return rows changed
     return $rowsChanged;
 }
+
+
 
 function emailConfirmation($clientEmail) {  
     $db = connectDb(); 
@@ -46,7 +49,7 @@ function emailConfirmation($clientEmail) {
     $db = connectDb();
     $sql = 'SELECT id, email, password FROM customer WHERE email = :clientEmail';
     $stmt = $db->prepare($sql);
-    $stmt->bindValue(':clientEmail', $clientUsername, PDO::PARAM_STR);
+    $stmt->bindValue(':clientEmail', $ClientEmail, PDO::PARAM_STR);
     $stmt->execute();
     $clientData = $stmt->fetch(PDO::FETCH_ASSOC);
     $stmt->closeCursor();
@@ -81,12 +84,12 @@ function emailConfirmation($clientEmail) {
 //     $sql = 'UPDATE customer
 //               SET customerName = :clientFullname,
 //               email = :clientEmail,
-//               userName = :clientUsername
+//               userName = :ClientEmail
 //               WHERE id = :clientId';
 //     $stmt = $db->prepare($sql);
 //     $stmt->bindValue(':clientFullname', $clientFirstname, PDO::PARAM_STR);
 //     $stmt->bindValue(':clientEmail', $clientEmail, PDO::PARAM_INT);
-//     $stmt->bindValue(':clientUsername', $clientLastname, PDO::PARAM_INT);
+//     $stmt->bindValue(':ClientEmail', $clientLastname, PDO::PARAM_INT);
 //     $stmt->bindValue(':clientId', $clientId, PDO::PARAM_INT);
 
 //     $stmt->execute();

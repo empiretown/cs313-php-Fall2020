@@ -43,11 +43,11 @@ require_once '../functions.php';
     
         if($regOutcome === 1){
           setcookie('firstname', $clientEmail, strtotime('+1 year'), '/');
-          $_SESSION['message'] = "<p>Thanks for registering, $clientFullname. Please use your email and password to login.</p>";
+          $_SESSION['message'] = "<p>Thanks for registering, $clientEmail. Please use your email and password to login.</p>";
           header("Location: ../view/login.php");
           exit;
          } else {
-          $_SESSION['message'] = "<p>Sorry $clientFulltname, but the registration failed. Please try again.</p>";
+          $_SESSION['message'] = "<p>Sorry $clientEmail, but the registration failed. Please try again.</p>";
           header("Location: ../view/registration.php");
           exit;
          }
