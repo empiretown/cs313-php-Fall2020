@@ -67,7 +67,7 @@ if ($_SESSION['clientData']['clientLevel'] == 1) {
             }
             ?>
 
-                <form method="POST" action="../product/inputproduct.php">
+                <form method="POST" action="../product/inputproduct.php" enctype="multipart/form-data">
                 <h1>Add Product</h1>
                
 
