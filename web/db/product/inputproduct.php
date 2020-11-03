@@ -1,5 +1,5 @@
 <?php
-require_once ../connectDb();
+require_once '../connectDb.php';
 
 $addProduct = filter_input($_POST["newProduct"], FILTER_SANITZE_STRING);
 $addDesc = filter_input($_POST["desc"], FILTER_SANITZE_STRING);
