@@ -1,19 +1,23 @@
 <!DOCTYPE html>
 <html>
-
-<head>
-<meta charset="UTF-8">
-    <title>Shed Market</title>
+  <head>
+    <meta charset="UTF-8">
+    <title>Shed Market | Login</title>
     <meta name="viewport" content="width=device-width">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
     <link href='https://fonts.googleapis.com/css?family=Roboto:400,700,300' rel='stylesheet' type='text/css'>
     <link href="../../db/css/style.css" rel="stylesheet" type="text/css">
+  </head>
 
-</head>
+  <body>
+  <nav class="navbar navbar-expand-lg navbar-light bg-light mr-auto">
+  <img class="navbar-brand"  style="height:80; min-height:80px"src="../images/logo.jpg"></a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
 
-<body>
-<div class="collapse navbar-collapse " id="navbarSupportedContent">
-    <ul class="navbar-nav ml-auto ">
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav ml-auto">
       <li class="nav-item active">
         <a class="nav-link" href="../view/home.php">Home <span class="sr-only">(current)</span></a>
       </li>
@@ -22,7 +26,7 @@
       </li>
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Dropdown
+          Category
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
           <a class="dropdown-item" href="#">Action</a>
@@ -32,34 +36,37 @@
         </div>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="../view/registration.php">Sign Up</a>
-      </li>
-      <li class="nav-item">
         <a class="nav-link" href="../view/new-prod.php">Add Product</a>
       </li>
     </ul>
+    
   </div>
 </nav>
-    
-    </header>
-        <main>
+    <header class="header">
+        <nav class="header-nav" role="navigation">
+            <div class="header-nav-brand"></div>
+            <ul class="header-nav-list">
+                <?php echo $navlist; ?>
+            </ul>
 
-            <h1>
-                <?php echo $type; ?> Products </h1>
-            <?php if (isset($message)) { echo $message; }?>
-            <div id="prod-display">
-            <?php if (isset($prodDisplay)) { echo $prodDisplay; } ?>
-            </div>
-        </main>
-    </div>
-    <footer>
-        <hr>
-        <br />
-        <p>&copy; 2020 SHEDMARKET.com<p>
-                <br />
-    </footer>
+        </nav>
+    </header>
+
+    <main>
+       
+       
+    </main>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
 </body>
+</html> 
+    </section>
 
+    <footer>
+        <hr>
+        <br>
+        <p>&copy; 2020 SHED MARKET</p>
+    </footer>
+
+  </body>
 </html>
