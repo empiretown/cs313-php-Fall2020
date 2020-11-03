@@ -15,7 +15,7 @@
   z-index: -1;
   top: 50px;
   left: 10px;
-  background: #999;
+  
   overflow-x: hidden;
   padding: 45px 0;
 }
@@ -37,7 +37,7 @@
   font-size: 28px; /* Increased text to enable scrolling */
   padding: 0px 10px;
   
-z-index: -1;
+
 }
 
 @media screen and (max-height: 450px) {
