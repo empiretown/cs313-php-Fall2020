@@ -11,7 +11,7 @@
       .sidenav {
   width: 130px;
   position: fixed;
-  z-index: 1;
+  z-index: -1;
   top: 20px;
   left: 10px;
   background: #eee;
