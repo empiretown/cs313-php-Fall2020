@@ -67,7 +67,7 @@ if ($_SESSION['clientData']['clientLevel'] == 1) {
             }
             ?>
 
-                <form method="post" action="../product/inputproduct.php">
+                <form method="POST" action="../product/inputproduct.php">
                 <h1>Add Product</h1>
                
 
@@ -85,7 +85,10 @@ if ($_SESSION['clientData']['clientLevel'] == 1) {
                     Product Price<br>
                     <input type="text" name="newPrice" id="invPrice">
                     <br>
-                  
+                     
+                    Image <br> 
+                    <input type="file" name="image">
+                    <button type=submit name=uploadImg>POST</button>
                     # in Stock<br>
                     <input type="text" name="numStock" id="invStock"><br>
 
