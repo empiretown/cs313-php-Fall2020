@@ -79,7 +79,7 @@ if ($_SESSION['clientData']['clientLevel'] == 1) {
                     <input type="text" name="newProduct" id="invName"> <br>
                                       
                     Product Description<br>
-                    <input type="text" name="desc" id="invDescription" >
+                    <input type="text" name="desc" id="invDescription" ><br>
                     
                                     
                     Product Price<br>
