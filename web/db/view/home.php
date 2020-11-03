@@ -11,7 +11,7 @@
       .sidenav {
         height:100%;
   width: 150px;
-  position: fixed;
+  position: relative;
   z-index: -1;
   top: 50px;
   left: 10px;
@@ -37,7 +37,7 @@
   font-size: 28px; /* Increased text to enable scrolling */
   padding: 0px 10px;
   
-
+z-index: -1;
 }
 
 @media screen and (max-height: 450px) {
