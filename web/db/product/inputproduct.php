@@ -15,7 +15,7 @@ $addLocation = filter_input($_POST["numLocation"]);
 $addvendor= filter_input($_POST["vendor"]);
 $addImg = filter_input($_POST['image']);
 
-if ($addImg($_FILES['image']['tmp_name'], $target))
+if (inv_Img($_FILES['image']['tmp_name'], $target))
 {
     echo " The picture" . basename($_FILES['uploadedfile'] ['name']) ." has been uploaded.";
 }
