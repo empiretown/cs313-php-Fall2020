@@ -16,11 +16,11 @@
   left: 10px;
   background: #eee;
   overflow-x: hidden;
-  padding: 8px 0;
+  padding: 15px 0;
 }
 
 .sidenav a {
-  padding: 50px 8px 6px 16px;
+  padding: 6px 8px 6px 16px;
   text-decoration: none;
   font-size: 15px;
   color: #2196F3;
