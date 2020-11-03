@@ -227,9 +227,9 @@ function checkPassword($clientPassword) {
 
 function buildNav() {
     $sellers = getSellers();
-    $navlist = "<li><a href='.' title='View the Car Homepage'>Home</a></li>";
+    $navlist = "<li><a href='.' title='View the Homepage'>Home</a></li>";
     foreach ($sellers as $sellers) {
-        $navlist .= '<li><a href="../product/index.php?action=category&type= ' . $seller["companyname"] . ' " title=View our ' . $seller["companyname"] . 'product line>' .$seller["companyname"] . '</a></li>';
+        $navlist .= '<li><a href="../product/index.php?action=category&type=$category[categoryName] ' . $seller["companyname"] . ' " title=View our ' . $seller["companyname"] . 'product line>' .$seller["companyname"] . '</a></li>';
     }
     return $navlist;
 }
