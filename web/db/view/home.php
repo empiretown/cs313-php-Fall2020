@@ -20,9 +20,9 @@
 }
 
 .sidenav a {
-  padding: 6px 8px 6px 16px;
+  padding: 15px 8px 6px 16px;
   text-decoration: none;
-  font-size: 25px;
+  font-size: 15px;
   color: #2196F3;
   display: block;
 }
@@ -80,7 +80,7 @@
 <div class="sidenav">
   <a href="#about">Processed Foods</a>
   <a href="#services">Frozen Food</a>
-  <a href="#clients">Friuts</a>
+  <a href="#clients">Fruits</a>
   <a href="#contact">Home and Beauty Product</a>
 </div>
 
