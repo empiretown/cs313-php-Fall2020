@@ -26,7 +26,7 @@ require_once '../functions.php';
     
       case 'registration':
 
-        echo ("i registered");
+        //echo ("i registered");
         $clientEmail = filter_input(INPUT_POST, 'clientEmail', FILTER_SANITIZE_STRING);
     $clientPassword = filter_input(INPUT_POST, 'clientPassword', FILTER_SANITIZE_STRING);
     

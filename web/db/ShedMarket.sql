@@ -76,4 +76,4 @@ INSERT INTO product_item( product_item_name, product_item_price, product_image, 
 ('PFriuts2', '../images/cucumber.jpg', 'Cucumber', 50.00, 4),
 ('PFrozen foods', '../images/titus.jpg','Titus', 450.00, 5);
 
-GRANT ALL ON SCHEMA public TO postgres;
+//GRANT ALL ON SCHEMA public TO postgres;
