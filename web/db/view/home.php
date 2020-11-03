@@ -14,7 +14,7 @@
   z-index: -1;
   top: 50px;
   left: 10px;
-  background: #eee;
+  background: #999;
   overflow-x: hidden;
   padding: 45px 0;
 }
