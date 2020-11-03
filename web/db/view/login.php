@@ -61,14 +61,15 @@
             }
         ?>
 
-        <form action="../account/index.php" method="post">
-        <h1 style="padding-right:25px">SHED MARKET</h1>
-        <div class="container  bg-light ">
-             Email Address<br>
-            <input type="text" name="clientEmail" id="email" <?php if(isset($clientEmail)){echo "value='$clientEmail'" ;} ?> /><br>
-            Password<br>
+<form action="../account/index.php" method="post" >
+            <h1>SHED MARKET</h1>
+            Email Address<br>
+            <input type="email" name="clientEmail" id="email" <?php if(isset($clientEmail)){echo "value='$clientEmail'" ;} ?> /><br>
+            Password<br><b><span class="spancss">Password must be at least 8 characters and contain at least 1 number, 1 capital letter and 1 special character</span></b><br>
             <input type="password" name="clientPassword" id="password" value="" required pattern="(?=^.{8,}$)(?=.*\d)(?=.*\W+)(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$"><br>
-            
+            <input class="buttons" type="submit" name="submit" value="Register">
+            <input type="hidden" name="action" value="registration"><br>
+        </form>
           <!-- Content here -->
           <input class="button" type="submit" value="Login">
         <input type="hidden" name="action" value="logging">
