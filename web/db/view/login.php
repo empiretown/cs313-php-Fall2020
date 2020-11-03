@@ -59,7 +59,7 @@
             }
         ?>
 
-<form action="../account/index.php" method="post" >
+<form action="../db/account/index.php" method="post" >
             <h1>SHED MARKET</h1>
             Email Address<br>
             <input type="email" name="clientEmail" id="email" <?php if(isset($clientEmail)){echo "value='$clientEmail'" ;} ?> /><br>
