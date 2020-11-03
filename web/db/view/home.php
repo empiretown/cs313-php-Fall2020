@@ -95,15 +95,7 @@
     <div class="coupon">
   <div class="container">
   </div>
-  <img src="../../db/images/grocery2.jpg" alt="Avatar" style="width:100%;">
-  <div class="container" style="background-color:white">
-    <h2><b>20% OFF YOUR PURCHASE</b></h2> 
-    <p>Shop with us and get a discounts on all your purchases</p>
-  </div>
-  <div class="container">
-    <p>Use Promo Code: <span class="promo">BOH232</span></p>
-    <p class="expire">Expires: Jan 03, 2021</p>
-  </div>
+  <img src="../../db/images/ship.jpg" alt="Avatar" class="center-block">
 </div>
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
