@@ -29,11 +29,10 @@ CREATE TABLE product
 
 );
 
-CREATE TABLE category
+CREATE TABLE inventory
 (
     invName Varchar(20) NOT NULL,
     invDescription Varchar(20) NOT NULL,
-    invImage LONGBLOB NOT NULL,
     invPrice decimal(6,2) NOT NULL,
     invStock Varchar(20) NOT NULL,
     categoryId Varchar(20) NOT NULL,
