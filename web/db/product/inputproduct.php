@@ -2,6 +2,9 @@
 require_once '../connectDb.php';
 
 require_once '../account/index.php';
+//require_once '../model/product.php';
+
+
 $addProduct = filter_input($_POST["newProduct"], FILTER_SANITZE_STRING);
 $addDesc = filter_input($_POST["desc"], FILTER_SANITZE_STRING);
 $addPrice = filter_input($_POST["newprice"], FILTER_SANITZE_STRING);
@@ -16,7 +19,7 @@ try {
     $sql = 'INSERT INTO category (invName, invDescription, invPrice, invStock, invVendor) VALUES ( :inv_name, :inv_description, :inv_price, :inv_stock, :inv_vendor)';
     $stmt = $db->prepare($sql);
 
-    $stmt->bindValue(':inv_name', $addProduct);
+    $stmt->bindValue(':inv_name', $addProduct, PDO::FETCH_ASSOC);
     $stmt->bindValue(':inv_description', $addDesc);
     $stmt->bindValue(':inv_price', $addPrice);
     $stmt->bindValue(':inv_stock', $addstock);

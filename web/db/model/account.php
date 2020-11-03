@@ -1,5 +1,18 @@
 <?php
-function registerClient($clientEmail, $clientPassword) {
+function registerClient() {
+
+    $clientEmail = $this->clientEmail($_POST['clientEmail']);
+    if ($clientEmail) {
+        $response = array(
+            "status" => "error",
+            "message" => "Email already exists"
+        );
+    } else {
+        if (!empty($_POST["registration"]))
+        {
+            $hashedPassword = password_hash($_POST["password"], PASSWORD_DEFAULT);
+        }
+    }
     //Database Connection
     $db = connectDb();
 

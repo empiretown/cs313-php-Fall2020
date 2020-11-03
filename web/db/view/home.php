@@ -1,3 +1,19 @@
+<?php
+session_start();
+if (isset($_SESSION["email"])) {
+    $clientEmail = $_SESSION["clientEmail"];
+    session_write_close();
+} else {
+    // since the username is not set in session, the user is not-logged-in
+    // he is trying to access this page unauthorized
+    // so let's clear all session variables and redirect him to index
+    session_unset();
+    session_write_close();
+    $url = "../index.php";
+    header("Location: $url");
+}
+?>
+
 <!DOCTYPE html>
 <html>
   <head>
@@ -57,7 +73,7 @@
         <a class="nav-link" href="../view/home.php">Home <span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="../view/login.php">Login</a>
+        <a class="nav-link" href="../view/login.php">l</a>
       </li>
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">

@@ -1,3 +1,14 @@
+<?php
+
+require_once ' ../model/account.php';
+
+if (! empty($_POST["Logging"])) {
+    require_once  '../account/index.php';
+    $member = new Member();
+    $loginResult = $member->loginMember();
+}
+?>
+
 <!DOCTYPE html>
 <html>
   <head>
