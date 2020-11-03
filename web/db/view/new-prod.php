@@ -1,6 +1,6 @@
 <?php
 if ($_SESSION['clientData']['clientLevel'] == 1) {
-    header('location: /home/');
+    header('location: ../view/home.php');
     exit;
 }
 ?>
