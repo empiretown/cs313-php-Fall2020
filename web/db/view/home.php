@@ -1,18 +1,3 @@
-<?php
-session_start();
-if (isset($_SESSION["email"])) {
-    $clientEmail = $_SESSION["clientEmail"];
-    session_write_close();
-} else {
-    // since the username is not set in session, the user is not-logged-in
-    // he is trying to access this page unauthorized
-    // so let's clear all session variables and redirect him to index
-    session_unset();
-    session_write_close();
-    $url = "../index.php";
-    header("Location: $url");
-}
-?>
 
 <!DOCTYPE html>
 <html>
