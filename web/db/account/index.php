@@ -16,11 +16,85 @@ require_once '../functions.php';
  }
  
  switch ($action) {
-     case 'logging':
-    echo ("i am logged in");
-
-     break;
-
+    case 'login':
+        header("Location: ../view/login.php");
+        break;
+    
+      case 'register':
+        header("Location: ../view/registration.php");
+        break;
+    
+      case 'registration':
+    
+        $clientEmail = filter_input(INPUT_POST, 'clientEmail', FILTER_SANITIZE_EMAIL);
+        $clientPassword = filter_input(INPUT_POST, 'clientPassword', FILTER_SANITIZE_STRING);
+        
+        $checkPassword = checkPassword($clientPassword);
+    
+        if (empty($clientEmail) || empty($checkPassword)) {
+          $_SESSION['message'] = '<p>Please provide information for all empty form fields.</p>';
+          header("Location: /week7ta/registration.php");
+          exit;
+        }
+    
+        $hashedPassword = password_hash($clientPassword, PASSWORD_DEFAULT);
+    
+        $regOutcome = registerClient($clientEmail, $hashedPassword);
+    
+        if($regOutcome === 1){
+          setcookie('firstname', $clientEmail, strtotime('+1 year'), '/');
+          $_SESSION['message'] = "<p>Thanks for registering, $clientFullname. Please use your email and password to login.</p>";
+          header("Location: /week7ta/login.php");
+          exit;
+         } else {
+          $_SESSION['message'] = "<p>Sorry $clientFulltname, but the registration failed. Please try again.</p>";
+          header("Location: /week7ta/registration.php");
+          exit;
+         }
+    
+        break;
+    
+      case 'Logging':
+    
+        $loginUsername = filter_input(INPUT_POST, 'clientEmail', FILTER_SANITIZE_EMAIL);
+        $loginPassword = filter_input(INPUT_POST, 'clientPassword', FILTER_SANITIZE_STRING);
+    
+        $checkLoginPassword = checkPassword($loginPassword);
+    
+        if (empty($loginUsername) || empty($checkLoginPassword)) {
+          $_SESSION['message'] = '<p>Please provide information for all empty form fields.</p>';
+          header("Location: /week7ta/registration.php");
+          exit;
+        }
+    
+        //Get client data based on email email
+        $clientData = getClient($loginUsername);
+    
+        if($checkLoginPassword) {
+          $hashCheck = password_verify($loginPassword, $clientData['password']);
+        }
+        if(!$hashCheck) {
+          $_SESSION['message'] = '<p>Incorrect password. Please check your password and try again.</p>';
+          header("Location: /week7ta/login.php");
+          exit;
+        }
+    
+        if(isset($_COOKIE['username'])) {
+          setcookie('username', "", time() -3600, '/');
+        }
+    
+        setcookie('username', $clientData['username'], strtotime('+1 year'), '/');
+    
+        $_SESSION['loggedin'] = TRUE;
+    
+        //Remove password data from clientData
+        array_pop($clientData);
+    
+        $_SESSION['clientData'] = $clientData;
+    
+        header("Location: /week7ta/home.php");
+      
+        break;
 //      case 'register':
 //         header("location: ../view/registration.php");
 //      break;

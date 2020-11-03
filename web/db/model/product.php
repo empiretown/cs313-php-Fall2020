@@ -1,9 +1,9 @@
 <?php
 
 function getThumbImages($prodId) {
-    $db = get_db();
-    $query = 'SELECT imgId, imgPath, imgName, img.invId, invName FROM images JOIN inventory ON images.invId = inventory.invId WHERE images.invId = :prodType AND imgPath LIKE "%-tn%" ';
-    $stmt = $db->prepare($query);
+    $db = connectDb();
+    $sql = 'SELECT imgId, imgPath, imgName, img.invId, invName FROM images JOIN inventory ON images.invId = inventory.invId WHERE images.invId = :prodType AND imgPath LIKE "%-tn%" ';
+    $stmt = $db->prepare($sql);
     $stmt->bindValue(':prodType', $prodId, PDO::PARAM_STR);
 
     $stmt->execute();
@@ -14,9 +14,9 @@ function getThumbImages($prodId) {
 }
 
 function getProductsById($prodId) {
-    $db = get_db();
-    $query = 'SELECT * FROM product WHERE id = :prodId';
-    $stmt = $db->prepare($query);
+    $db = connectDb();
+    $sql = 'SELECT * FROM product WHERE id = :prodId';
+    $stmt = $db->prepare($sql);
     $stmt->bindValue(':prodId', $prodId, PDO::PARAM_STR);
     $stmt->execute();
     $products = $stmt->fetchAll(PDO::PARAM_ASSOC);
@@ -25,7 +25,7 @@ function getProductsById($prodId) {
 }
 
 function getProductByCategory($type) {
-    $db = get_db();
+    $db = connectDb();
     $sql = 'SELECT * FROM product WHERE product_item = :product_item';
     $stmt = $db->prepare($sql);
     $stmt->bindValue(':product_item', $product_item, PDO::PARAM_STR);
@@ -36,9 +36,9 @@ function getProductByCategory($type) {
 }
 
 function deleteProduct($prodId) {
-    $db = get_db();
-    $query = 'DELETE FROM inventory where invId = :prodId';
-    $stmt = $db->prepare($query);
+    $db = connectDb();
+    $sql = 'DELETE FROM inventory where invId = :prodId';
+    $stmt = $db->prepare($sql);
     $stmt->bindValue(':prodId', $prodId, PDO::PARAM_INT);
     $stmt->execute();
     $rowsChanged = $stmt->rowCount();
@@ -49,9 +49,9 @@ function deleteProduct($prodId) {
 
 
 function productUpdate($catType, $prodName, $prodDesc, $prodImg, $prodPrice, $prodStock, $prodVendor, $prodId) {
-    $db = get_db();
-    $query = 'UPDATE inventory SET invName invName = :prodName, invDescription = :prodDesc, invImage = :prodImg, invPrice = :prodPrice, invStock = :prodStock, categoryId = :catType, invVendor = :prodVendor WHERE invId = :prodId';
-    $stmt = $db->prepare($query);
+    $db = connectDb();
+    $sql = 'UPDATE inventory SET invName invName = :prodName, invDescription = :prodDesc, invImage = :prodImg, invPrice = :prodPrice, invStock = :prodStock, categoryId = :catType, invVendor = :prodVendor WHERE invId = :prodId';
+    $stmt = $db->prepare($sql);
     $stmt->bindValue(':catType', $type, PDO::PARAM_STR);
     $stmt->bindValue(':prodName', $prodName, PDO::PARAM_STR);
     $stmt->bindValue(':prodDesc', $prodDesc, PDO::PARAM_STR);
@@ -70,9 +70,9 @@ function productUpdate($catType, $prodName, $prodDesc, $prodImg, $prodPrice, $pr
 }
 
 function getProductInfo($prodId) {
-    $db = get_db();
-    $query = 'SELECT * FROM product WHERE id = :prodId';
-    $stmt = $db->prepare($query);
+    $db = connectDb();
+    $sql = 'SELECT * FROM product WHERE id = :prodId';
+    $stmt = $db->prepare($sql);
     $stmt->bindValue(':prodId', $prodId, PDO::PARAM_INT);
     $stmt->execute();
     $prodInfo = $stmt->fetchAll(PDO::FETCH_NAMED);
@@ -81,9 +81,9 @@ function getProductInfo($prodId) {
 }
 
 function getProductBasics() {
-    $db = get_db();
-    $query = 'SELECT productName, id FROM product ORDER BY productName ASC';
-    $stmt = $db->prepare($query);
+    $db = connectDb();
+    $sql = 'SELECT productName, id FROM product ORDER BY productName ASC';
+    $stmt = $db->prepare($sql);
     $stmt->execute();
     $products = $stmt->fetchAll(PDO::FETCH_NAMED);
     $stmt->closeCursor();
@@ -92,9 +92,9 @@ function getProductBasics() {
 
 function regProducts($invName, $invDescription, $invImage, $invPrice, $invStock, $categoryId, $invVendor) {
     $db = get_db();
-    $query = 'INSERT INTO inventory  (invName, invDescription, invImage, invPrice, invStock, categoryId, invVendor)
+    $sql = 'INSERT INTO inventory  (invName, invDescription, invImage, invPrice, invStock, categoryId, invVendor)
               VALUES (:invName, :invDescription, :invImage, :invPrice, :invStock, :categoryId, :invVendor)';
-    $stmt = $db->prepare($query);
+    $stmt = $db->prepare($sql);
     $stmt->bindValue(':invName', $invName, PDO::PARAM_STR);
     $stmt->bindValue(':invDescription', $invDescription, PDO::PARAM_STR);
     $stmt->bindValue(':invImage', $invImage, PDO::PARAM_STR);
@@ -111,10 +111,10 @@ function regProducts($invName, $invDescription, $invImage, $invPrice, $invStock,
 }
 
 function regCategories($categoryName) {
-    $db = get_db();
-    $query = 'INSERT INTO categories (categoryName)
+    $db = connectDb();
+    $sql = 'INSERT INTO categories (categoryName)
               VALUES (:categoryName)';
-    $stmt = $db->prepare($query);
+    $stmt = $db->prepare($sql);
     $stmt->bindValue(':categoryName', $categoryName, PDO::PARAM_STR);
     $stmt->execute();
     $rowsChanged =$stmt->rowCount();

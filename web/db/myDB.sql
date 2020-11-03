@@ -13,11 +13,8 @@ CREATE TYPE rlevel AS ENUM ('1', '2', '3');
 CREATE TABLE customer 
 (
     id SERIAL PRIMARY KEY,
-    fullname Varchar(40) NOT NULL,
-    email Varchar(50) NOT NULL,
-    username Varchar(50),
+    email Varchar(50),
     password Varchar(255) NOT NULL,
-    phoneNumber INT,
     roleLevel rlevel DEFAULT '1'
 );
 
