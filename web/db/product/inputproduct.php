@@ -1,6 +1,7 @@
 <?php
 require_once '../connectDb.php';
 
+require_once '../model/account.php';
 $addProduct = filter_input($_POST["newProduct"], FILTER_SANITZE_STRING);
 $addDesc = filter_input($_POST["desc"], FILTER_SANITZE_STRING);
 $addPrice = filter_input($_POST["newprice"], FILTER_SANITZE_STRING);
