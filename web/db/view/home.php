@@ -11,7 +11,7 @@
       .sidenav {
         height:100%;
   width: 160px;
-  position: fixed;
+  position:absolute;
   z-index: -1;
   top: 50px;
   left: 10px;
@@ -87,7 +87,7 @@
 
 
     <section>
-        <img class="main" src="../../db/images/shop3.png" alt="shed in the streets in nigeria">
+        <img class="main" style="z-index: -1" src="../../db/images/shop3.png" alt="shed in the streets in nigeria">
     </section>
     <br>
 
