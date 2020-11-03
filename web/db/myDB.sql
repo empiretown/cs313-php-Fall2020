@@ -29,7 +29,7 @@ CREATE TABLE product
 
 );
 
-CREATE TABLE inventory
+CREATE TABLE category
 (
     invName Varchar(20) NOT NULL,
     invDescription Varchar(20) NOT NULL,
@@ -40,11 +40,7 @@ CREATE TABLE inventory
     invVendor Varchar(20) NOT NULL
 );
 
-CREATE TABLE product 
-(
-    id SERIAL PRIMARY KEY,
 
-)
 
 CREATE TABLE categories (
     categoryId SERIAL PRIMARY KEY,
