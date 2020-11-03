@@ -1,18 +1,5 @@
 <?php
-function registerClient() {
-
-    $clientEmail = $this->clientEmail($_POST['clientEmail']);
-    if ($clientEmail) {
-        $response = array(
-            "status" => "error",
-            "message" => "Email already exists"
-        );
-    } else {
-        if (!empty($_POST["registration"]))
-        {
-            $hashedPassword = password_hash($_POST["password"], PASSWORD_DEFAULT);
-        }
-    }
+function registerClient($clientEmail, $clientPassword) {
     //Database Connection
     $db = connectDb();
 
@@ -65,8 +52,7 @@ function emailConfirmation($clientEmail) {
     $stmt->closeCursor();
     return $clientData;
    }
-?>
-
+   
 //require ('../connect-db.php');
 // function updatePassword($clientPassword, $clientId) {
 //     $db = connectDb();

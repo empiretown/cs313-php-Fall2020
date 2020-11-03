@@ -37,7 +37,7 @@
                 echo $message;
             }
             ?>
-        <form action="../model/account.php" method="post" >
+        <form action="../account/index.php" method="post" >
             <h1>SHED MARKET</h1>
             Email Address<br>
             <input type="email" name="clientEmail" id="email" <?php if(isset($clientEmail)){echo "value='$clientEmail'" ;} ?> /><br>
