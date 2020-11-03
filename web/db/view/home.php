@@ -16,7 +16,7 @@
   left: 10px;
   background: #eee;
   overflow-x: hidden;
-  padding: 15px 0;
+  padding: 45px 0;
 }
 
 .sidenav a {
