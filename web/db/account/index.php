@@ -33,7 +33,7 @@ require_once '../functions.php';
     
         if (empty($clientEmail) || empty($checkPassword)) {
           $_SESSION['message'] = '<p>Please provide information for all empty form fields.</p>';
-          header("Location: /week7ta/registration.php");
+          header("Location: ../view/registration.php");
           exit;
         }
     
@@ -44,11 +44,11 @@ require_once '../functions.php';
         if($regOutcome === 1){
           setcookie('firstname', $clientEmail, strtotime('+1 year'), '/');
           $_SESSION['message'] = "<p>Thanks for registering, $clientFullname. Please use your email and password to login.</p>";
-          header("Location: /week7ta/login.php");
+          header("Location: ../view/login.php");
           exit;
          } else {
           $_SESSION['message'] = "<p>Sorry $clientFulltname, but the registration failed. Please try again.</p>";
-          header("Location: /week7ta/registration.php");
+          header("Location: ../view/registration.php");
           exit;
          }
     
@@ -63,7 +63,7 @@ require_once '../functions.php';
     
         if (empty($loginUsername) || empty($checkLoginPassword)) {
           $_SESSION['message'] = '<p>Please provide information for all empty form fields.</p>';
-          header("Location: /week7ta/registration.php");
+          header("Location: ../view/registration.php");
           exit;
         }
     
@@ -75,15 +75,15 @@ require_once '../functions.php';
         }
         if(!$hashCheck) {
           $_SESSION['message'] = '<p>Incorrect password. Please check your password and try again.</p>';
-          header("Location: /week7ta/login.php");
+          header("Location: ../view/login.php");
           exit;
         }
     
-        if(isset($_COOKIE['username'])) {
-          setcookie('username', "", time() -3600, '/');
+        if(isset($_COOKIE['email'])) {
+          setcookie('email', "", time() -3600, '/');
         }
     
-        setcookie('username', $clientData['username'], strtotime('+1 year'), '/');
+        setcookie('email', $clientData['email'], strtotime('+1 year'), '/');
     
         $_SESSION['loggedin'] = TRUE;
     
@@ -92,9 +92,20 @@ require_once '../functions.php';
     
         $_SESSION['clientData'] = $clientData;
     
-        header("Location: /week7ta/home.php");
+        header("Location: ../view/home.php");
       
         break;
+
+        case 'logout':
+            session_destroy();
+            setcookie('email', "", time() -3600, '/');
+            header("Location: ../view/category.php");
+            break;
+        
+          default:
+        
+            header("Location: ../view/home.php");
+            break;
 //      case 'register':
 //         header("location: ../view/registration.php");
 //      break;
