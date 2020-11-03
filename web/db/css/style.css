@@ -33,11 +33,7 @@ section > div .container{
     justify-content: start;
   }
   
-  .container {
-    padding: 2px 16px;
-    background-color: #864ea3 ;
-    
-  }
+  
   
   .promo {
     background: #ccc;
