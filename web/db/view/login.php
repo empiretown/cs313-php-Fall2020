@@ -36,7 +36,7 @@
         </div>
       </li>
       <li class="nav-item">
-        <a class="nav-link disabled" href="#">Disabled</a>
+        <a class="nav-link disabled" href="../view/new-prod.php">Add Product</a>
       </li>
     </ul>
     
