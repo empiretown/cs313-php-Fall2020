@@ -3,7 +3,7 @@ require_once '../connectDb.php';
 
 require_once '../account/index.php';
 //require_once '../model/product.php';
-$target ="../images/"
+$target ="../images/";
 $target = $target . basename( $_FILES['image']['name']);
 $addProduct = filter_input($_POST["newProduct"]);
 $addDesc = filter_input($_POST["desc"]);
@@ -17,7 +17,7 @@ $addImg = filter_input($_POST['image']);
 
 if ($addImg($_FILES['image']['tmp_name'], $target))
 {
-    echo " The picture" . basename($_FILES['uploadedfile'] ['name']) ." has been uploaded."
+    echo " The picture" . basename($_FILES['uploadedfile'] ['name']) ." has been uploaded.";
 }
 
 try {
