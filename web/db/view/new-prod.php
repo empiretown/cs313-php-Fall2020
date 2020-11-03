@@ -42,62 +42,7 @@ if ($_SESSION['clientData']['clientLevel'] == 1) {
                 echo $message;
             }
             ?>
-            <form method="post" action="../product/index.php">
-                <h1>Add Product</h1>
-                <p>Add a new product below. All fields are requiered!<p>
-
-                    Category<br>
-                    <?php echo $catList; ?><br>
-
-                    <!--                    in DB-->
-                    Product Name<br>
-                    <input type="text" name="invName" id="invName" <?php if (isset($invName)) {
-                        echo "value='$invName'";
-                    } ?>><br>
-                    <!--                    in DB-->                    
-                    Product Description<br>
-                    <input type="text" name="invDescription" id="invDescription" <?php if (isset($invDescription)) {
-                        echo "value='$invDescription'";
-                    } ?> ><br>
-                    <!--                    in DB-->
-                    Product Image (path to image)<br>
-                    <input type="text" name="invImage" id="invImage" <?php if (isset($invImage)) {
-                        echo "value='$invImage'";
-                    } ?> ><br>
-
-                    Product Thumbnail (path to thumbnail)<br>
-                    <input type="text" name="invThumbnail" id="invThumbnail" value=""><br>
-
-                    <!--                    in DB-->                    
-                    Product Price<br>
-                    <input type="text" name="invPrice" id="invPrice" <?php if (isset($invPrice)) {
-                        echo "value='$invPrice'";
-                    } ?> ><br>
-                    <!--                    in DB-->
-                    # in Stock<br>
-                    <input type="text" name="invStock" id="invStock" <?php if (isset($invStock)) {
-                        echo "value='$invStock'";
-                    } ?> ><br>
-
-                    Shipping Size ( W x H x L in inches )<br>
-                    <input type="text" name="invSize" id="invSize" value=""><br>
-                    Weight (lbs.)<br>
-                    <input type="text" name="invWeight" id="invWeight" value=""><br>
-                    Location (city name)<br>
-                    <input type="text" name="invLocation" id="invLocation" value=""><br>
-
-                    <!--                    in DB-->
-                    Vendor Name<br>
-                    <input type="text" name="invVendor" id="invVendor" <?php if (isset($invVendor)) {
-                        echo "value='$invVendor'";
-                    } ?> ><br>
-
-                    Primary Material<br>
-                    <input type="text" name="invMaterial" id="invMaterial" value=""><br><br>
-
-                    <input class="buttons" type="submit" name="submit" value="Add Product">
-                    <input type="hidden" name="action" value="newProduct"><br>
-            </form>
+            
         </main>
     </div>
     <footer>
