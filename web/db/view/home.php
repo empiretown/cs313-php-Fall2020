@@ -9,6 +9,7 @@
     <link href="../../db/css/style.css" rel="stylesheet" type="text/css">
     <style>
       .sidenav {
+        height:100%;
   width: 130px;
   position: fixed;
   z-index: -1;
