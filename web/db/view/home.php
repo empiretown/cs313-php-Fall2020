@@ -7,6 +7,41 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
     <link href='https://fonts.googleapis.com/css?family=Roboto:400,700,300' rel='stylesheet' type='text/css'>
     <link href="../../db/css/style.css" rel="stylesheet" type="text/css">
+    <style>
+      .sidenav {
+  width: 130px;
+  position: fixed;
+  z-index: 1;
+  top: 20px;
+  left: 10px;
+  background: #eee;
+  overflow-x: hidden;
+  padding: 8px 0;
+}
+
+.sidenav a {
+  padding: 6px 8px 6px 16px;
+  text-decoration: none;
+  font-size: 25px;
+  color: #2196F3;
+  display: block;
+}
+
+.sidenav a:hover {
+  color: #064579;
+}
+
+.main {
+  margin-left: 140px; /* Same width as the sidebar + left position in px */
+  font-size: 28px; /* Increased text to enable scrolling */
+  padding: 0px 10px;
+}
+
+@media screen and (max-height: 450px) {
+  .sidenav {padding-top: 15px;}
+  .sidenav a {font-size: 18px;}
+}
+    </style>
   </head>
 
   <body>
@@ -42,15 +77,13 @@
   </div>
 </nav>
    
-    <header class="header">
-        <nav class="header-nav" role="navigation">
-            <div class="header-nav-brand"></div>
-            <ul class="header-nav-list">
-                <?php echo $navlist; ?>
-            </ul>
+<div class="sidenav">
+  <a href="#about">Processed Foods</a>
+  <a href="#services">Frozen Food</a>
+  <a href="#clients">Friuts</a>
+  <a href="#contact">Home and Beauty Product</a>
+</div>
 
-        </nav>
-    </header>
 
     <section>
         <img src="../../db/images/shop3.png" alt="shed in the streets in nigeria">
