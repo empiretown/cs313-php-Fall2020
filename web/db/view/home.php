@@ -72,6 +72,9 @@
         </div>
       </li>
       <li class="nav-item">
+        <a class="nav-link" href="../view/registration.php">Sign Up</a>
+      </li>
+      <li class="nav-item">
         <a class="nav-link" href="../view/new-prod.php">Add Product</a>
       </li>
     </ul>
