@@ -9,13 +9,12 @@
     <link href="../../db/css/style.css" rel="stylesheet" type="text/css">
     <style>
       .sidenav {
-        height:100%;
-  width: 150px;
-  position: relative;
+  width: 130px;
+  position: fixed;
   z-index: -1;
   top: 50px;
   left: 10px;
-  
+  background: #eee;
   overflow-x: hidden;
   padding: 45px 0;
 }
@@ -24,7 +23,7 @@
   padding: 6px 8px 6px 16px;
   text-decoration: none;
   font-size: 15px;
-  color: #f8f9fa;
+  color: #999;
   display: block;
 }
 
@@ -36,8 +35,6 @@
   margin-left: 140px; /* Same width as the sidebar + left position in px */
   font-size: 28px; /* Increased text to enable scrolling */
   padding: 0px 10px;
-  
-
 }
 
 @media screen and (max-height: 450px) {
@@ -89,7 +86,7 @@
 
 
     <section>
-        <img class="main" style="" src="../../db/images/shop3.png" alt="shed in the streets in nigeria">
+        <img class="main" src="../../db/images/shop3.png" alt="shed in the streets in nigeria">
     </section>
     <br>
 
