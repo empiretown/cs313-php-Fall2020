@@ -1,6 +1,7 @@
 #first create the TABLE
 CREATE DATABASE SHEDMARKET;
 
+DROP ALL TABLE 
 CREATE TABLE seller
 (
     id SERIAL PRIMARY KEY,
@@ -41,6 +42,7 @@ CREATE TABLE inventory
 
 
 
+
 CREATE TABLE categories (
     categoryId SERIAL PRIMARY KEY,
     categoryName Varchar(50) NOT NULL,
@@ -74,3 +76,4 @@ INSERT INTO product_item( product_item_name, product_item_price, product_image, 
 ('PFriuts2', '../images/cucumber.jpg', 'Cucumber', 50.00, 4),
 ('PFrozen foods', '../images/titus.jpg','Titus', 450.00, 5);
 
+GRANT ALL ON SCHEMA public TO postgres;
