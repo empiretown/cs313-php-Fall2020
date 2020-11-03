@@ -18,6 +18,7 @@ require_once '../functions.php';
  switch ($action) {
    case 'registration':
    echo ("here");
+   include '../view/admin.php';
    break;
     // case 'login':
     //     header("Location: ../view/login.php");
