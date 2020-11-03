@@ -11,7 +11,7 @@ $addLocation = filter_input($_POST["numLocation"], FILTER_SANITZE_STRING);
 $addvendor= filter_input($_POST["vendor"], FILTER_SANITZE_STRING);
 
 try {
-
+    $db = connectDb();
     $sql = 'INSERT INTO category (invName, invDescription, invPrice, invStock, invVendor) VALUES ( :inv_name, :inv_description, :inv_price, :inv_stock, :inv_vendor)';
     $stmt = $db->prepare($sql);
 
