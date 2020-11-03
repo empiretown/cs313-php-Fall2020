@@ -14,7 +14,7 @@
   z-index: -1;
   top: 50px;
   left: 10px;
-  background: #eee;
+  background: #fff;
   overflow-x: hidden;
   padding: 45px 0;
 }
@@ -77,7 +77,7 @@
   </div>
 </nav>
    
-<div class="sidenav bg-light">
+<div class="sidenav">
   <a href="#about">Processed Foods</a>
   <a href="#services">Frozen Food</a>
   <a href="#clients">Fruits</a>
