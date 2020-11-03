@@ -86,7 +86,7 @@
 
 
     <section>
-        <img src="../../db/images/shop3.png" alt="shed in the streets in nigeria">
+        <img class="main" src="../../db/images/shop3.png" alt="shed in the streets in nigeria">
     </section>
     <br>
 
