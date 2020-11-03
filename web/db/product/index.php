@@ -3,10 +3,10 @@
 session_start();
 
 require ('../connectDb.php');
-require_once '../model/product.php';
+//require_once '../model/product.php';
 
 require_once '../model/account.php';
-require_once '../model/product-model.php';
+require_once '../model/product s.php';
 require_once '../functions.php';
 
 $seller = getSellers();

@@ -18,7 +18,7 @@ CREATE TABLE customer
     roleLevel rlevel DEFAULT '1'
 );
 
-CREATE TABLE product_item
+CREATE TABLE product
 (
 
 	id SERIAL PRIMARY KEY NOT NULL,
@@ -26,6 +26,29 @@ CREATE TABLE product_item
     product_item_price varchar(20) NOT NULL,
     product_image varchar(50) NOT NULL,
     seller_id INT NOT NULL REFERENCES seller(id)
+
+);
+
+CREATE TABLE inventory
+(
+    invName Varchar(20) NOT NULL,
+    invDescription Varchar(20) NOT NULL,
+    invImage LONGBLOB NOT NULL,
+    invPrice decimal(6,2) NOT NULL,
+    invStock Varchar(20) NOT NULL,
+    categoryId Varchar(20) NOT NULL,
+    invVendor Varchar(20) NOT NULL
+);
+
+CREATE TABLE product 
+(
+    id SERIAL PRIMARY KEY,
+
+)
+
+CREATE TABLE categories (
+    categoryId SERIAL PRIMARY KEY,
+    categoryName Varchar(50) NOT NULL,
 
 );
 
