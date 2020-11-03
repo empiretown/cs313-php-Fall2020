@@ -5,14 +5,14 @@ require_once '../account/index.php';
 //require_once '../model/product.php';
 
 
-$addProduct = filter_input($_POST["newProduct"],);
+$addProduct = filter_input($_POST["newProduct"]);
 $addDesc = filter_input($_POST["desc"]);
-$addPrice = filter_input($_POST["newprice"], NITZE_STRING);
-$addStock = filter_input($_POST["numStock"], NITZE_STRING);
-$addSize = filter_input($_POST["newSize"], NITZE_STRING);
-$addweight = filter_input($_POST["numWeight"], NITZE_STRING);
-$addLocation = filter_input($_POST["numLocation"], NITZE_STRING);
-$addvendor= filter_input($_POST["vendor"], NITZE_STRING);
+$addPrice = filter_input($_POST["newprice"]);
+$addStock = filter_input($_POST["numStock"]);
+$addSize = filter_input($_POST["newSize"]);
+$addweight = filter_input($_POST["numWeight"]);
+$addLocation = filter_input($_POST["numLocation"]);
+$addvendor= filter_input($_POST["vendor"]);
 
 try {
     $db = connectDb();
@@ -35,5 +35,5 @@ catch (Exception $ex) {
     echo "Error with DB. Details: $ex";
     die();
 }
-header("Location: ../view/home.php");
+header("Location: ../view/category.php");
 exit;
