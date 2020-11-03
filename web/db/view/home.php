@@ -10,7 +10,7 @@
     <style>
       .sidenav {
         height:100%;
-  width: 160px;
+  width: 150px;
   position:absolute;
   z-index: -1;
   top: 50px;
@@ -36,6 +36,8 @@
   margin-left: 140px; /* Same width as the sidebar + left position in px */
   font-size: 28px; /* Increased text to enable scrolling */
   padding: 0px 10px;
+  
+
 }
 
 @media screen and (max-height: 450px) {
@@ -87,7 +89,7 @@
 
 
     <section>
-        <img class="main" style="z-index: -1" src="../../db/images/shop3.png" alt="shed in the streets in nigeria">
+        <img class="main" style="" src="../../db/images/shop3.png" alt="shed in the streets in nigeria">
     </section>
     <br>
 
