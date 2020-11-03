@@ -77,7 +77,7 @@
   </div>
 </nav>
    
-<div class="sidenav">
+<div class="sidenav bg-light">
   <a href="#about">Processed Foods</a>
   <a href="#services">Frozen Food</a>
   <a href="#clients">Fruits</a>
