@@ -68,7 +68,8 @@
 
             foreach($display as $d)
             {
-                echo ("image") ;
+                echo '<tr><th> Movie Title </th> <th> Desc. </th> <th>Genre</th><th>Rating</th>'
+                . '<th>Borrowed</th> <th>Owner </th></tr>';
             }
        
        print "</table>";
