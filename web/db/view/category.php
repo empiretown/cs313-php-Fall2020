@@ -1,21 +1,3 @@
-<?php
-    require_once '../connectDb.php';
-
-    function getCatergory(){
-        $db = connectDb();
-
-        $sql = "SELECT * FROM categories";
-        $stmt = $db->prepaare($sql);
-        $stmt->execute();
-        $data = $stmt->fetchAll(PDO::FETCH_NAMED);
-        $stmt->closeCursor();
-        return $data;
-
-    }
-    $category = getCategory();
-?>
-
-
 <!DOCTYPE html>
 <html>
   <head>
