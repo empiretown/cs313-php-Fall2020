@@ -47,7 +47,8 @@ CREATE TABLE inventory
 CREATE TABLE categories (
     categoryId SERIAL PRIMARY KEY,
     categoryName Varchar(50) NOT NULL,
-
+    catImg varchar(50) NOT NULL,
+    seller_id INT NOT NULL REFERENCES seller(id)
 );
 
 
@@ -60,13 +61,19 @@ CREATE TABLE product_orders
     customer_id INT NOT NULL REFERENCES customer(id);
 );
 
-INSERT INTO seller (companyName, companyLogo) VALUES
+INSERT INTO categories ('catergoryName', 'catImg') VALUES
 ('Grains', '../images/rice beans market.jpg'),
 ('Home product',' ../images/bleach.jpg'),
 ('Friuts', '../images/cashew.jpg'),
 ('Frozen foods', '../images/titus.jpg');
 
-INSERT INTO product_item( product_item_name, product_item_price, product_image, seller_id) VALUES
+copy categories (categoryId, categoryName)
+1 Grains
+2 Home and Beauty Product
+3 Fruits
+4 Frozen foods
+
+INSERT INTO categories ( 'categoryId', 'categoryName', 'catImg' 'seller_id') VALUES
 ('PGrains1', '../images/parboiledrice.jpg', 'Parboiled Rice', 15000.00, 1),
 ('PGrains2', '../images/beans.jpg', 'Beans', 600.00, 1),
 ('PGrains3', '../images/millet.jpeg', 'Millet', 1000.00, 2),

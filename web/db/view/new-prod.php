@@ -86,9 +86,9 @@ if ($_SESSION['clientData']['clientLevel'] == 1) {
                     <input type="text" name="newPrice" id="invPrice">
                     <br>
                      
-                    Image <br> 
+                    Image  
                     <input type="file" name="image">
-                    <button type=submit name=uploadImg>POST</button>
+                    <button type=submit name=uploadImg>POST</button><br>
                     # in Stock<br>
                     <input type="text" name="numStock" id="invStock"><br>
 
