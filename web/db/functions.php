@@ -160,7 +160,7 @@ function buildImageDisplay($imageArray) {
     $id = '<ul id="image-display">';
     foreach ($imageArray as $image) {
         $id .= '<li>';
-        $id .= "<img src='$image[imgPath]' title='$image[invName] image on SpeedX.com' alt='$image[invName] image on SpeedX.com'>";
+        $id .= "<img src='$image[imgPath]' title='$image[invName] image on SpeedX.com' alt='$image[invName] image on ShedMarket.com'>";
         $id .= "<p><a href='/db/uploads?action=delete&id=$image[imgId]&filename=$image[imgName]' title='Delete the image'>Delete $image[imgName]</a></p>";
         $id .= '</li>';
     }
