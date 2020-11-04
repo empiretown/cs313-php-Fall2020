@@ -1,3 +1,21 @@
+<?php
+    require_once '../connectDb.php';
+
+    function getCatergory(){
+        $db = connectDb();
+
+        $sql = "SELECT * FROM categories";
+        $stmt = $db->prepaare($sql);
+        $stmt->execute();
+        $data = $stmt->fetchAll(PDO::FETCH_NAMED);
+        $stmt->closeCursor();
+        return $data;
+
+    }
+    $category = getCategory();
+?>
+
+
 <!DOCTYPE html>
 <html>
   <head>
@@ -55,25 +73,16 @@
 
     <main>
     <div id="product-grid">
-	<div class="txt-heading">Products</div>
+    <div class="txt-heading">Products</div>
+    <ul class="table">
+            <li class="table-header">
+                <div class="col col-1">Product</div>
+                <div class="col col-2">Types</div>
+                <div class="col col-2">Image</div>
+                <div class="col col-3">Price</div>
+            </li>
 	
-		<a href="">
-            <?php
-             
-            $display = $db->prepare('SELECT categories.categoryName, categories.catImg FROM categories');
-
-            $display = execute(array("%$name%"));
-
-            print '<table>';
-
-            foreach($display as $d)
-            {
-                echo '<tr><th> Movie Title </th> <th> Desc. </th> <th>Genre</th><th>Rating</th>'
-                . '<th>Borrowed</th> <th>Owner </th></tr>';
-            }
-       
-       print "</table>";
-       ?>
+		
     </main>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>

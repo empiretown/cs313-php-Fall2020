@@ -1,17 +1,17 @@
 <?php
 
-function getThumbImages($prodId) {
-    $db = connectDb();
-    $sql = 'SELECT imgId, imgPath, imgName, img.invId, invName FROM images JOIN inventory ON images.invId = inventory.invId WHERE images.invId = :prodType AND imgPath LIKE "%-tn%" ';
-    $stmt = $db->prepare($sql);
-    $stmt->bindValue(':prodType', $prodId, PDO::PARAM_STR);
+// function getThumbImages($prodId) {
+//     $db = connectDb();
+//     $sql = 'SELECT imgId, imgPath, imgName, img.invId, invName FROM images JOIN inventory ON images.invId = inventory.invId WHERE images.invId = :prodType AND imgPath LIKE "%-tn%" ';
+//     $stmt = $db->prepare($sql);
+//     $stmt->bindValue(':prodType', $prodId, PDO::PARAM_STR);
 
-    $stmt->execute();
-    $subitems =$stmt->fetchAll(PDO::FETCH_ASSOC);
-    $stmt->closeCursor();
-    return $subitems;
+//     $stmt->execute();
+//     $subitems =$stmt->fetchAll(PDO::FETCH_ASSOC);
+//     $stmt->closeCursor();
+//     return $subitems;
 
-}
+// }
 
 function getProductsById($prodId) {
     $db = connectDb();
