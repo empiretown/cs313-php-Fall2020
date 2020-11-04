@@ -56,7 +56,7 @@
     <main>
     <div id="product-grid">
     <div class="txt-heading">Products</div>
-    <div id="prod-display">
+    <div id="prod-display ml-center">
         <?php
             echo ("No product found")
             ?>
