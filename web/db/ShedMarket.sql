@@ -61,14 +61,14 @@ CREATE TABLE product_orders
     customer_id INT NOT NULL REFERENCES customer(id);
 );
 
-INSERT INTO categories ('catergoryName', 'catImg') VALUES
+INSERT INTO seller ('catergoryName', 'catImg') VALUES
 ('Grains', '../images/rice beans market.jpg'),
 ('Home product',' ../images/bleach.jpg'),
 ('Friuts', '../images/cashew.jpg'),
 ('Frozen foods', '../images/titus.jpg');
 
 
-INSERT INTO categories ( categoryId, categoryName, catImg) VALUES
+INSERT INTO product (id, product_item_name, product_item_price, product_image, seller_id) VALUES
 ('PGrains1', '../images/parboiledrice.jpg', 'Parboiled Rice'),
 ('PGrains2', '../images/beans.jpg', 'Beans'),
 ('PGrains3', '../images/millet.jpeg', 'Millet'),
