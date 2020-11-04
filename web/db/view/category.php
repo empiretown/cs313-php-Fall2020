@@ -68,7 +68,7 @@
 
             foreach($display as $d)
             {
-                echo (image) ;
+                echo ("image") ;
             }
        
        print "</table>";
