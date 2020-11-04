@@ -46,7 +46,7 @@ switch ($action) {
               if(!count($product)) {
                 $message = "<p class='error'>Sorry, no $item products could be found.</p>";
             } else {
-                $prodDisplay = buildProductsDisplay($product);
+                $prodDisplay = buildImageDisplay($product);
             }
             include '../view/category.php';
         break;

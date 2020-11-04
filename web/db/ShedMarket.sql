@@ -47,8 +47,8 @@ CREATE TABLE inventory
 CREATE TABLE categories (
     categoryId SERIAL PRIMARY KEY,
     categoryName Varchar(50) NOT NULL,
-    catImg varchar(50) NOT NULL,
-    seller_id INT NOT NULL REFERENCES seller(id)
+    catImg varchar(50) NOT NULL
+    
 );
 
 
@@ -67,21 +67,16 @@ INSERT INTO categories ('catergoryName', 'catImg') VALUES
 ('Friuts', '../images/cashew.jpg'),
 ('Frozen foods', '../images/titus.jpg');
 
-copy categories (categoryId, categoryName)
-1 Grains
-2 Home and Beauty Product
-3 Fruits
-4 Frozen foods
 
-INSERT INTO categories ( 'categoryId', 'categoryName', 'catImg' 'seller_id') VALUES
-('PGrains1', '../images/parboiledrice.jpg', 'Parboiled Rice', 15000.00, 1),
-('PGrains2', '../images/beans.jpg', 'Beans', 600.00, 1),
-('PGrains3', '../images/millet.jpeg', 'Millet', 1000.00, 2),
-('PHome product1', '../images/bleach2.jpg', 'Jik', '1500.00', 3),
-('PHome product2', '../images/dettol.jpg', 'Dettol', 800.00, 2),
-('PHome product', '../images/dettolsoap.jpg', 'Dettol Soap', 500.00, 3),
-('PFriuts1', '../images/avocado.jpg', 'Avocado', 50.00, 4),
-('PFriuts2', '../images/cucumber.jpg', 'Cucumber', 50.00, 4),
-('PFrozen foods', '../images/titus.jpg','Titus', 450.00, 5);
+INSERT INTO categories ( categoryId, categoryName, catImg) VALUES
+('PGrains1', '../images/parboiledrice.jpg', 'Parboiled Rice'),
+('PGrains2', '../images/beans.jpg', 'Beans'),
+('PGrains3', '../images/millet.jpeg', 'Millet'),
+('PHome product1', '../images/bleach2.jpg', 'Jik'),
+('PHome product2', '../images/dettol.jpg', 'Dettol'),
+('PHome product', '../images/dettolsoap.jpg', 'Dettol Soap'),
+('PFriuts1', '../images/avocado.jpg', 'Avocado'),
+('PFriuts2', '../images/cucumber.jpg', 'Cucumber'),
+('PFrozen foods', '../images/titus.jpg','Titus');
 
 //GRANT ALL ON SCHEMA public TO postgres;
